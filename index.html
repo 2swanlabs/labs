@@ -556,7 +556,7 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
   <div class="hero-video">
     <video id="hero-vid" autoplay muted loop playsinline
       poster="https://images.unsplash.com/photo-1497232004584-a241de8bcf5d?w=1600&q=80&fit=crop">
-      <source id="hero-vid-src" src="2sl.mp4" type="video/mp4">
+      <source id="hero-vid-src" src="2SL.mp4" type="video/mp4">
     </video>
   </div>
   <div class="hero-overlay"></div>
@@ -1115,7 +1115,7 @@ document.querySelectorAll('.port-tab').forEach(function(tab) {
   var src = document.getElementById('hero-vid-src');
   if (!vid || !src) return;
   function getVideoSrc() {
-    return window.innerWidth >= BREAKPOINT ? '2sl.mp4' : '2SLMobile.mp4';
+    return window.innerWidth >= BREAKPOINT ? '2SL.mp4' : '2SLMobile.mp4';
   }
   function loadVideo() {
     var newSrc = getVideoSrc();
