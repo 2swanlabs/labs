@@ -6,7 +6,7 @@
 
 <!-- ── PRIMARY SEO ── -->
 <title>2 Swan | Web Design &amp; Digital Marketing Company India</title>
-<meta name="description" content="We build digital presence. Web design, SEO, Google Ads, social media and branding for businesses and professionals across India. Chandigarh.">
+<meta name="description" content="Web design, SEO, Google Ads, social media, and branding for businesses and professionals worldwide. Based in Chandigarh, India">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.2swan.in/">
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/2swanlabs/labs/refs/heads/main/2Swan%20Favicon.jpg">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.2swan.in/">
 <meta property="og:title" content="2 Swan | Web Design &amp; Digital Marketing Company India">
-<meta property="og:description" content="We build digital presence. Web design, SEO, Google Ads, social media and branding for businesses and professionals across India. Chandigarh.">
+<meta property="og:description" content="We build digital presence. Web design, SEO, Google Ads, social media, and branding for businesses and professionals worldwide. Based in Chandigarh, India">
 <meta property="og:image" content="https://www.2swan.in/2_Swan_Logo.png">
 <meta property="og:site_name" content="2 Swan Labs">
 <meta property="og:locale" content="en_IN">
@@ -25,7 +25,7 @@
 <meta name="twitter:site" content="@2SwanLabs">
 <meta name="twitter:creator" content="@2SwanLabs">
 <meta name="twitter:title" content="2 Swan | Web Design &amp; Digital Marketing Company India">
-<meta name="twitter:description" content="We build digital presence. Web design, SEO, Google Ads, social media and branding for businesses and professionals across India. Chandigarh.">
+<meta name="twitter:description" content="We build digital presence. Web design, SEO, Google Ads, social media, and branding for businesses and professionals worldwide. Based in Chandigarh, India">
 <meta name="twitter:image" content="https://www.2swan.in/2_Swan_Logo.png">
 
 <!-- ── STRUCTURED DATA — LOCAL BUSINESS ── -->
@@ -37,7 +37,7 @@
   "url": "https://www.2swan.in",
   "logo": "https://www.2swan.in/2_Swan_Logo.png",
   "image": "https://www.2swan.in/2_Swan_Logo.png",
-  "description": "2 Swan Labs is a full-spectrum digital growth studio in Chandigarh offering web design, SEO, Google Ads, social media management, AI automation, branding, and e-commerce solutions for businesses across India.",
+  "description": "2 Swan Labs is a full-spectrum digital growth studio in Chandigarh offering web design, SEO, Google Ads, social media management, AI automation, branding, and e-commerce solutions for businesses globally.",
   "telephone": "+919988067867",
   "email": "2swanlabs@gmail.com",
   "address": {
@@ -98,7 +98,6 @@
   --rule:   #e4e4e0;
 }
 
-/* FIX 1: overflow-x added to html — browsers scroll at the html level, body alone doesn't catch it */
 html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
@@ -167,7 +166,7 @@ body {
 
 /* ── NAV ── */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
   display: flex; align-items: center; justify-content: space-between;
   padding: 22px 52px;
   transition: all 0.4s ease;
@@ -183,6 +182,7 @@ nav.solid {
   font-size: 20px; font-weight: 700;
   letter-spacing: 0.04em; text-transform: uppercase;
   color: var(--white); text-decoration: none;
+  position: relative; z-index: 301;
 }
 .nav-links { display: flex; gap: 36px; align-items: center; }
 .nav-links a {
@@ -191,6 +191,12 @@ nav.solid {
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--white); }
+.nav-home-link {
+  display: flex; align-items: center;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+.nav-home-link:hover { color: var(--white) !important; }
 .nav-btn {
   color: var(--white) !important;
   border: 1px solid rgba(255,255,255,0.3) !important;
@@ -198,6 +204,98 @@ nav.solid {
   transition: background 0.25s, border-color 0.25s !important;
 }
 .nav-btn:hover { background: rgba(255,255,255,0.1) !important; border-color: rgba(255,255,255,0.6) !important; }
+
+/* ── HAMBURGER ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+  position: relative;
+  z-index: 301;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--white);
+  transition: all 0.38s cubic-bezier(0.16,1,0.3,1);
+  transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ── MOBILE NAV OVERLAY ── */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 299;
+  background: rgba(10,10,8,0.98);
+  backdrop-filter: blur(24px);
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px 44px 52px;
+  overflow-y: auto;
+}
+.mobile-nav.open { display: flex; }
+
+.mob-link {
+  font-family: 'Outfit', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  line-height: 1;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: color 0.2s, padding-left 0.3s;
+}
+.mob-link:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+.mob-link:hover { color: var(--white); padding-left: 6px; }
+
+.mob-contact {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.mob-contact a {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.38);
+  text-decoration: none;
+  padding: 7px 0;
+  transition: color 0.2s;
+  display: block;
+}
+.mob-contact a:hover { color: rgba(255,255,255,0.85); }
+.mob-contact-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.18);
+  margin-bottom: 10px;
+}
 
 /* ── HERO ── */
 #hero {
@@ -324,6 +422,115 @@ nav.solid {
 .ms-n { font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); line-height: 1; margin-bottom: 3px; }
 .ms-l { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 
+/* ── INDUSTRIES ── */
+#industries {
+  padding: 96px 0 80px;
+  background: var(--white);
+  border-top: 1px solid var(--rule);
+}
+.ind-top {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: end; margin-bottom: 56px;
+}
+.ind-top-right {
+  font-size: 15px; font-weight: 300; color: var(--muted);
+  line-height: 1.78; align-self: end;
+}
+/* Marquee Belt */
+.ind-marquee-belt {
+  overflow: hidden;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 72px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
+}
+.ind-mrow {
+  display: flex; width: max-content;
+  border-bottom: 1px solid var(--rule);
+}
+.ind-mrow:last-child { border-bottom: none; }
+.ind-mrow.scroll-l  { animation: indLeft  42s linear infinite; }
+.ind-mrow.scroll-r  { animation: indRight 52s linear infinite; }
+.ind-mrow.scroll-l2 { animation: indLeft  36s linear infinite; }
+@keyframes indLeft  { from { transform: translateX(0); }    to { transform: translateX(-50%); } }
+@keyframes indRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+.ind-mrow:hover { animation-play-state: paused; }
+.ind-m-item {
+  display: flex; align-items: center;
+  padding: 14px 0; white-space: nowrap; flex-shrink: 0;
+}
+.ind-m-word {
+  font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted);
+  padding: 0 22px; cursor: default; transition: color 0.2s;
+}
+.ind-m-word:hover { color: var(--ink); }
+.ind-m-dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: var(--rule); flex-shrink: 0;
+}
+/* 4 Business Type Cards */
+.ind-types {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; background: var(--rule);
+}
+.ind-card {
+  background: var(--white); padding: 52px 44px;
+  position: relative; overflow: hidden;
+  transition: background 0.35s; cursor: default;
+}
+.ind-card:hover { background: var(--off); }
+.ind-card-ghost {
+  position: absolute; top: -10px; right: -6px;
+  font-family: 'Outfit', sans-serif; font-size: 160px; font-weight: 800;
+  color: rgba(228,228,224,0.7); line-height: 1; letter-spacing: -0.04em;
+  pointer-events: none; user-select: none;
+  transition: color 0.4s, transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.ind-card:hover .ind-card-ghost {
+  color: rgba(212,212,207,0.9);
+  transform: scale(1.04) translateY(-4px);
+}
+.ind-card-n {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 24px;
+}
+.ind-card-title {
+  font-family: 'Outfit', sans-serif; font-size: clamp(22px, 2vw, 30px);
+  font-weight: 700; letter-spacing: -0.02em; color: var(--ink); line-height: 1.1;
+  margin-bottom: 14px; position: relative; z-index: 1;
+}
+.ind-card-desc {
+  font-size: 14px; font-weight: 300; color: var(--body); line-height: 1.76;
+  margin-bottom: 26px; max-width: 310px; position: relative; z-index: 1;
+}
+.ind-card-pills {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-bottom: 32px; position: relative; z-index: 1;
+}
+.ind-card-pill {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--muted);
+  border: 1px solid var(--rule); padding: 4px 10px;
+  transition: border-color 0.25s, color 0.25s;
+}
+.ind-card:hover .ind-card-pill { border-color: #c8c8c4; color: var(--body); }
+.ind-card-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--ink); text-decoration: none;
+  border-bottom: 1px solid var(--ink); padding-bottom: 3px;
+  position: relative; z-index: 1;
+  transition: gap 0.3s, opacity 0.25s;
+}
+.ind-card-link:hover { gap: 14px; opacity: 0.65; }
+.ind-card-link svg {
+  width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2;
+  transition: transform 0.3s;
+}
+.ind-card-link:hover svg { transform: translateX(2px); }
+
 /* ── PORTFOLIO ── */
 .portfolio-sec {
   padding: 96px 0 80px; background: var(--black);
@@ -412,6 +619,135 @@ nav.solid {
 .btn-outline { font-size: 13px; font-weight: 500; background: transparent; color: var(--ink); padding: 13px 28px; text-decoration: none; border: 1px solid var(--rule); transition: border-color 0.25s; }
 .btn-outline:hover { border-color: var(--ink); }
 .cta-address { font-size: 12px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+.cta-address a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.cta-address a:hover { color: var(--ink); }
+
+/* ── BLOG ── */
+#blog {
+  padding: 96px 0 88px;
+  background: var(--off);
+  border-top: 1px solid var(--rule);
+}
+.blog-top {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: end; margin-bottom: 56px;
+}
+.blog-top-right {
+  font-size: 15px; font-weight: 300; color: var(--muted);
+  line-height: 1.78; align-self: end;
+}
+.blog-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1px;
+  background: var(--rule);
+}
+.blog-featured {
+  grid-row: span 2;
+  background: var(--white);
+  padding: 48px 44px 44px;
+  position: relative;
+  display: flex; flex-direction: column;
+  transition: background 0.3s;
+  cursor: default;
+}
+.blog-featured:hover { background: var(--white); }
+.blog-feat-img {
+  width: 100%; aspect-ratio: 16/9;
+  object-fit: cover; display: block;
+  margin-bottom: 32px;
+  filter: grayscale(15%);
+  transition: filter 0.5s ease;
+}
+.blog-featured:hover .blog-feat-img { filter: grayscale(0%); }
+.blog-feat-cat {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 14px;
+}
+.blog-feat-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-weight: 700; letter-spacing: -0.02em; color: var(--ink);
+  line-height: 1.12; margin-bottom: 16px;
+}
+.blog-feat-excerpt {
+  font-size: 14px; font-weight: 300; color: var(--body);
+  line-height: 1.78; margin-bottom: 28px; flex: 1;
+}
+.blog-feat-meta {
+  display: flex; align-items: center; gap: 18px;
+  padding-top: 20px; border-top: 1px solid var(--rule);
+}
+.blog-read-time {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--muted);
+}
+.blog-read-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--ink); text-decoration: none;
+  border-bottom: 1px solid var(--ink); padding-bottom: 2px;
+  margin-left: auto;
+  transition: gap 0.3s, opacity 0.25s;
+}
+.blog-read-link:hover { gap: 12px; opacity: 0.6; }
+.blog-read-link svg {
+  width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2;
+  transition: transform 0.3s;
+}
+.blog-read-link:hover svg { transform: translateX(2px); }
+.blog-card {
+  background: var(--white); padding: 36px 40px;
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+  transition: background 0.3s; cursor: default;
+}
+.blog-card:hover { background: var(--off); }
+.blog-card-cat {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 12px;
+}
+.blog-card-body {
+  display: flex; gap: 20px; align-items: stretch; margin-bottom: 24px; flex: 1;
+}
+.blog-card-thumb {
+  width: 110px; flex-shrink: 0;
+  object-fit: cover; display: block;
+  filter: grayscale(15%);
+  transition: filter 0.5s ease;
+}
+.blog-card:hover .blog-card-thumb { filter: grayscale(0%); }
+.blog-card-text { display: flex; flex-direction: column; flex: 1; }
+.blog-card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(17px, 1.6vw, 22px);
+  font-weight: 700; letter-spacing: -0.015em; color: var(--ink);
+  line-height: 1.18; margin-bottom: 12px;
+}
+.blog-card-excerpt {
+  font-size: 13px; font-weight: 300; color: var(--body);
+  line-height: 1.74; flex: 1;
+}
+.blog-card-meta {
+  display: flex; align-items: center;
+  padding-top: 16px; border-top: 1px solid var(--rule);
+}
+.blog-cta-row {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  margin-top: 40px; flex-wrap: wrap; gap: 16px;
+}
+.blog-cta-note {
+  font-size: 13px; font-weight: 300; color: var(--muted);
+}
+.btn-blog-all {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--ink); text-decoration: none;
+  border: 1px solid var(--ink); padding: 12px 26px;
+  transition: background 0.25s, color 0.25s;
+}
+.btn-blog-all:hover { background: var(--ink); color: var(--white); }
 
 /* ── FOOTER TOP ── */
 #footer-top { background: var(--black); padding: 32px 0; display: flex; justify-content: center; border-top: 1px solid rgba(255,255,255,0.06); }
@@ -497,6 +833,7 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
 @media (max-width: 900px) {
   nav { padding: 15px 20px; } nav.solid { padding: 11px 20px; }
   .nav-links { display: none; }
+  .hamburger { display: flex; }
   .w { width: 92%; }
   .hero-copy { padding: 0 5% 56px; }
   .intro-grid, .svc-top, .detail-grid, .cta-grid, .why-top { grid-template-columns: 1fr; gap: 40px; }
@@ -505,20 +842,42 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
   .ai-strip { grid-template-columns: 1fr; }
   .port-header { grid-template-columns: 1fr; gap: 20px; }
   .port-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 220px; }
-  .footer-main { width: 92%; grid-template-columns: 1fr 1fr; gap: 32px; padding: 48px 0 40px; }
+  .footer-main { width: 92%; grid-template-columns: 1fr; gap: 0; padding: 40px 0 32px; }
+  .footer-main > div { padding: 28px 0; border-bottom: 1px solid rgba(255,255,255,0.06); text-align: center; }
+  .footer-main > div:first-child { padding-top: 0; }
+  .f-desc { max-width: 100%; }
+  .f-addr { text-align: left; max-width: 260px; margin: 0 auto 20px; }
+  .f-dl { text-align: center; }
+  .f-col ul { align-items: center; }
+  .f-col-t { text-align: center; }
   .footer-mid, .footer-bot { width: 92%; }
-  .svc-row { grid-template-columns: 48px 1fr; }
-  .svc-tag { display: none; }
+  .footer-mid { justify-content: center; text-align: center; }
+  .fcl { justify-content: center; }
+  .footer-bot { flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+  .f-social { justify-content: center; }
+  .f-legal { justify-content: center; }
+  /* Blog mobile */
+  .blog-top { grid-template-columns: 1fr; gap: 24px; }
+  .blog-layout { grid-template-columns: 1fr; }
+  .blog-featured { grid-row: span 1; padding: 36px 28px 32px; }
+  .blog-card { padding: 30px 28px; }
+  /* Industries mobile */
+  .ind-top { grid-template-columns: 1fr; gap: 24px; }
+  .ind-types { grid-template-columns: 1fr; }
+  .ind-card { padding: 40px 28px; }
+  .ind-card-ghost { font-size: 110px; }
 }
 @media (max-width: 560px) {
-  .pillars, .footer-main { grid-template-columns: 1fr; }
+  .pillars { grid-template-columns: 1fr; }
   .stats-row { grid-template-columns: 1fr; }
   .s-cell { border-right: none; border-bottom: 1px solid var(--rule); padding: 20px 0; }
   .port-grid { grid-template-columns: 1fr; grid-auto-rows: 280px; }
   .port-item.wide, .port-item.tall { grid-column: span 1; grid-row: span 1; }
+  .ind-card { padding: 32px 20px; }
+  .blog-featured { padding: 28px 20px 24px; }
+  .blog-card { padding: 24px 20px; }
 }
 
-/* FIX 2: Landscape mobile — prevents nav overlap and hero-p half-width truncation */
 @media (max-width: 900px) and (orientation: landscape) {
   .hero-h { font-size: clamp(20px, 3.8vw, 32px); max-width: 72%; }
   .hero-p { max-width: 72%; }
@@ -544,13 +903,43 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
 <nav id="nav">
   <a href="#" class="nav-logo">2 Swan</a>
   <div class="nav-links">
+    <a href="#" class="nav-home-link" title="Home" aria-label="Home">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/></svg>
+    </a>
     <a href="#intro-sec">About</a>
     <a href="#services">Services</a>
     <a href="#ai-section">AI Tools</a>
+    <a href="#industries">Industries</a>
     <a href="#portfolio">Portfolio</a>
     <a href="#cta" class="nav-btn">Contact</a>
   </div>
+  <!-- FIX 2: Hamburger button -->
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<!-- FIX 2: Mobile nav overlay -->
+<div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile menu">
+  <a href="#" class="mob-link">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/></svg>
+    Home
+  </a>
+  <a href="#intro-sec" class="mob-link">About</a>
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#ai-section" class="mob-link">AI Tools</a>
+  <a href="#industries" class="mob-link">Industries</a>
+  <a href="#portfolio" class="mob-link">Portfolio</a>
+  <a href="#blog" class="mob-link">Journal</a>
+  <a href="#cta" class="mob-link">Contact</a>
+  <div class="mob-contact">
+    <div class="mob-contact-label">Get in Touch</div>
+    <a href="mailto:2swanlabs@gmail.com">2swanlabs@gmail.com</a>
+    <a href="https://wa.me/919988067867">WhatsApp: +91 99880 67867</a>
+  </div>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -566,7 +955,7 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
     <h1 class="hero-h">We Build Digital<br>Presence That<br>Converts.</h1>
     <p class="hero-p">Websites, SEO, Ads, Social Media, AI Automation, and E-Commerce &mdash; everything your business needs to dominate online, under one roof.</p>
     <div class="hero-actions">
-      <a href="#cta" class="btn-solid-w">Start a Project</a>
+      <a href="#portfolio" class="btn-solid-w">View Projects</a>
       <a href="#services" class="btn-white">Our Services</a>
     </div>
   </div>
@@ -585,9 +974,8 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
         <h2 class="h2">Your growth.<br>Our mission.</h2>
       </div>
       <div>
-        <p class="body-text" style="margin-bottom:16px">2 Swan Labs is a full-spectrum digital growth studio built for ambitious brands worldwide. We go far beyond web design — we architect every layer of your digital presence, from how customers find you on Google to how you sell across leading e-commerce platforms.
-.</p>
-        <p class="body-text">One team. Complete ownership. No fragmented agencies, no knowledge gaps. Whether you're a local business just starting out or a brand scaling internationally — we have the tools and the obsession for results.</p>
+        <p class="body-text" style="margin-bottom:16px">2 Swan Labs is a full-spectrum digital growth studio built for ambitious brands worldwide. We go far beyond web design — we architect every layer of your digital presence, from how customers find you on Google to how you sell across leading e-commerce platforms.</p>
+        <p class="body-text">One team. Complete ownership. No fragmented agencies, no knowledge gaps. Whether you&rsquo;re a local business just starting out or a brand scaling internationally — we have the tools and the obsession for results.</p>
         <div class="stats-row">
           <div class="s-cell"><div class="s-n" data-count="200" data-suffix="+">200+</div><div class="s-l">Projects</div></div>
           <div class="s-cell"><div class="s-n" data-count="98" data-suffix="%">98%</div><div class="s-l">Retention</div></div>
@@ -623,6 +1011,36 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
     <div class="ai-strip r d2">
       <div class="ai-card"><div class="ai-badge">New &mdash; AI Tool</div><div class="ai-title">AI WhatsApp Business Auto-Reply Writer</div><div class="ai-desc">Intelligent AI auto-reply systems on your WhatsApp Business &mdash; FAQs, lead qualification, appointment booking, and follow-ups 24/7. Zero missed leads.</div></div>
       <div class="ai-card"><div class="ai-badge">New &mdash; AI Tool</div><div class="ai-title">AI Invoice &amp; GST Bill Generator</div><div class="ai-desc">Automated GST-compliant invoice generation integrated with your workflow. Generates, sends, and tracks invoices automatically. Saves hours every week.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FIX 3: WEBSITE DESIGN & DEVELOPMENT — Service 01 detail (added above SEO section) -->
+<section id="web-section" class="detail-sec alt r">
+  <div class="w">
+    <div class="detail-grid flip">
+      <div class="detail-text-col">
+        <p class="detail-label">Service 01</p>
+        <h2 class="h3">Website Design<br>&amp; Development</h2>
+        <div class="body-text" style="margin-top:20px">
+          <p>Your website is your most powerful sales asset — and usually the first impression that either wins or loses a customer. We design and build websites that are fast, mobile-first, and built to convert visitors into leads and buyers.</p>
+          <ul>
+            <li>Custom UI/UX design tailored to your brand identity and audience</li>
+            <li>WordPress and Webflow development — scalable, easy to manage</li>
+            <li>High-converting landing pages engineered for ads and campaigns</li>
+            <li>Mobile-first, performance-optimised builds with Core Web Vitals in mind</li>
+            <li>On-page SEO foundations baked into every page from day one</li>
+          </ul>
+        </div>
+        <div class="mini-stats">
+          <div class="ms"><div class="ms-n">&lt;3s</div><div class="ms-l">Load time target</div></div>
+          <div class="ms"><div class="ms-n">100%</div><div class="ms-l">Mobile-first builds</div></div>
+          <div class="ms"><div class="ms-n">CRO</div><div class="ms-l">Built into every page</div></div>
+        </div>
+      </div>
+      <div class="detail-img-col">
+        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80&fit=crop" alt="Website design and development">
+      </div>
     </div>
   </div>
 </section>
@@ -729,6 +1147,197 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
   </div>
 </section>
 
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="w">
+    <div class="ind-top r">
+      <div>
+        <p class="label">Who We Work With</p>
+        <h2 class="h2">Every industry.<br>One studio.</h2>
+      </div>
+      <p class="ind-top-right">Your industry has its own nuances — the way customers search, the trust signals they need, the platforms they use. We&rsquo;ve worked across enough sectors to know exactly what moves the needle in your world.</p>
+    </div>
+  </div>
+
+  <div class="ind-marquee-belt">
+    <div class="ind-mrow scroll-l">
+      <div class="ind-m-item"><span class="ind-m-word">Healthcare</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Hotels &amp; Resorts</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Real Estate</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Restaurants</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Manufacturing</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">E-Commerce</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Legal Firms</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Education &amp; Coaching</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Fitness &amp; Gyms</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Beauty &amp; Salons</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Agriculture</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Technology</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Construction</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Interior Design</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Architecture</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Healthcare</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Hotels &amp; Resorts</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Real Estate</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Restaurants</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Manufacturing</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">E-Commerce</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Legal Firms</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Education &amp; Coaching</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Fitness &amp; Gyms</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Beauty &amp; Salons</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Agriculture</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Technology</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Construction</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Interior Design</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Architecture</span><span class="ind-m-dot"></span></div>
+    </div>
+    <div class="ind-mrow scroll-r">
+      <div class="ind-m-item"><span class="ind-m-word">Financial Services</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Automotive</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Travel &amp; Tourism</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Photography Studios</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Events &amp; Weddings</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Jewellery Brands</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Logistics</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Dental Clinics</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Clothing Brands</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Food &amp; Beverage</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Pharmacies</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Importers &amp; Exporters</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Chartered Accountants</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Startups</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Software Companies</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Financial Services</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Automotive</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Travel &amp; Tourism</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Photography Studios</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Events &amp; Weddings</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Jewellery Brands</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Logistics</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Dental Clinics</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Clothing Brands</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Food &amp; Beverage</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Pharmacies</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Importers &amp; Exporters</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Chartered Accountants</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Startups</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Software Companies</span><span class="ind-m-dot"></span></div>
+    </div>
+    <div class="ind-mrow scroll-l2">
+      <div class="ind-m-item"><span class="ind-m-word">Horse Ranches</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Spa &amp; Wellness</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Wedding Venues</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Pet Services</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Furniture &amp; Home Decor</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">NGOs &amp; Non-Profits</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Eco &amp; Sustainability Brands</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Publishing &amp; Media</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Security Services</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Insurance Advisors</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Diagnostic Labs</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Recruitment Firms</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Printing &amp; Packaging</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Sports Brands</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Supplements &amp; Nutrition</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Horse Ranches</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Spa &amp; Wellness</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Wedding Venues</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Pet Services</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Furniture &amp; Home Decor</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">NGOs &amp; Non-Profits</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Eco &amp; Sustainability Brands</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Publishing &amp; Media</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Security Services</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Insurance Advisors</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Diagnostic Labs</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Recruitment Firms</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Printing &amp; Packaging</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Sports Brands</span><span class="ind-m-dot"></span></div>
+      <div class="ind-m-item"><span class="ind-m-word">Supplements &amp; Nutrition</span><span class="ind-m-dot"></span></div>
+    </div>
+  </div>
+
+  <div class="w">
+    <div class="ind-types r d1">
+      <div class="ind-card">
+        <div class="ind-card-ghost">01</div>
+        <div class="ind-card-n">Business Type 01</div>
+        <h3 class="ind-card-title">Local Service<br>Businesses</h3>
+        <p class="ind-card-desc">You serve a city or region. The goal is simple: appear first when a potential customer searches for your service nearby, and look credible enough that they call you instead of your competitor.</p>
+        <div class="ind-card-pills">
+          <span class="ind-card-pill">Clinics</span>
+          <span class="ind-card-pill">Law Firms</span>
+          <span class="ind-card-pill">Salons</span>
+          <span class="ind-card-pill">Gyms</span>
+          <span class="ind-card-pill">Architects</span>
+          <span class="ind-card-pill">Coaching Centers</span>
+          <span class="ind-card-pill">Repair Services</span>
+        </div>
+        <a href="mailto:2swanlabs@gmail.com" class="ind-card-link">
+          Start a Conversation
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <div class="ind-card">
+        <div class="ind-card-ghost">02</div>
+        <div class="ind-card-n">Business Type 02</div>
+        <h3 class="ind-card-title">E-Commerce &amp;<br>Product Brands</h3>
+        <p class="ind-card-desc">You have a product. We build the store, run the ads, handle Amazon and Flipkart listings, and drive traffic that converts &mdash; end to end, with full ROAS transparency.</p>
+        <div class="ind-card-pills">
+          <span class="ind-card-pill">Clothing</span>
+          <span class="ind-card-pill">Jewellery</span>
+          <span class="ind-card-pill">Home Decor</span>
+          <span class="ind-card-pill">Food Brands</span>
+          <span class="ind-card-pill">Supplements</span>
+          <span class="ind-card-pill">Electronics</span>
+          <span class="ind-card-pill">Beauty Products</span>
+        </div>
+        <a href="mailto:2swanlabs@gmail.com" class="ind-card-link">
+          Start a Conversation
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <div class="ind-card">
+        <div class="ind-card-ghost">03</div>
+        <div class="ind-card-n">Business Type 03</div>
+        <h3 class="ind-card-title">Professional &amp;<br>Credibility Brands</h3>
+        <p class="ind-card-desc">Your expertise is the product. We build the digital presence that makes you look as good as you are &mdash; so clients trust you before they&rsquo;ve even spoken to you.</p>
+        <div class="ind-card-pills">
+          <span class="ind-card-pill">Doctors</span>
+          <span class="ind-card-pill">CAs &amp; Tax Advisors</span>
+          <span class="ind-card-pill">Consultants</span>
+          <span class="ind-card-pill">Photographers</span>
+          <span class="ind-card-pill">Financial Advisors</span>
+          <span class="ind-card-pill">Coaches</span>
+        </div>
+        <a href="mailto:2swanlabs@gmail.com" class="ind-card-link">
+          Start a Conversation
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <div class="ind-card">
+        <div class="ind-card-ghost">04</div>
+        <div class="ind-card-n">Business Type 04</div>
+        <h3 class="ind-card-title">Hospitality &amp;<br>Experiences</h3>
+        <p class="ind-card-desc">The experience is the product. We make people feel it before they arrive &mdash; through design, storytelling, and campaigns that keep your bookings calendar full year-round.</p>
+        <div class="ind-card-pills">
+          <span class="ind-card-pill">Hotels &amp; Resorts</span>
+          <span class="ind-card-pill">Restaurants</span>
+          <span class="ind-card-pill">Wedding Venues</span>
+          <span class="ind-card-pill">Eco Retreats</span>
+          <span class="ind-card-pill">Travel Companies</span>
+          <span class="ind-card-pill">Horse Ranches</span>
+        </div>
+        <a href="mailto:2swanlabs@gmail.com" class="ind-card-link">
+          Start a Conversation
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- WHY -->
 <section id="why">
   <div class="w">
@@ -740,7 +1349,7 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
       <p class="why-body">Most agencies offer services. We offer a genuine partnership — with deep knowledge of the global digital landscape, obsessive attention to detail, and a fierce commitment to your results. Wherever you're based. Built to grow you.</p>
     </div>
     <div class="pillars r d2">
-      <div class="pillar"><div class="pillar-n">01</div><div class="pillar-t">Market-First Expertise</div><div class="pillar-d">Compliance nuances, marketplace dynamics, local SEO, and regional buyer psychology — we tailor our approach to fit your specific market inside out.</div></div>
+      <div class="pillar"><div class="pillar-n">01</div><div class="pillar-t">Market-First Expertise</div><div class="pillar-d">Compliance nuances, marketplace dynamics, local SEO, and regional buyer psychology &mdash; we tailor our approach to fit your specific market inside out.</div></div>
       <div class="pillar"><div class="pillar-n">02</div><div class="pillar-t">One Team, All Channels</div><div class="pillar-d">No fragmented vendors. Website, SEO, ads, social, AI &mdash; one team, one strategy, complete accountability.</div></div>
       <div class="pillar"><div class="pillar-n">03</div><div class="pillar-t">Transparent Reporting</div><div class="pillar-d">Monthly plain-English reports and live dashboards. You know exactly what&rsquo;s happening and where every rupee goes.</div></div>
       <div class="pillar"><div class="pillar-n">04</div><div class="pillar-t">Built to Scale</div><div class="pillar-d">Start with one service, expand as you grow. Our systems are infrastructure &mdash; designed to scale from day one.</div></div>
@@ -756,7 +1365,7 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
         <p class="label">Our Work</p>
         <h2 class="h2">Work that speaks<br>for itself.</h2>
       </div>
-      <p class="port-sub">A glimpse into the brands, websites, and identities we&rsquo;ve built for clients across the globe.</p>
+      <p class="port-sub">A glimpse into the brands, websites, and identities we've built for clients across the globe.</p>
     </div>
     <div class="port-tabs r">
       <button class="port-tab active" data-cat="all">All Work</button>
@@ -766,8 +1375,6 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
       <button class="port-tab" data-cat="logo">Logo &amp; Identity</button>
     </div>
     <div class="port-grid r d1">
-
-      <!-- wide landscape — website design -->
       <div class="port-item wide" data-cat="web">
         <div class="port-img-wrap">
           <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=85&fit=crop" alt="Website Design">
@@ -777,8 +1384,6 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
           </div>
         </div>
       </div>
-
-      <!-- tall — brand identity -->
       <div class="port-item tall" data-cat="brand">
         <div class="port-img-wrap">
           <img src="https://images.unsplash.com/photo-1634084462412-b54873c0a56d?w=800&q=85&fit=crop" alt="Brand Identity">
@@ -788,8 +1393,6 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
           </div>
         </div>
       </div>
-
-      <!-- tall portrait — Andalin Ranch -->
       <div class="port-item tall" data-cat="web">
         <div class="port-img-wrap">
           <img src="Andalin_Ranch.jpg" alt="Andalin Ranch Wedding Venue Website" style="object-position: top center;">
@@ -799,8 +1402,6 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
           </div>
         </div>
       </div>
-
-      <!-- logo -->
       <div class="port-item" data-cat="logo">
         <div class="port-img-wrap">
           <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=85&fit=crop" alt="Logo Design">
@@ -810,8 +1411,6 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
           </div>
         </div>
       </div>
-
-      <!-- tall — D2C product page -->
       <div class="port-item tall" data-cat="web">
         <div class="port-img-wrap">
           <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&q=85&fit=crop" alt="Product Design">
@@ -821,8 +1420,6 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
           </div>
         </div>
       </div>
-
-      <!-- wide — brand campaign -->
       <div class="port-item wide" data-cat="brand">
         <div class="port-img-wrap">
           <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1200&q=85&fit=crop" alt="Brand Campaign">
@@ -832,8 +1429,6 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
           </div>
         </div>
       </div>
-
-      <!-- tall portrait — The Himalayan Compost -->
       <div class="port-item tall" data-cat="web">
         <div class="port-img-wrap">
           <img src="The_Himalayan_Compost.jpg" alt="The Himalayan Compost Website" style="object-position: top center;">
@@ -843,8 +1438,6 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
           </div>
         </div>
       </div>
-
-      <!-- social -->
       <div class="port-item" data-cat="social">
         <div class="port-img-wrap">
           <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=85&fit=crop" alt="Instagram Marketing">
@@ -854,8 +1447,6 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
           </div>
         </div>
       </div>
-
-      <!-- logo -->
       <div class="port-item" data-cat="logo">
         <div class="port-img-wrap">
           <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&q=85&fit=crop" alt="Brand Design">
@@ -865,8 +1456,6 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
           </div>
         </div>
       </div>
-
-      <!-- social reels -->
       <div class="port-item" data-cat="social">
         <div class="port-img-wrap">
           <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&q=85&fit=crop" alt="Social Creative">
@@ -876,8 +1465,6 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
           </div>
         </div>
       </div>
-
-      <!-- tall portrait — Tito's Wholesale Floors -->
       <div class="port-item tall" data-cat="web">
         <div class="port-img-wrap">
           <img src="Tito_Wholesale_Floors.jpg" alt="Tito's Wholesale Floors Website" style="object-position: top center;">
@@ -887,8 +1474,6 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
           </div>
         </div>
       </div>
-
-      <!-- wide landscape — Forest Farms website -->
       <div class="port-item wide" data-cat="web">
         <div class="port-img-wrap">
           <img src="Forest_Farms.jpg" alt="Forest Farms Website" style="object-position: center center;">
@@ -898,8 +1483,6 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
           </div>
         </div>
       </div>
-
-      <!-- square — Product Launch, Social Media only -->
       <div class="port-item" data-cat="social">
         <div class="port-img-wrap">
           <img src="Product_Launch.jpg" alt="Product Launch Social Media Branding" style="object-position: center center;">
@@ -909,12 +1492,76 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
           </div>
         </div>
       </div>
-
     </div>
-
     <div class="port-cta-row r d3">
       <a href="mailto:2swanlabs@gmail.com" class="btn-pw">Discuss Your Project</a>
       <span class="port-cta-note">Every project is custom. Let&rsquo;s talk about yours.</span>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="w">
+    <div class="blog-top r">
+      <div>
+        <p class="label">Studio Journal</p>
+        <h2 class="h2">Thinking out loud<br>on what works.</h2>
+      </div>
+      <p class="blog-top-right">No fluff, no filler. We write about what we actually see working — for Indian businesses trying to grow online. Read when you want depth, not just advice.</p>
+    </div>
+    <div class="blog-layout r d1">
+      <div class="blog-featured">
+        <img class="blog-feat-img" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=900&q=80&fit=crop" alt="Why most Indian business websites fail to convert">
+        <div class="blog-feat-cat">Website Strategy</div>
+        <h2 class="blog-feat-title">Why Most Indian Business Websites Get Traffic But Zero Calls</h2>
+        <p class="blog-feat-excerpt">You built a website. You're getting some visitors. But the phone isn't ringing. This is the most common problem we diagnose — and it almost always comes down to the same five things that have nothing to do with design.</p>
+        <div class="blog-feat-meta">
+          <span class="blog-read-time">8 min read</span>
+          <a href="#" class="blog-read-link">
+            Read Article
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-card-cat">Local SEO</div>
+        <div class="blog-card-body">
+          <img class="blog-card-thumb" src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?w=300&q=80&fit=crop" alt="Local SEO Google Maps">
+          <div class="blog-card-text">
+            <h3 class="blog-card-title">Google Maps Rankings: What Actually Moves You Up in 2025</h3>
+            <p class="blog-card-excerpt">The local pack is the most valuable real estate in search. Most businesses have no idea what Google actually looks at — and their competitors are quietly winning because of it.</p>
+          </div>
+        </div>
+        <div class="blog-card-meta">
+          <span class="blog-read-time">6 min read</span>
+          <a href="#" class="blog-read-link" style="margin-left:auto">
+            Read
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-card-cat">Performance Marketing</div>
+        <div class="blog-card-body">
+          <img class="blog-card-thumb" src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=300&q=80&fit=crop" alt="Meta Ads Performance Marketing">
+          <div class="blog-card-text">
+            <h3 class="blog-card-title">The Real Reason Your Meta Ads Are Burning Budget Without Results</h3>
+            <p class="blog-card-excerpt">It's rarely the audience. It's rarely the bid. We've audited hundreds of Indian ad accounts and the root cause is almost always the same — and it's fixed in an afternoon.</p>
+          </div>
+        </div>
+        <div class="blog-card-meta">
+          <span class="blog-read-time">5 min read</span>
+          <a href="#" class="blog-read-link" style="margin-left:auto">
+            Read
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="blog-cta-row r d2">
+      <span class="blog-cta-note">More articles on SEO, ads, AI tools, and building a business online in India.</span>
+      <a href="#" class="btn-blog-all">View All Articles</a>
     </div>
   </div>
 </section>
@@ -930,10 +1577,12 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
       <div>
         <p class="cta-p">Whether you need a website, an ad campaign, AI automation, or a complete digital transformation &mdash; we&rsquo;re ready to begin. Tell us about your business and we&rsquo;ll respond within 24 hours.</p>
         <div class="cta-btns">
+          <!-- FIX 1: real email link -->
           <a href="mailto:2swanlabs@gmail.com" class="btn-dark">Email Us</a>
           <a href="https://wa.me/919988067867" class="btn-outline">WhatsApp Us</a>
         </div>
-        <p class="cta-address">Chandigarh, India &nbsp;&mdash;&nbsp; 2swanlabs@gmail.com &nbsp;&mdash;&nbsp; +91 99148 88108</p>
+        <!-- FIX 1: real email shown as text -->
+        <p class="cta-address">Chandigarh, India &nbsp;&mdash;&nbsp; <a href="mailto:2swanlabs@gmail.com">2swanlabs@gmail.com</a> &nbsp;&mdash;&nbsp; +91 99880 67867</p>
       </div>
     </div>
   </div>
@@ -950,12 +1599,13 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
     <div>
       <div class="f-name">2 Swan</div>
       <div class="f-city">Digital Growth Studio</div>
-      <p class="f-desc">Building most ambitious brands online &mdash; with precision, purpose, and depth.</p>
+      <p class="f-desc">Building the most ambitious brands online — with precision, purpose, and depth.</p>
       <div class="f-addr">
         <div class="f-addr-l">Our Studio</div>
         <div class="f-addr-v">Chandigarh, India</div>
         <div class="f-addr-s">Serving clients across India &amp; globally</div>
       </div>
+      <!-- FIX 1: real email in footer -->
       <div class="f-dl"><div class="f-dl-l">Email</div><div class="f-dl-v"><a href="mailto:2swanlabs@gmail.com">2swanlabs@gmail.com</a></div></div>
       <div class="f-dl"><div class="f-dl-l">Phone</div><div class="f-dl-v"><a href="tel:+919988067867">+91 99880 67867</a></div></div>
       <div class="f-dl"><div class="f-dl-l">Hours</div><div class="f-dl-v">Mon&ndash;Sat &nbsp;10am&ndash;7pm IST</div></div>
@@ -963,7 +1613,7 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
     <div class="f-col">
       <div class="f-col-t">Services</div>
       <ul>
-        <li><a href="#services">Website Design</a></li>
+        <li><a href="#web-section">Website Design</a></li>
         <li><a href="#seo-section">SEO &amp; Local SEO</a></li>
         <li><a href="#services">Google &amp; Meta Ads</a></li>
         <li><a href="#services">Social Media</a></li>
@@ -1024,7 +1674,7 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
     </div>
   </div>
   <div class="footer-bot">
-    <span class="f-copy">&copy; 2026 WWW.2SWAN.IN | All Rights Reserved.</span>
+    <span class="f-copy">&copy; 2026 2swan.in | All Rights Reserved.</span>
     <div class="f-social">
       <a href="https://linkedin.com/company/2SwanLabs" target="_blank">LinkedIn</a>
       <a href="https://instagram.com/2SwanLabs" target="_blank">Instagram</a>
@@ -1133,6 +1783,40 @@ document.querySelectorAll('.port-tab').forEach(function(tab) {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(loadVideo, 300);
   }, { passive: true });
+})();
+
+// ── FIX 2: MOBILE HAMBURGER MENU ──
+(function() {
+  var hamburger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('mobile-nav');
+  if (!hamburger || !mobileNav) return;
+
+  function openMenu() {
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    mobileNav.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', function() {
+    mobileNav.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  // Close when a nav link is tapped
+  document.querySelectorAll('.mob-link').forEach(function(link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMenu();
+  });
 })();
 
 // ── PORTFOLIO LIGHTBOX ──
