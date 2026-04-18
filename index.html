@@ -305,7 +305,15 @@ nav.solid {
   justify-content: flex-end; align-items: flex-start;
 }
 .hero-video { position: absolute; inset: 0; z-index: 0; }
-.hero-video video { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.5; }
+.hero-vid-poster {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1497232004584-a241de8bcf5d?w=1600&q=80&fit=crop') center/cover no-repeat;
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+}
+.hero-vid-poster.hidden { opacity: 0; pointer-events: none; }
+.hero-video video { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.5; position: relative; z-index: 1; }
 .hero-overlay {
   position: absolute; inset: 0; z-index: 1;
 }
@@ -411,16 +419,7 @@ nav.solid {
 .ai-title { font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
 .ai-desc { font-size: 14px; font-weight: 300; color: var(--body); line-height: 1.72; }
 
-/* ── DETAIL SECTIONS ── */
-.detail-sec { padding: 96px 0; border-top: 1px solid var(--rule); background: var(--white); }
-.detail-sec.alt { background: var(--off); }
-.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.detail-grid.flip .detail-img-col { order: -1; }
-.detail-img-col img { width: 100%; display: block; aspect-ratio: 4/3; object-fit: cover; background: var(--light); }
-.detail-label { font-size: 11px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
-.mini-stats { display: flex; gap: 32px; padding-top: 28px; margin-top: 28px; border-top: 1px solid var(--rule); }
-.ms-n { font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); line-height: 1; margin-bottom: 3px; }
-.ms-l { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
 
 /* ── INDUSTRIES ── */
 #industries {
@@ -618,6 +617,8 @@ nav.solid {
 .btn-dark:hover { background: #2a2a28; }
 .btn-outline { font-size: 13px; font-weight: 500; background: transparent; color: var(--ink); padding: 13px 28px; text-decoration: none; border: 1px solid var(--rule); transition: border-color 0.25s; }
 .btn-outline:hover { border-color: var(--ink); }
+.btn-whatsapp { font-size: 13px; font-weight: 500; background: #25D366; color: #fff; padding: 13px 28px; text-decoration: none; border: 1px solid #25D366; transition: background 0.25s; display: inline-flex; align-items: center; gap: 8px; }
+.btn-whatsapp:hover { background: #1ebe5d; border-color: #1ebe5d; }
 .cta-address { font-size: 12px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
 .cta-address a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
 .cta-address a:hover { color: var(--ink); }
@@ -836,20 +837,60 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
   .hamburger { display: flex; }
   .w { width: 92%; }
   .hero-copy { padding: 0 5% 56px; }
-  .intro-grid, .svc-top, .detail-grid, .cta-grid, .why-top { grid-template-columns: 1fr; gap: 40px; }
-  .detail-grid.flip .detail-img-col { order: 0; }
+  .intro-grid, .svc-top, .cta-grid, .why-top { grid-template-columns: 1fr; gap: 40px; }
   .pillars { grid-template-columns: 1fr 1fr; }
   .ai-strip { grid-template-columns: 1fr; }
   .port-header { grid-template-columns: 1fr; gap: 20px; }
   .port-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 220px; }
-  .footer-main { width: 92%; grid-template-columns: 1fr; gap: 0; padding: 40px 0 32px; }
-  .footer-main > div { padding: 28px 0; border-bottom: 1px solid rgba(255,255,255,0.06); text-align: center; }
-  .footer-main > div:first-child { padding-top: 0; }
-  .f-desc { max-width: 100%; }
-  .f-addr { text-align: left; max-width: 260px; margin: 0 auto 20px; }
-  .f-dl { text-align: center; }
-  .f-col ul { align-items: center; }
-  .f-col-t { text-align: center; }
+  /* ── FOOTER MOBILE ── */
+  .footer-main {
+    width: 92%;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 40px 0 32px;
+  }
+  /* Brand block: full width */
+  .footer-main > div:first-child {
+    grid-column: 1 / -1;
+    padding: 0 0 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    text-align: left;
+  }
+  .f-name { font-size: 22px; }
+  .f-desc { max-width: 100%; text-align: left; }
+  .f-addr { text-align: left; max-width: 100%; margin: 0 0 20px; }
+  /* Email+Phone || Hours side by side */
+  .f-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    align-items: start;
+  }
+  .f-dl { text-align: left; margin-bottom: 0; }
+  /* Services: left col | AI Tools+Company: right col */
+  .footer-main > div:nth-child(2) {
+    padding: 24px 16px 24px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    text-align: left;
+  }
+  .footer-main > div:nth-child(3) {
+    padding: 24px 0 24px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-left: 1px solid rgba(255,255,255,0.06);
+    text-align: left;
+  }
+  /* Resources: left col | Contact: right col */
+  .footer-main > div:nth-child(4) {
+    padding: 24px 16px 24px 0;
+    text-align: left;
+  }
+  .footer-main > div:nth-child(5) {
+    padding: 24px 0 24px 16px;
+    border-left: 1px solid rgba(255,255,255,0.06);
+    text-align: left;
+  }
+  .f-col ul { align-items: flex-start; }
+  .f-col-t { text-align: left; }
   .footer-mid, .footer-bot { width: 92%; }
   .footer-mid { justify-content: center; text-align: center; }
   .fcl { justify-content: center; }
@@ -878,6 +919,136 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
   .blog-card { padding: 24px 20px; }
 }
 
+/* ── CHAT WIDGET ── */
+#chat-widget {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 500;
+  width: 272px;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease;
+}
+#chat-widget.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+#chat-widget.hide {
+  transform: translateY(16px);
+  opacity: 0;
+  pointer-events: none;
+}
+.cw-header {
+  background: #295e54;
+  padding: 11px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cw-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.cw-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cw-header-info { flex: 1; }
+.cw-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px; font-weight: 600;
+  color: #fff; line-height: 1.2;
+}
+.cw-status {
+  font-size: 11px; color: rgba(255,255,255,0.8);
+  display: flex; align-items: center; gap: 5px; margin-top: 1px;
+}
+.cw-status-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #fff; opacity: 0.9;
+  animation: cwPulse 2s ease-in-out infinite;
+}
+@keyframes cwPulse { 0%,100%{opacity:0.9} 50%{opacity:0.45} }
+.cw-close {
+  background: none; border: none; cursor: pointer;
+  color: rgba(255,255,255,0.8); font-size: 19.5px;
+  line-height: 1; padding: 2px 0 2px 8px;
+  font-family: sans-serif; font-weight: 300;
+  transition: color 0.2s; flex-shrink: 0;
+  position: relative; top: -1px;
+}
+.cw-close:hover { color: #fff; }
+.cw-body {
+  padding: 14px 14px 6px;
+  background: #dcd5cf;
+}
+.cw-bubble {
+  background: #fff;
+  border-radius: 0 10px 10px 10px;
+  padding: 10px 13px;
+  display: inline-block;
+  max-width: 100%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.cw-bubble-line1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px; font-weight: 600;
+  color: var(--ink); line-height: 1.3;
+  margin-bottom: 3px;
+}
+.cw-bubble-line2 {
+  font-size: 12px; font-weight: 300;
+  color: var(--body); line-height: 1.5;
+}
+.cw-time {
+  font-size: 10px; color: var(--muted);
+  text-align: right; margin-top: 4px;
+}
+.cw-actions {
+  padding: 10px 14px 14px;
+  display: flex;
+  gap: 8px;
+}
+.cw-btn-email {
+  flex: 1;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px; font-weight: 500;
+  color: var(--ink);
+  background: var(--off);
+  border: 1px solid var(--rule);
+  padding: 9px 10px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.cw-btn-email:hover { background: var(--light); border-color: #ccc; }
+.cw-btn-wa {
+  flex: 1;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px; font-weight: 500;
+  color: #fff;
+  background: #25D366;
+  border: 1px solid #25D366;
+  padding: 9px 10px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.cw-btn-wa:hover { background: #1ebe5d; }
+.cw-btn-wa svg { flex-shrink: 0; }
 @media (max-width: 900px) and (orientation: landscape) {
   .hero-h { font-size: clamp(20px, 3.8vw, 32px); max-width: 72%; }
   .hero-p { max-width: 72%; }
@@ -908,7 +1079,7 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
     </a>
     <a href="#intro-sec">About</a>
     <a href="#services">Services</a>
-    <a href="#ai-section">AI Tools</a>
+    <a href="#services">AI Tools</a>
     <a href="#industries">Industries</a>
     <a href="#portfolio">Portfolio</a>
     <a href="#cta" class="nav-btn">Contact</a>
@@ -929,7 +1100,7 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
   </a>
   <a href="#intro-sec" class="mob-link">About</a>
   <a href="#services" class="mob-link">Services</a>
-  <a href="#ai-section" class="mob-link">AI Tools</a>
+  <a href="#services" class="mob-link">AI Tools</a>
   <a href="#industries" class="mob-link">Industries</a>
   <a href="#portfolio" class="mob-link">Portfolio</a>
   <a href="#blog" class="mob-link">Journal</a>
@@ -944,8 +1115,8 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
 <!-- HERO -->
 <section id="hero">
   <div class="hero-video">
-    <video id="hero-vid" autoplay muted loop playsinline
-      poster="https://images.unsplash.com/photo-1497232004584-a241de8bcf5d?w=1600&q=80&fit=crop">
+    <div class="hero-vid-poster" id="hero-poster"></div>
+    <video id="hero-vid" autoplay muted loop playsinline>
       <source id="hero-vid-src" src="2SL.mp4" type="video/mp4">
     </video>
   </div>
@@ -978,7 +1149,7 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
         <p class="body-text">One team. Complete ownership. No fragmented agencies, no knowledge gaps. Whether you&rsquo;re a local business just starting out or a brand scaling internationally — we have the tools and the obsession for results.</p>
         <div class="stats-row">
           <div class="s-cell"><div class="s-n" data-count="200" data-suffix="+">200+</div><div class="s-l">Projects</div></div>
-          <div class="s-cell"><div class="s-n" data-count="93" data-suffix="%">93%</div><div class="s-l">Retention</div></div>
+          <div class="s-cell"><div class="s-n" data-count="98" data-suffix="%">98%</div><div class="s-l">Retention</div></div>
           <div class="s-cell"><div class="s-n" data-count="12" data-suffix="">12</div><div class="s-l">Services</div></div>
         </div>
       </div>
@@ -1015,137 +1186,7 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
   </div>
 </section>
 
-<!-- FIX 3: WEBSITE DESIGN & DEVELOPMENT — Service 01 detail (added above SEO section) -->
-<section id="web-section" class="detail-sec alt r">
-  <div class="w">
-    <div class="detail-grid flip">
-      <div class="detail-text-col">
-        <p class="detail-label">Service 01</p>
-        <h2 class="h3">Website Design<br>&amp; Development</h2>
-        <div class="body-text" style="margin-top:20px">
-          <p>Your website is your most powerful sales asset — and usually the first impression that either wins or loses a customer. We design and build websites that are fast, mobile-first, and built to convert visitors into leads and buyers.</p>
-          <ul>
-            <li>Custom UI/UX design tailored to your brand identity and audience</li>
-            <li>WordPress and Webflow development — scalable, easy to manage</li>
-            <li>High-converting landing pages engineered for ads and campaigns</li>
-            <li>Mobile-first, performance-optimised builds with Core Web Vitals in mind</li>
-            <li>On-page SEO foundations baked into every page from day one</li>
-          </ul>
-        </div>
-        <div class="mini-stats">
-          <div class="ms"><div class="ms-n">&lt;3s</div><div class="ms-l">Load time target</div></div>
-          <div class="ms"><div class="ms-n">100%</div><div class="ms-l">Mobile-first builds</div></div>
-          <div class="ms"><div class="ms-n">CRO</div><div class="ms-l">Built into every page</div></div>
-        </div>
-      </div>
-      <div class="detail-img-col">
-        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80&fit=crop" alt="Website design and development">
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- SEO -->
-<section id="seo-section" class="detail-sec r">
-  <div class="w">
-    <div class="detail-grid">
-      <div class="detail-img-col"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&fit=crop" alt="SEO analytics"></div>
-      <div class="detail-text-col">
-        <p class="detail-label">Service 02</p>
-        <h2 class="h3">SEO &amp; Local<br>Google Maps</h2>
-        <div class="body-text" style="margin-top:20px">
-          <p>When someone searches for your service, you need to appear first. Our SEO strategy combines technical excellence with precise geographic targeting to put you at the top of both organic results and the Google Maps local pack.</p>
-          <ul>
-            <li>Google Business Profile setup and optimisation</li>
-            <li>Local keyword research and city-specific targeting</li>
-            <li>Technical SEO audit and on-page optimisation</li>
-            <li>Citation building across authoritative directories in your target markets</li>
-            <li>Monthly ranking and visibility reports</li>
-          </ul>
-        </div>
-        <div class="mini-stats">
-          <div class="ms"><div class="ms-n">3&times;</div><div class="ms-l">More calls from Maps</div></div>
-          <div class="ms"><div class="ms-n">87%</div><div class="ms-l">Searches have local intent</div></div>
-          <div class="ms"><div class="ms-n">28d</div><div class="ms-l">Average to page 1</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PERFORMANCE -->
-<section class="detail-sec alt r">
-  <div class="w">
-    <div class="detail-grid flip">
-      <div class="detail-text-col">
-        <p class="detail-label">Service 03</p>
-        <h2 class="h3">Performance<br>Marketing</h2>
-        <div class="body-text" style="margin-top:20px">
-          <p>We run Google and Facebook/Instagram campaigns that deliver real ROI. No wasted budget, no vanity metrics &mdash; only campaigns that bring customers to your business.</p>
-          <ul>
-            <li>Google Search Ads &mdash; appear when high-intent buyers are searching</li>
-            <li>Meta Ads &mdash; precision targeting by location, interest, and behaviour</li>
-            <li>Retargeting &mdash; convert visitors who didn&rsquo;t buy the first time</li>
-            <li>YouTube Ads &mdash; video campaigns for awareness and lead generation</li>
-            <li>Weekly performance reports with full ROAS transparency</li>
-          </ul>
-        </div>
-      </div>
-      <div class="detail-img-col"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80&fit=crop" alt="Performance marketing"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ECOMMERCE -->
-<section id="ecom-section" class="detail-sec r">
-  <div class="w">
-    <div class="detail-grid">
-      <div class="detail-img-col"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&q=80&fit=crop" alt="E-commerce"></div>
-      <div class="detail-text-col">
-        <p class="detail-label">Service 09</p>
-        <h2 class="h3">E-Commerce<br>Store Setup</h2>
-        <div class="body-text" style="margin-top:20px">
-          <p>We build Shopify and WooCommerce stores that convert browsers into buyers, and establish your presence on Amazon and Flipkart with optimised listings and ad campaigns from day one.</p>
-          <ul>
-            <li>Shopify and WooCommerce design and development</li>
-            <li>Amazon and Flipkart seller onboarding and listing optimisation</li>
-            <li>Razorpay and PayU payment gateway integration</li>
-            <li>GST compliance, invoice automation, and inventory tools</li>
-            <li>Product SEO and A+ content creation</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AI -->
-<section id="ai-section" class="detail-sec alt r">
-  <div class="w">
-    <div class="detail-grid flip">
-      <div class="detail-text-col">
-        <p class="detail-label">Service 06 + AI Tools</p>
-        <h2 class="h3">AI Automation<br>&amp; Smart Tools</h2>
-        <div class="body-text" style="margin-top:20px">
-          <p>AI is today&rsquo;s competitive advantage. We set up systems that handle repetitive tasks, reply to customers instantly, generate compliant documents, and nurture leads &mdash; 24 hours a day.</p>
-          <ul>
-            <li>AI WhatsApp Auto-Reply &mdash; handles FAQs, bookings, and follow-ups automatically</li>
-            <li>AI GST Invoice Generator &mdash; compliant, automated, integrated with your workflow</li>
-            <li>CRM automation with Zoho, HubSpot, or custom builds</li>
-            <li>Workflow automation with Zapier, Make, and n8n</li>
-            <li>AI chatbots for website, Instagram DMs, and WhatsApp</li>
-          </ul>
-        </div>
-        <div class="mini-stats">
-          <div class="ms"><div class="ms-n">12h</div><div class="ms-l">Saved per week avg</div></div>
-          <div class="ms"><div class="ms-n">24/7</div><div class="ms-l">Always on</div></div>
-          <div class="ms"><div class="ms-n">0</div><div class="ms-l">Missed leads</div></div>
-        </div>
-      </div>
-      <div class="detail-img-col"><img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80&fit=crop" alt="AI automation"></div>
-    </div>
-  </div>
-</section>
 
 <!-- INDUSTRIES -->
 <section id="industries">
@@ -1579,7 +1620,10 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
         <div class="cta-btns">
           <!-- FIX 1: real email link -->
           <a href="mailto:2swanlabs@gmail.com" class="btn-dark">Email Us</a>
-          <a href="https://wa.me/919988067867" class="btn-outline">WhatsApp Us</a>
+          <a href="https://wa.me/919988067867" class="btn-whatsapp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.527 3.66 1.438 5.168L2 22l4.985-1.31A9.935 9.935 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm0 18a7.946 7.946 0 0 1-4.184-1.19l-.3-.178-3.1.813.828-3.022-.196-.31A7.96 7.96 0 0 1 4 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/></svg>
+            WhatsApp Us
+          </a>
         </div>
         <!-- FIX 1: real email shown as text -->
         <p class="cta-address">Chandigarh, India &nbsp;&mdash;&nbsp; <a href="mailto:2swanlabs@gmail.com">2swanlabs@gmail.com</a> &nbsp;&mdash;&nbsp; +91 99880 67867</p>
@@ -1605,34 +1649,39 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
         <div class="f-addr-v">Chandigarh, India</div>
         <div class="f-addr-s">Serving clients across India &amp; globally</div>
       </div>
-      <!-- FIX 1: real email in footer -->
-      <div class="f-dl"><div class="f-dl-l">Email</div><div class="f-dl-v"><a href="mailto:2swanlabs@gmail.com">2swanlabs@gmail.com</a></div></div>
-      <div class="f-dl"><div class="f-dl-l">Phone</div><div class="f-dl-v"><a href="tel:+919988067867">+91 99880 67867</a></div></div>
-      <div class="f-dl"><div class="f-dl-l">Hours</div><div class="f-dl-v">Mon&ndash;Sat &nbsp;10am&ndash;7pm IST</div></div>
+      <div class="f-contact-grid">
+        <div class="f-contact-left">
+          <div class="f-dl"><div class="f-dl-l">Email</div><div class="f-dl-v"><a href="mailto:2swanlabs@gmail.com">2swanlabs@gmail.com</a></div></div>
+          <div class="f-dl"><div class="f-dl-l">Phone</div><div class="f-dl-v"><a href="tel:+919988067867">+91 99880 67867</a></div></div>
+        </div>
+        <div class="f-contact-right">
+          <div class="f-dl"><div class="f-dl-l">Hours</div><div class="f-dl-v">Mon&ndash;Sat<br>10am&ndash;7pm IST</div></div>
+        </div>
+      </div>
     </div>
     <div class="f-col">
       <div class="f-col-t">Services</div>
       <ul>
-        <li><a href="#web-section">Website Design</a></li>
-        <li><a href="#seo-section">SEO &amp; Local SEO</a></li>
+        <li><a href="#services">Website Design</a></li>
+        <li><a href="#services">SEO &amp; Local SEO</a></li>
         <li><a href="#services">Google &amp; Meta Ads</a></li>
         <li><a href="#services">Social Media</a></li>
         <li><a href="#services">Video Editing</a></li>
-        <li><a href="#ai-section">AI Automation</a></li>
+        <li><a href="#services">AI Automation</a></li>
         <li><a href="#services">Copywriting</a></li>
         <li><a href="#services">Graphic Design</a></li>
-        <li><a href="#ecom-section">E-Commerce</a></li>
+        <li><a href="#services">E-Commerce</a></li>
         <li><a href="#services">Email &amp; Funnels</a></li>
       </ul>
     </div>
     <div class="f-col">
       <div class="f-col-t">AI Tools</div>
       <ul>
-        <li><a href="#ai-section">WhatsApp Auto-Reply</a></li>
-        <li><a href="#ai-section">GST Bill Generator</a></li>
-        <li><a href="#ai-section">AI Chatbots</a></li>
-        <li><a href="#ai-section">CRM Automation</a></li>
-        <li><a href="#ai-section">Workflow Tools</a></li>
+        <li><a href="#services">WhatsApp Auto-Reply</a></li>
+        <li><a href="#services">GST Bill Generator</a></li>
+        <li><a href="#services">AI Chatbots</a></li>
+        <li><a href="#services">CRM Automation</a></li>
+        <li><a href="#services">Workflow Tools</a></li>
       </ul>
       <div class="f-col-t" style="margin-top:24px">Company</div>
       <ul>
@@ -1687,6 +1736,32 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
     </div>
   </div>
 </footer>
+
+<!-- CHAT WIDGET -->
+<div id="chat-widget" role="dialog" aria-label="Chat with 2 Swan">
+  <div class="cw-header">
+    <div class="cw-avatar"><img src="https://www.2swan.in/2Swan_Favicon_32.jpg" alt="2 Swan"></div>
+    <div class="cw-header-info">
+      <div class="cw-name">2 Swan Labs</div>
+      <div class="cw-status"><span class="cw-status-dot"></span>Online now</div>
+    </div>
+    <button class="cw-close" id="cw-close" aria-label="Close">&times;</button>
+  </div>
+  <div class="cw-body">
+    <div class="cw-bubble">
+      <div class="cw-bubble-line1">Hi! 👋 Need a website for your business?</div>
+      <div class="cw-bubble-line2">Message us for a quick quote and free concept.</div>
+      <div class="cw-time">Just now</div>
+    </div>
+  </div>
+  <div class="cw-actions">
+    <a href="mailto:2swanlabs@gmail.com" class="cw-btn-email">✉ Email</a>
+    <a href="https://wa.me/919988067867" class="cw-btn-wa" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.527 3.66 1.438 5.168L2 22l4.985-1.31A9.935 9.935 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm0 18a7.946 7.946 0 0 1-4.184-1.19l-.3-.178-3.1.813.828-3.022-.196-.31A7.96 7.96 0 0 1 4 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</div>
 
 <!-- PORTFOLIO LIGHTBOX -->
 <div id="port-lightbox">
@@ -1765,6 +1840,7 @@ document.querySelectorAll('.port-tab').forEach(function(tab) {
   var BREAKPOINT = 768;
   var vid = document.getElementById('hero-vid');
   var src = document.getElementById('hero-vid-src');
+  var poster = document.getElementById('hero-poster');
   if (!vid || !src) return;
   function getVideoSrc() {
     return window.innerWidth >= BREAKPOINT ? '2SL.mp4' : '2SLMobile.mp4';
@@ -1777,6 +1853,18 @@ document.querySelectorAll('.port-tab').forEach(function(tab) {
       vid.play().catch(function(){});
     }
   }
+  // Hide poster once video has enough data to play smoothly
+  function hidePoster() {
+    if (poster) {
+      poster.style.transition = 'opacity 0.6s ease';
+      poster.style.opacity = '0';
+      setTimeout(function() { if (poster) poster.style.display = 'none'; }, 650);
+    }
+  }
+  vid.addEventListener('playing', hidePoster, { once: true });
+  vid.addEventListener('canplaythrough', hidePoster, { once: true });
+  // Safety fallback: hide after 5s regardless
+  setTimeout(hidePoster, 5000);
   loadVideo();
   var resizeTimer;
   window.addEventListener('resize', function() {
@@ -1854,6 +1942,43 @@ document.querySelectorAll('.port-tab').forEach(function(tab) {
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeLightbox();
   });
+})();
+
+// ── CHAT WIDGET ──
+(function() {
+  var widget = document.getElementById('chat-widget');
+  var closeBtn = document.getElementById('cw-close');
+  var trigger = document.getElementById('industries');
+  if (!widget || !trigger) return;
+
+  var shown = false;
+  var dismissed = false;
+
+  function showWidget() {
+    if (dismissed || shown) return;
+    shown = true;
+    setTimeout(function() {
+      if (!dismissed) widget.classList.add('show');
+    }, 800);
+  }
+
+  function hideWidget() {
+    dismissed = true;
+    widget.classList.remove('show');
+    widget.classList.add('hide');
+  }
+
+  var indObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        showWidget();
+        indObs.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  indObs.observe(trigger);
+
+  closeBtn.addEventListener('click', hideWidget);
 })();
 </script>
 </body>
