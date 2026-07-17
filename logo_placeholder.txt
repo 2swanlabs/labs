@@ -1,0 +1,1 @@
+Upload your 'logo.png' or 'logo.PNG' here in the public directory to automatically replace the navigation bar and footer logos.
