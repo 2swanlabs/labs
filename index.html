@@ -5,19 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ── PRIMARY SEO ── -->
-<title>2 Swan | Web Design &amp; Digital Marketing Company India</title>
-<meta name="description" content="Web design, SEO, Google Ads, social media, and branding for businesses and professionals worldwide. Based in Chandigarh, India">
+<title>2 Swan Labs | Web Design &amp; Digital Marketing Company India</title>
+<meta name="description" content="Web design, SEO, Google Ads, social media, and branding for businesses and professionals worldwide. Based in Chandigarh, India.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.2swan.in/">
 <link rel="icon" type="image/png" href="2Swan_Favicon_32.jpg">
+<link rel="apple-touch-icon" href="2Swan-Icon.png">
 <meta name="theme-color" content="#0a0a08">
+<link rel="preconnect" href="https://2swan.in">
+<link rel="preload" as="image" href="https://2swan.in/P1.webp" fetchpriority="high">
 
 <!-- ── OPEN GRAPH ── -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.2swan.in/">
-<meta property="og:title" content="2 Swan | Web Design &amp; Digital Marketing Company India">
-<meta property="og:description" content="We build digital presence. Web design, SEO, Google Ads, social media, and branding for businesses and professionals worldwide. Based in Chandigarh, India">
-<meta property="og:image" content="https://www.2swan.in/2_Swan_Logo.png">
+<meta property="og:title" content="2 Swan Labs | Web Design &amp; Digital Marketing Company India">
+<meta property="og:description" content="Web design, SEO, Google Ads, social media, and branding for businesses and professionals worldwide. Based in Chandigarh, India.">
+<meta property="og:image" content="https://www.2swan.in/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="2 Swan Labs">
@@ -27,9 +31,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@2SwanLabs">
 <meta name="twitter:creator" content="@2SwanLabs">
-<meta name="twitter:title" content="2 Swan | Web Design &amp; Digital Marketing Company India">
-<meta name="twitter:description" content="We build digital presence. Web design, SEO, Google Ads, social media, and branding for businesses and professionals worldwide. Based in Chandigarh, India">
-<meta name="twitter:image" content="https://www.2swan.in/2_Swan_Logo.png">
+<meta name="twitter:title" content="2 Swan Labs | Web Design &amp; Digital Marketing Company India">
+<meta name="twitter:description" content="Web design, SEO, Google Ads, social media, and branding for businesses and professionals worldwide. Based in Chandigarh, India.">
+<meta name="twitter:image" content="https://www.2swan.in/og-image.jpg">
 
 <!-- ── STRUCTURED DATA — LOCAL BUSINESS ── -->
 <script type="application/ld+json">
@@ -104,6 +108,8 @@
 }
 
 html { scroll-behavior: smooth; overflow-x: hidden; scroll-padding-top: 72px; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
 body {
   background: var(--white);
@@ -184,11 +190,14 @@ nav.solid {
 }
 .nav-logo {
   font-family: 'Outfit', sans-serif;
-  font-size: 20px; font-weight: 700;
-  letter-spacing: 0.04em; text-transform: uppercase;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
   color: var(--white); text-decoration: none;
   position: relative; z-index: 301;
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 5px;
+  line-height: 1;
 }
+.nav-logo img { height: 48px; width: auto; display: block; margin: 0 auto; }
 .nav-links { display: flex; gap: 36px; align-items: center; }
 .nav-links a {
   font-size: 13px; font-weight: 400;
@@ -304,67 +313,85 @@ nav.solid {
 
 /* ── HERO ── */
 #hero {
-  position: relative; width: 100%; height: 100vh;
-  overflow: hidden; background: var(--black);
-  display: flex; flex-direction: column;
-  justify-content: flex-end; align-items: flex-start;
+  position: relative; width: 100%;
+  background: var(--black);
 }
-.hero-video { position: absolute; inset: 0; z-index: 0; }
-.hero-vid-poster {
-  position: absolute; inset: 0;
-  background: url('https://images.unsplash.com/photo-1497232004584-a241de8bcf5d?w=1600&q=80&fit=crop') center/cover no-repeat;
-  opacity: 0.5;
-  transition: opacity 0.5s ease;
-  z-index: 0;
-}
-.hero-vid-poster.hidden { opacity: 0; pointer-events: none; }
-.hero-video video { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.5; position: relative; z-index: 1; }
-.hero-overlay {
-  position: absolute; inset: 0; z-index: 1;
-}
-.hero-copy { position: relative; z-index: 2; padding: 0 8.5% 68px; }
-.hero-overline {
-  font-size: 11px; font-weight: 500; letter-spacing: 0.35em; text-transform: uppercase;
-  color: rgba(255,255,255,0.4); margin-bottom: 14px;
-  opacity: 0; transform: translateY(12px); animation: hup 0.7s ease 0.1s forwards;
-}
-.hero-h {
-  font-family: 'Outfit', sans-serif; font-size: clamp(38px, 6vw, 80px);
-  font-weight: 600; line-height: 1.08; letter-spacing: -0.02em;
-  color: var(--white); max-width: 640px;
-  opacity: 0; transform: translateY(20px);
-  animation: hup 0.9s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
-}
-.hero-p {
-  font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.55);
-  line-height: 1.7; max-width: 460px; margin-top: 16px;
-  opacity: 0; animation: hup 0.8s ease 0.6s forwards;
-}
-.hero-actions {
-  display: flex; gap: 12px; margin-top: 28px;
-  opacity: 0; animation: hup 0.7s ease 0.9s forwards;
-}
-.btn-solid-w {
-  font-size: 13px; font-weight: 500; background: var(--white); color: var(--black);
-  padding: 13px 30px; text-decoration: none; border: 1px solid var(--white);
-  transition: background 0.25s;
-}
-.btn-solid-w:hover { background: rgba(255,255,255,0.88); }
-.btn-white {
-  font-size: 13px; font-weight: 500; background: rgba(255,255,255,0.1);
-  color: var(--white); padding: 13px 30px; text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.25); transition: background 0.25s;
-}
-.btn-white:hover { background: rgba(255,255,255,0.2); }
-.hero-scroll {
-  position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%);
-  z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 6px;
-  opacity: 0; animation: hup 0.5s ease 1.4s forwards;
-}
-.hero-scroll span { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.28); }
-.hero-scroll svg { width: 18px; height: 18px; stroke: rgba(255,255,255,0.3); fill: none; stroke-width: 1.5; animation: bounce 2.4s ease-in-out infinite; }
 @keyframes hup    { to { opacity: 1; transform: translateY(0); } }
 @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+
+/* ── HERO WORK GALLERY (scroll-pinned 3D card showcase) ── */
+.work-pin {
+  position: relative; width: 100%; height: 100vh; height: 100svh;
+  overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; -ms-overflow-style: none;
+  display: flex; align-items: center; perspective: 1700px;
+}
+.work-pin::-webkit-scrollbar { display: none; }
+.work-track { display: flex; flex-wrap: nowrap; align-items: flex-start; gap: 14px; width: max-content; padding: 0 24px; transform-style: preserve-3d; }
+@media (min-width: 768px) { .work-track { padding: 0 48px; gap: 20px; } }
+@media (min-width: 900px) { .work-track { padding-left: calc(50% - 330px); padding-right: calc(50% - 330px); } }
+@media (max-width: 767px) {
+  /* Mobile: no scroll-jacking, no 3D perspective — first 8 cards as a
+     plain single-column stack in normal document flow. */
+  .work-card:nth-child(n+9) { display: none; }
+  .work-pin {
+    height: auto; min-height: 0; overflow: visible;
+    display: block; perspective: none;
+  }
+  .work-pin::-webkit-scrollbar { display: none; }
+  .work-pin::before { display: none; }
+  .work-track {
+    flex-direction: column; flex-wrap: nowrap; width: 100%;
+    padding: 32px 20px 40px; gap: 16px; transform-style: flat;
+  }
+  .work-card { width: 100%; max-width: 100%; transform: none !important; filter: none !important; opacity: 1 !important; }
+}
+.work-pin:not(.webgl-active)::before {
+  content: ''; position: absolute; left: -10%; right: -10%; bottom: 0; height: 42%;
+  background-image: linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px);
+  background-size: 42px 42px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 45%);
+  mask-image: linear-gradient(to bottom, transparent, #000 45%);
+  transform: perspective(380px) rotateX(58deg); transform-origin: bottom;
+  pointer-events: none; z-index: 0;
+}
+.work-card {
+  position: relative; flex: 0 0 auto; width: min(82vw, 660px); max-width: 660px;
+  aspect-ratio: 16 / 9.3; border-radius: 20px; overflow: hidden;
+  background: #141412; transform-style: preserve-3d;
+  transition: transform .05s linear, filter .05s linear, opacity .05s linear;
+  display: flex; align-items: flex-end;
+  box-shadow: 0 30px 70px -25px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06);
+  will-change: transform, filter, opacity; z-index: 1;
+}
+.work-card img, .work-card video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; z-index: 0; }
+.work-card video { border: 0; outline: none; background: #141412; border-radius: inherit; -webkit-transform: translateZ(0); }
+.work-card::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.1) 45%, transparent 68%);
+}
+.work-card-inner { position: relative; z-index: 2; padding: 22px 26px; width: 100%; }
+.work-card-index { display: block; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.75); font-weight: 500; margin-bottom: 5px; }
+.work-card-title { font-family: 'Outfit', sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -0.01em; color: var(--white); line-height: 1.25; }
+@media (max-width: 600px) {
+  .work-card-inner { padding: 16px 18px; }
+  .work-card-title { font-size: 15px; }
+}
+.work-card.img-missing { background: repeating-linear-gradient(135deg, rgba(255,255,255,.035) 0 2px, transparent 2px 16px), #141412; }
+.work-card.img-missing::before {
+  content: 'Image not found'; position: absolute; inset: 14px; z-index: 1;
+  border: 1.5px dashed rgba(255,255,255,.15); border-radius: 16px;
+  display: flex; align-items: center; justify-content: center; text-align: center; padding: 1rem;
+  font-size: 12px; color: rgba(255,255,255,.4);
+}
+.work-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 1; }
+.work-caption {
+  display: none; position: absolute; left: 24px; z-index: 2;
+  bottom: 24px; bottom: max(24px, calc(env(safe-area-inset-bottom, 0px) + 20px));
+  font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 600; color: var(--white);
+  pointer-events: none; text-shadow: 0 2px 14px rgba(0,0,0,.5);
+}
+@media (min-width: 768px) { .work-caption { left: 48px; bottom: 32px; font-size: 20px; } }
 
 /* ── LAYOUT ── */
 .w { width: 87%; max-width: 1180px; margin: 0 auto; }
@@ -951,6 +978,7 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
 /* ── MOBILE ── */
 @media (max-width: 900px) {
   nav { padding: 15px 20px; } nav.solid { padding: 11px 20px; }
+  .nav-logo img { height: 36px; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
   .w { width: 92%; }
@@ -1066,7 +1094,7 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nav-logo">2 Swan</a>
+  <a href="#" class="nav-logo"><img src="2Swan-Icon.png" alt="" width="60" height="59">2 Swan Labs</a>
   <div class="nav-links">
     <a href="#" class="nav-home-link" title="Home" aria-label="Home">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/></svg>
@@ -1107,25 +1135,70 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-video">
-    <div class="hero-vid-poster" id="hero-poster"></div>
-    <video id="hero-vid" autoplay muted loop playsinline>
-      <source id="hero-vid-src" src="2SL.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-copy">
-    <p class="hero-overline">Digital Growth Studio &mdash; Chandigarh, India</p>
-    <h1 class="hero-h">We Build Digital<br>Presence That<br>Converts.</h1>
-    <p class="hero-p">Websites, SEO, Ads, Social Media, AI Automation, and E-Commerce &mdash; everything your business needs to dominate online, under one roof.</p>
-    <div class="hero-actions">
-      <a href="#portfolio" class="btn-solid-w">View Projects</a>
-      <a href="#services" class="btn-white">Our Services</a>
+  <h1 class="sr-only">2 Swan Labs &mdash; Web Design &amp; Digital Marketing Studio, Chandigarh, India</h1>
+  <div class="work-pin" id="workPin">
+    <span class="work-caption" id="workCaption"></span>
+    <div class="work-track" id="workTrack">
+      <article class="work-card">
+        <img src="https://2swan.in/P1.webp" alt="Project 1" loading="lazy" onerror="this.closest('.work-card').classList.add('img-missing');this.remove();">
+        <div class="work-card-inner"><span class="work-card-index">01 / 14</span><span class="work-card-title">Project 1</span></div>
+      </article>
+      <article class="work-card">
+        <img src="https://2swan.in/P2.webp" alt="Project 2" loading="lazy" onerror="this.closest('.work-card').classList.add('img-missing');this.remove();">
+        <div class="work-card-inner"><span class="work-card-index">02 / 14</span><span class="work-card-title">Project 2</span></div>
+      </article>
+      <article class="work-card">
+        <video autoplay muted loop playsinline preload="auto" onerror="this.closest('.work-card').classList.add('img-missing');this.remove();">
+          <source src="TheHimalayanCompost.mp4" type="video/mp4">
+          <source src="TheHimalayanCompost.webm" type="video/webm">
+        </video>
+        <div class="work-card-inner"><span class="work-card-index">03 / 14</span><span class="work-card-title">Project 3</span></div>
+      </article>
+      <article class="work-card">
+        <img src="https://2swan.in/P3.webp" alt="Project 4" loading="lazy" onerror="this.closest('.work-card').classList.add('img-missing');this.remove();">
+        <div class="work-card-inner"><span class="work-card-index">04 / 14</span><span class="work-card-title">Project 4</span></div>
+      </article>
+      <article class="work-card">
+        <img src="https://2swan.in/P4.webp" alt="Project 5" loading="lazy" onerror="this.closest('.work-card').classList.add('img-missing');this.remove();">
+        <div class="work-card-inner"><span class="work-card-index">05 / 14</span><span class="work-card-title">Project 5</span></div>
+      </article>
+      <article class="work-card">
+        <img src="https://2swan.in/P5.webp" alt="Project 6" loading="lazy" onerror="this.closest('.work-card').classList.add('img-missing');this.remove();">
+        <div class="work-card-inner"><span class="work-card-index">06 / 14</span><span class="work-card-title">Project 6</span></div>
+      </article>
+      <article class="work-card">
+        <img src="https://2swan.in/P6.webp" alt="Project 7" loading="lazy" onerror="this.closest('.work-card').classList.add('img-missing');this.remove();">
+        <div class="work-card-inner"><span class="work-card-index">07 / 14</span><span class="work-card-title">Project 7</span></div>
+      </article>
+      <article class="work-card">
+        <img src="https://2swan.in/P7.webp" alt="Project 8" loading="lazy" onerror="this.closest('.work-card').classList.add('img-missing');this.remove();">
+        <div class="work-card-inner"><span class="work-card-index">08 / 14</span><span class="work-card-title">Project 8</span></div>
+      </article>
+      <article class="work-card">
+        <img src="https://2swan.in/P8.webp" alt="Project 9" loading="lazy" onerror="this.closest('.work-card').classList.add('img-missing');this.remove();">
+        <div class="work-card-inner"><span class="work-card-index">09 / 14</span><span class="work-card-title">Project 9</span></div>
+      </article>
+      <article class="work-card">
+        <img src="https://2swan.in/P9.webp" alt="Project 10" loading="lazy" onerror="this.closest('.work-card').classList.add('img-missing');this.remove();">
+        <div class="work-card-inner"><span class="work-card-index">10 / 14</span><span class="work-card-title">Project 10</span></div>
+      </article>
+      <article class="work-card">
+        <img src="https://2swan.in/P10.webp" alt="Project 11" loading="lazy" onerror="this.closest('.work-card').classList.add('img-missing');this.remove();">
+        <div class="work-card-inner"><span class="work-card-index">11 / 14</span><span class="work-card-title">Project 11</span></div>
+      </article>
+      <article class="work-card">
+        <img src="https://2swan.in/P11.webp" alt="Project 12" loading="lazy" onerror="this.closest('.work-card').classList.add('img-missing');this.remove();">
+        <div class="work-card-inner"><span class="work-card-index">12 / 14</span><span class="work-card-title">Project 12</span></div>
+      </article>
+      <article class="work-card">
+        <img src="https://2swan.in/P12.webp" alt="Project 13" loading="lazy" onerror="this.closest('.work-card').classList.add('img-missing');this.remove();">
+        <div class="work-card-inner"><span class="work-card-index">13 / 14</span><span class="work-card-title">Project 13</span></div>
+      </article>
+      <article class="work-card">
+        <img src="https://2swan.in/P1.webp" alt="Project 14" loading="lazy" onerror="this.closest('.work-card').classList.add('img-missing');this.remove();">
+        <div class="work-card-inner"><span class="work-card-index">14 / 14</span><span class="work-card-title">Project 14</span></div>
+      </article>
     </div>
-  </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
 </section>
 
@@ -1790,7 +1863,7 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
 <!-- CHAT WIDGET -->
 <div id="chat-widget" role="dialog" aria-label="Chat with 2 Swan">
   <div class="cw-header">
-    <div class="cw-avatar"><img src="https://www.2swan.in/2Swan_Favicon_32.jpg" alt="2 Swan" loading="lazy"></div>
+    <div class="cw-avatar"><img src="og-image.jpg" alt="2 Swan" loading="lazy"></div>
     <div class="cw-header-info">
       <div class="cw-name">2 Swan Labs</div>
       <div class="cw-status"><span class="cw-status-dot"></span>Online now</div>
@@ -1813,6 +1886,679 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
   </div>
 </div>
 
+<!-- Hero work-gallery dependencies: 3D card showcase with a CSS-only fallback -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+// ══════════════════════════════════════════════════════
+//  HERO — scroll-pinned 3D work gallery (WebGL, CSS fallback)
+// ══════════════════════════════════════════════════════
+(function () {
+  "use strict";
+
+  var workPin = document.getElementById("workPin");
+  var workTrack = document.getElementById("workTrack");
+  var workCaption = document.getElementById("workCaption");
+  if (!workPin || !workTrack) return;
+
+  /* Autoplay attribute removed from the markup, so kick playback off
+     manually (still muted, so browser autoplay policies allow it). */
+  workTrack.querySelectorAll("video").forEach(function (v) {
+    v.muted = true;
+    var p = v.play();
+    if (p && typeof p.catch === "function") p.catch(function () {});
+  });
+
+  function clampNum(v, a, b) {
+    return Math.max(a, Math.min(b, v));
+  }
+
+  function setupFallbackGallery() {
+    function workTilt() {
+      var rect = workPin.getBoundingClientRect();
+      var center = rect.left + rect.width / 2;
+      var radius = 640;
+      var maxAngle = 34;
+      workTrack.querySelectorAll(".work-card").forEach(function (card) {
+        var cRect = card.getBoundingClientRect();
+        var cardCenter = cRect.left + cRect.width / 2;
+        var dist = (cardCenter - center) / (rect.width / 2);
+        var clamped = clampNum(dist, -1, 1);
+        var absClamped = Math.abs(clamped);
+        var angleDeg = clamped * maxAngle;
+        var angleRad = (angleDeg * Math.PI) / 180;
+        var z = -radius * (1 - Math.cos(angleRad));
+        var scale = 1 + (1 - absClamped) * 0.05;
+        var blur = absClamped * 3.4;
+        var brightness = 1 - absClamped * 0.32;
+        card.style.transform =
+          "rotateY(" + (-angleDeg).toFixed(2) + "deg) translateZ(" + z.toFixed(1) + "px) scale(" + scale.toFixed(3) + ")";
+        card.style.filter = "blur(" + blur.toFixed(2) + "px) brightness(" + brightness.toFixed(2) + ")";
+        card.style.opacity = String((1 - absClamped * 0.25).toFixed(2));
+      });
+    }
+    if (window.gsap && window.ScrollTrigger) {
+      workPin.style.overflow = "hidden";
+      var workDistance = function () {
+        return Math.max(0, workTrack.scrollWidth - workPin.clientWidth);
+      };
+      var workTween = gsap.to(workTrack, {
+        x: function () {
+          return -workDistance();
+        },
+        ease: "none",
+      });
+      ScrollTrigger.create({
+        trigger: workPin,
+        start: "top top",
+        end: function () {
+          return "+=" + workDistance();
+        },
+        pin: true,
+        scrub: true,
+        animation: workTween,
+        invalidateOnRefresh: true,
+        onUpdate: workTilt,
+        onRefresh: workTilt,
+      });
+      workTilt();
+    } else {
+      var wTicking = false;
+      workPin.addEventListener(
+        "scroll",
+        function () {
+          if (!wTicking) {
+            requestAnimationFrame(function () {
+              workTilt();
+              wTicking = false;
+            });
+            wTicking = true;
+          }
+        },
+        { passive: true }
+      );
+      window.addEventListener("resize", workTilt);
+      workTilt();
+    }
+  }
+
+  function setupWebGLGallery(cardEls) {
+    var mediaEls = cardEls.map(function (c) {
+      return c.querySelector("img, video");
+    });
+    var isVideoFlags = mediaEls.map(function (m) {
+      return !!m && m.tagName === "VIDEO";
+    });
+    var urls = mediaEls.map(function (m) {
+      if (!m) return "";
+      if (m.tagName === "VIDEO") {
+        var mp4Source = m.querySelector('source[type="video/mp4"]');
+        var anySource = m.querySelector("source");
+        var chosen = mp4Source || anySource;
+        return chosen ? chosen.getAttribute("src") : m.getAttribute("src") || "";
+      }
+      return m.getAttribute("src");
+    });
+    var titles = cardEls.map(function (c) {
+      var t = c.querySelector(".work-card-title");
+      return t ? t.textContent : "";
+    });
+    var N = cardEls.length;
+
+    var canvas = document.createElement("canvas");
+    canvas.className = "work-canvas";
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+    if (!renderer.getContext()) return false;
+
+    renderer.setClearColor(0x000000, 0);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(45, 1, 1, 10000);
+
+    var CARD_W = 660;
+    var CARD_H_IMG = CARD_W / (16 / 9.3);
+    var STEP = CARD_W + 28;
+    /* Pulley model: cards travel at constant horizontal speed (linear in x),
+       not around a full circle. Depth follows a single hill that peaks at
+       CANISTER_X (an imaginary spool slightly left of center) and eases back
+       to "far" on both sides — like a belt wrapping partway around a pulley
+       rather than orbiting it. */
+    var CANISTER_X = -STEP * 0.35;
+    var BUMP_WIDTH = STEP * 1.15;
+    var BUMP_DEPTH = 800;
+    var FADE_RANGE = STEP * 3.2;
+    var ROT_SCALE = 0.45;
+    /* Cloth-like flex: near-flat everywhere, with a sharp, localized flex
+       event right at the canister crossing (the direction-change point) —
+       not a bend that's broadly present across the whole journey. */
+    var FLEX_BASE = CARD_W * 0.006;
+    var FLEX_PEAK = CARD_W * 0.1;
+    var FLEX_WIDTH = STEP * 0.32;
+    var RIPPLE_DEPTH = CARD_W * 0.07;
+    var RIPPLE_RADIUS = CARD_W * 0.32;
+    var FLOOR_Y = -(CARD_H_IMG / 2 + 85);
+    var BASE_EXPOSURE = 1.12;
+
+    var group = new THREE.Group();
+    scene.add(group);
+
+    function renderFrame() {
+      renderer.render(scene, camera);
+    }
+
+    function flexIntensityAt(x) {
+      var u = x - CANISTER_X;
+      return FLEX_BASE + FLEX_PEAK / (1 + (u * u) / (FLEX_WIDTH * FLEX_WIDTH));
+    }
+
+    /* Creates one card's own (non-shared) geometry, subdivided so it can be
+       bowed like cloth. Returns the geometry plus each vertex's original
+       flat x-position, so flex can be recomputed fresh every frame instead
+       of a single rigid shape baked in once. */
+    function createFlexPlane(width, height, segments) {
+      var geo = new THREE.PlaneGeometry(width, height, segments, 10);
+      var pos = geo.attributes.position;
+      var baseX = new Float32Array(pos.count);
+      var baseY = new Float32Array(pos.count);
+      for (var i = 0; i < pos.count; i++) {
+        baseX[i] = pos.getX(i);
+        baseY[i] = pos.getY(i);
+      }
+      return { geo: geo, baseX: baseX, baseY: baseY };
+    }
+
+    /* Base cloth bend (the canister-crossing flex) plus an optional ripple:
+       a localized bump centered at (ripple.x, ripple.y) in the card's own
+       local space, fading outward with distance and scaled by ripple.mag
+       (which is driven by a GSAP elastic tween — a quick push in, then a
+       springy wobble back to rest, like touching real fabric). */
+    function applyFlex(entry, intensity, ripple) {
+      var pos = entry.geo.attributes.position;
+      var halfW = CARD_W / 2;
+      var hasRipple = ripple && Math.abs(ripple.mag) > 0.001;
+      for (var i = 0; i < pos.count; i++) {
+        var lx = entry.baseX[i];
+        var t = lx / halfW;
+        var z = -intensity * t * t;
+        if (hasRipple) {
+          var dx = lx - ripple.x;
+          var dy = entry.baseY[i] - ripple.y;
+          var d2 = dx * dx + dy * dy;
+          z += ripple.mag * RIPPLE_DEPTH * Math.exp(-d2 / (2 * RIPPLE_RADIUS * RIPPLE_RADIUS));
+        }
+        pos.setZ(i, z);
+      }
+      pos.needsUpdate = true;
+    }
+
+    function loadImageEl(url, onLoad, onError) {
+      var img = new Image();
+      var isCrossOrigin = /^https?:\/\//i.test(url) && url.indexOf(window.location.origin) !== 0;
+      if (isCrossOrigin) {
+        img.crossOrigin = "anonymous";
+      }
+      img.onload = function () {
+        onLoad(img);
+      };
+      img.onerror = function () {
+        onError();
+      };
+      img.src = url;
+    }
+
+    /* Draws a media element (image or video frame) into an offscreen canvas
+       clipped to a rounded rect, cropped like CSS "object-fit: cover;
+       object-position: top". Using the canvas itself (rather than UV
+       offset/repeat) is what makes the rounded corners possible on a
+       curved surface. Accepts a target canvas so video frames can be
+       redrawn into the same canvas every tick without reallocating. */
+    function drawRoundedCoverInto(canvas2, mediaEl, texW, texH, radius) {
+      canvas2.width = texW;
+      canvas2.height = texH;
+      var ctx = canvas2.getContext("2d");
+      ctx.clearRect(0, 0, texW, texH);
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(radius, 0);
+      ctx.lineTo(texW - radius, 0);
+      ctx.arcTo(texW, 0, texW, radius, radius);
+      ctx.lineTo(texW, texH - radius);
+      ctx.arcTo(texW, texH, texW - radius, texH, radius);
+      ctx.lineTo(radius, texH);
+      ctx.arcTo(0, texH, 0, texH - radius, radius);
+      ctx.lineTo(0, radius);
+      ctx.arcTo(0, 0, radius, 0, radius);
+      ctx.closePath();
+      ctx.clip();
+
+      var srcW = mediaEl.tagName === "VIDEO" ? mediaEl.videoWidth : mediaEl.width;
+      var srcH = mediaEl.tagName === "VIDEO" ? mediaEl.videoHeight : mediaEl.height;
+      if (!srcW || !srcH) {
+        ctx.restore();
+        return;
+      }
+      var mediaAspect = srcW / srcH;
+      var targetAspect = texW / texH;
+      var sx, sy, sw, sh;
+      if (mediaAspect < targetAspect) {
+        sw = srcW;
+        sh = srcW / targetAspect;
+        sx = 0;
+        sy = 0;
+      } else {
+        sh = srcH;
+        sw = srcH * targetAspect;
+        sx = (srcW - sw) / 2;
+        sy = 0;
+      }
+      ctx.drawImage(mediaEl, sx, sy, sw, sh, 0, 0, texW, texH);
+      ctx.restore();
+    }
+
+    function makeRoundedCoverCanvas(img, texW, texH, radius) {
+      var canvas2 = document.createElement("canvas");
+      drawRoundedCoverInto(canvas2, img, texW, texH, radius);
+      return canvas2;
+    }
+
+    /* Loads a hidden-but-DOM-attached <video> element for use as a WebGL
+       texture source: muted + inline + looping so it autoplays silently and
+       never shows native controls, matching the still-image cards visually.
+       Kept attached to the document (off-screen, not display:none) because
+       several browsers throttle or refuse to decode frames for a video
+       that was never inserted into the page. */
+    function loadVideoEl(url, onReady, onError) {
+      var video = document.createElement("video");
+      video.setAttribute("muted", "");
+      video.setAttribute("loop", "");
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
+      video.muted = true;
+      video.defaultMuted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.preload = "auto";
+      video.style.cssText = "position:fixed;top:-9999px;left:-9999px;width:2px;height:2px;opacity:0;pointer-events:none;";
+      document.body.appendChild(video);
+      video.src = url;
+      var readied = false;
+      function ready() {
+        if (readied) return;
+        readied = true;
+        onReady(video);
+      }
+      video.addEventListener("loadeddata", ready);
+      video.addEventListener("canplay", ready);
+      video.addEventListener("error", function () {
+        onError();
+      });
+      var playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(function () {});
+      }
+    }
+
+    function createSoftShadowTexture() {
+      var canvas2 = document.createElement("canvas");
+      canvas2.width = 256;
+      canvas2.height = 256;
+      var ctx = canvas2.getContext("2d");
+      var grad = ctx.createRadialGradient(128, 128, 0, 128, 128, 128);
+      grad.addColorStop(0, "rgba(0,0,0,0.45)");
+      grad.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 256, 256);
+      return new THREE.CanvasTexture(canvas2);
+    }
+
+    /* Visible floor grid lines beneath the gallery, giving the scene a
+       ground plane to sit on instead of floating in empty space. Faint
+       light lines on the dark floor, kept small and pulled close so it
+       stays low in frame, ending well below the cards rather than
+       stretching to the horizon. */
+    try {
+      var floorGrid = new THREE.GridHelper(STEP * 4, 20, 0x4a4a52, 0x232326);
+      floorGrid.position.set(CANISTER_X, FLOOR_Y, -BUMP_DEPTH * 0.25);
+      if (floorGrid.material) {
+        floorGrid.material.transparent = true;
+        floorGrid.material.opacity = 0.7;
+        floorGrid.material.depthWrite = false;
+      }
+      scene.add(floorGrid);
+    } catch (gridErr) {}
+
+    var shadowTexture = createSoftShadowTexture();
+    var shadowGeo = new THREE.PlaneGeometry(CARD_W * 0.85, CARD_W * 0.4);
+
+    var TEX_W = 1024;
+    var TEX_H = Math.round(TEX_W / (CARD_W / CARD_H_IMG));
+    var TEX_RADIUS = TEX_W * 0.045;
+
+    var videoUpdaters = [];
+
+    var cardGroups = urls.map(function (url, i) {
+      var cardGroup = new THREE.Group();
+
+      var shadowMat = new THREE.MeshBasicMaterial({ map: shadowTexture, transparent: true, opacity: 0.5, depthWrite: false });
+      var shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
+      shadowMesh.rotation.x = -Math.PI / 2;
+      shadowMesh.position.set(0, FLOOR_Y + 1, 0);
+      group.add(shadowMesh);
+
+      var flexEntry = createFlexPlane(CARD_W, CARD_H_IMG, 24);
+
+      var imgMat = new THREE.MeshBasicMaterial({
+        color: 0x2a2a2e,
+        side: THREE.FrontSide,
+      });
+      var imgMesh = new THREE.Mesh(flexEntry.geo, imgMat);
+      cardGroup.add(imgMesh);
+
+      group.add(cardGroup);
+
+      if (isVideoFlags[i]) {
+        loadVideoEl(
+          url,
+          function (video) {
+            try {
+              var frameCanvas = document.createElement("canvas");
+              drawRoundedCoverInto(frameCanvas, video, TEX_W, TEX_H, TEX_RADIUS);
+              /* Proactively check whether drawing the video onto the canvas
+                 tainted it (this happens when the page is opened directly
+                 as a file:// URL — each local file is treated as its own
+                 opaque origin, so the browser blocks reading pixel data back
+                 out, even though the file loads and plays fine). Detecting
+                 this ourselves lets the card fall back to a solid tile
+                 instead of silently uploading a blank/black WebGL texture,
+                 which is otherwise impossible to catch after the fact. */
+              var tainted = false;
+              try {
+                frameCanvas.getContext("2d").getImageData(0, 0, 1, 1);
+              } catch (taintErr) {
+                tainted = true;
+              }
+              if (tainted) {
+                imgMat.color.set(0x3a3a3e);
+                console.warn(
+                  '[2 Swan Labs] Video card "' + (titles[i] || "") + '" can\'t be read into the 3D canvas over file://. ' +
+                  "This is a browser security restriction, not a bug — serve the page over http(s) " +
+                  "(e.g. `python3 -m http.server`, or your live 2swan.in domain) and it will render normally."
+                );
+                return;
+              }
+              var tex = new THREE.CanvasTexture(frameCanvas);
+              imgMat.map = tex;
+              imgMat.color.set(0xffffff);
+              imgMat.needsUpdate = true;
+              videoUpdaters.push(function () {
+                if (video.readyState >= 2) {
+                  drawRoundedCoverInto(frameCanvas, video, TEX_W, TEX_H, TEX_RADIUS);
+                  tex.needsUpdate = true;
+                }
+              });
+              renderFrame();
+            } catch (drawErr) {
+              imgMat.color.set(0x3a3a3e);
+            }
+          },
+          function () {
+            imgMat.color.set(0x3a3a3e);
+          }
+        );
+      } else {
+        loadImageEl(
+          url,
+          function (img) {
+            try {
+              var roundedCanvas = makeRoundedCoverCanvas(img, TEX_W, TEX_H, TEX_RADIUS);
+              var tex = new THREE.CanvasTexture(roundedCanvas);
+              tex.needsUpdate = true;
+              imgMat.map = tex;
+              imgMat.color.set(0xffffff);
+              imgMat.needsUpdate = true;
+              renderFrame();
+            } catch (drawErr) {
+              imgMat.color.set(0x3a3a3e);
+            }
+          },
+          function () {
+            imgMat.color.set(0x3a3a3e);
+          }
+        );
+      }
+
+      return {
+        group: cardGroup,
+        mesh: imgMesh,
+        imgMat: imgMat,
+        flex: flexEntry,
+        shadowMesh: shadowMesh,
+        shadowMat: shadowMat,
+        ripple: { x: 0, y: 0, mag: 0 },
+      };
+    });
+
+    function sizeToContainer() {
+      var w = workPin.clientWidth;
+      var h = workPin.clientHeight;
+      if (!w || !h) return;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      var fovRad = (camera.fov * Math.PI) / 180;
+      var dist = h / 2 / Math.tan(fovRad / 2);
+      camera.position.set(0, 58, dist);
+      camera.lookAt(0, -26, 0);
+      camera.updateProjectionMatrix();
+    }
+
+    /* The "film canister" depth path: 0 (front-most) right at the canister,
+       easing back to -BUMP_DEPTH the further a card is from it, in either
+       direction. This is a smooth hill, not an arc of a circle. */
+    function bumpZ(x) {
+      var u = x - CANISTER_X;
+      return -BUMP_DEPTH * (u * u) / (BUMP_WIDTH * BUMP_WIDTH + u * u);
+    }
+
+    function layout(progress) {
+      var shift = progress * (N - 1) * STEP;
+      var activeIndex = Math.round(clampNum(progress * (N - 1), 0, N - 1));
+      cardGroups.forEach(function (c, i) {
+        var x = i * STEP - shift;
+        var z = bumpZ(x);
+
+        /* Numerically sample the slope of the depth path right at this
+           card's position, so its rotation matches the path's tangent —
+           like a card physically riding over the canister's curve. */
+        var eps = 4;
+        var slope = (bumpZ(x + eps) - bumpZ(x - eps)) / (2 * eps);
+        var rotY = -Math.atan(slope * ROT_SCALE);
+
+        c.group.position.x = x;
+        c.group.position.z = z;
+        c.group.rotation.y = rotY;
+
+        var intensity = flexIntensityAt(x);
+        applyFlex(c.flex, intensity, c.ripple);
+
+        var d = clampNum(Math.abs(x - CANISTER_X) / FADE_RANGE, 0, 1);
+        c.shadowMesh.position.x = x;
+        c.shadowMesh.position.z = z + 30;
+        var shadowScale = 1 - d * 0.55;
+        c.shadowMesh.scale.set(shadowScale, shadowScale, 1);
+        c.shadowMat.opacity = 0.45;
+
+        if (c.imgMat.map) {
+          c.imgMat.color.setScalar(BASE_EXPOSURE);
+        }
+      });
+      if (workCaption && titles[activeIndex] !== undefined) {
+        var num = String(activeIndex + 1);
+        if (num.length < 2) num = "0" + num;
+        workCaption.textContent = num + " / " + N + " \u2014 " + titles[activeIndex];
+      }
+    }
+
+    workPin.insertBefore(canvas, workTrack);
+    workPin.classList.add("webgl-active");
+    workTrack.style.display = "none";
+    if (workCaption) workCaption.style.display = "block";
+
+    sizeToContainer();
+    var currentProgress = 0;
+    layout(currentProgress);
+    scene.updateMatrixWorld(true);
+    renderFrame();
+
+    /* Hover/tap ripple: raycast the pointer against the cards every frame.
+       Landing on a new card triggers a quick push-in, then an elastic
+       wobble back to rest — localized around the touch point, like poking
+       real fabric rather than a rigid plate. */
+    var raycaster = new THREE.Raycaster();
+    var pointerNDC = new THREE.Vector2(-10, -10);
+    var hoveredMesh = null;
+    var meshList = cardGroups.map(function (c) {
+      return c.mesh;
+    });
+
+    function updatePointerFromEvent(e) {
+      var rect = canvas.getBoundingClientRect();
+      pointerNDC.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      pointerNDC.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    }
+
+    function triggerRipple(card, localPoint) {
+      card.ripple.x = localPoint.x;
+      card.ripple.y = localPoint.y;
+      gsap.killTweensOf(card.ripple);
+      gsap.fromTo(
+        card.ripple,
+        { mag: 0 },
+        {
+          mag: 1,
+          duration: 0.16,
+          ease: "power2.out",
+          onComplete: function () {
+            gsap.to(card.ripple, { mag: 0, duration: 1.3, ease: "elastic.out(1, 0.28)" });
+          },
+        }
+      );
+    }
+
+    function checkHover() {
+      var hit = null;
+      try {
+        raycaster.setFromCamera(pointerNDC, camera);
+        var hits = raycaster.intersectObjects(meshList, false);
+        hit = hits.length > 0 ? hits[0] : null;
+      } catch (rayErr) {
+        hit = null;
+      }
+      if (hit && hit.object !== hoveredMesh) {
+        var found = null;
+        for (var i = 0; i < cardGroups.length; i++) {
+          if (cardGroups[i].mesh === hit.object) {
+            found = cardGroups[i];
+            break;
+          }
+        }
+        if (found) {
+          var local = hit.object.worldToLocal(hit.point.clone());
+          triggerRipple(found, local);
+        }
+        hoveredMesh = hit.object;
+      } else if (!hit) {
+        hoveredMesh = null;
+      }
+    }
+
+    canvas.addEventListener("pointermove", function (e) {
+      if (e.pointerType === "touch") return;
+      updatePointerFromEvent(e);
+    });
+    canvas.addEventListener("pointerleave", function () {
+      pointerNDC.set(-10, -10);
+      hoveredMesh = null;
+    });
+    canvas.addEventListener("pointerdown", function (e) {
+      updatePointerFromEvent(e);
+      hoveredMesh = null;
+      checkHover();
+    });
+
+    function frameLoop() {
+      checkHover();
+      for (var vi = 0; vi < videoUpdaters.length; vi++) {
+        videoUpdaters[vi]();
+      }
+      layout(currentProgress);
+      scene.updateMatrixWorld(true);
+      renderFrame();
+      requestAnimationFrame(frameLoop);
+    }
+    requestAnimationFrame(frameLoop);
+
+    gsap.registerPlugin(ScrollTrigger);
+    var state = { progress: 0 };
+    var scrollDistance = N * 420;
+    var tween = gsap.to(state, { progress: 1, ease: "none" });
+
+    ScrollTrigger.create({
+      trigger: workPin,
+      start: "top top",
+      end: "+=" + scrollDistance,
+      pin: true,
+      scrub: true,
+      animation: tween,
+      invalidateOnRefresh: true,
+      onUpdate: function () {
+        currentProgress = state.progress;
+      },
+      onRefresh: function () {
+        sizeToContainer();
+      },
+    });
+
+    window.addEventListener("resize", function () {
+      sizeToContainer();
+    });
+
+    return true;
+  }
+
+  var webglReady = false;
+  var MOBILE_BREAKPOINT = 768;
+  var MOBILE_CARD_LIMIT = 8;
+  var isMobileView = window.innerWidth < MOBILE_BREAKPOINT;
+  var workCardEls = Array.prototype.slice.call(workTrack.querySelectorAll(".work-card"));
+  var activeCardEls = isMobileView ? workCardEls.slice(0, MOBILE_CARD_LIMIT) : workCardEls;
+
+  if (isMobileView) {
+    /* Mobile: no pinning, no horizontal scroll-jacking, no 3D transforms —
+       just a plain single-column stack of the first 8 cards in normal
+       document flow. workPin/workTrack get simplified via CSS; nothing
+       further to wire up here. */
+    workPin.classList.add("mobile-stack");
+  } else {
+    if (window.THREE && window.gsap && window.ScrollTrigger && activeCardEls.length > 0) {
+      try {
+        webglReady = setupWebGLGallery(activeCardEls);
+      } catch (webglErr) {
+        webglReady = false;
+        console.warn("[2 Swan Labs] Hero gallery WebGL failed to initialize:", webglErr);
+      }
+    }
+    if (!webglReady) {
+      setupFallbackGallery();
+    }
+  }
+
+  window.addEventListener("load", function () {
+    if (window.ScrollTrigger) ScrollTrigger.refresh();
+  });
+})();
+</script>
 <script>
 // ── LOADER ──
 (function() {
@@ -1865,42 +2611,6 @@ var co = new IntersectionObserver(function(entries) {
   });
 }, { threshold: 0.6 });
 document.querySelectorAll('[data-count]').forEach(function(el) { co.observe(el); });
-
-// ── VIDEO SWAP: desktop vs mobile ──
-(function() {
-  var BREAKPOINT = 768;
-  var vid = document.getElementById('hero-vid');
-  var src = document.getElementById('hero-vid-src');
-  var poster = document.getElementById('hero-poster');
-  if (!vid || !src) return;
-  function getVideoSrc() {
-    return window.innerWidth >= BREAKPOINT ? '2SL.mp4' : '2SLMobile.mp4';
-  }
-  function loadVideo() {
-    var newSrc = getVideoSrc();
-    if (src.getAttribute('src') !== newSrc) {
-      src.setAttribute('src', newSrc);
-      vid.load();
-      vid.play().catch(function(){});
-    }
-  }
-  function hidePoster() {
-    if (poster) {
-      poster.style.transition = 'opacity 0.6s ease';
-      poster.style.opacity = '0';
-      setTimeout(function() { if (poster) poster.style.display = 'none'; }, 650);
-    }
-  }
-  vid.addEventListener('playing', hidePoster, { once: true });
-  vid.addEventListener('canplaythrough', hidePoster, { once: true });
-  setTimeout(hidePoster, 5000);
-  loadVideo();
-  var resizeTimer;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(loadVideo, 300);
-  }, { passive: true });
-})();
 
 // ── MOBILE HAMBURGER MENU ──
 (function() {
