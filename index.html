@@ -342,7 +342,7 @@ nav.solid {
   .work-pin::before { display: none; }
   .work-track {
     flex-direction: column; flex-wrap: nowrap; width: 100%;
-    padding: 32px 20px 40px; gap: 16px; transform-style: flat;
+    padding: 100px 20px 40px; gap: 16px; transform-style: flat;
   }
   .work-card { width: 100%; max-width: 100%; transform: none !important; filter: none !important; opacity: 1 !important; }
 }
@@ -2265,14 +2265,6 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
             try {
               var frameCanvas = document.createElement("canvas");
               drawRoundedCoverInto(frameCanvas, video, TEX_W, TEX_H, TEX_RADIUS);
-              /* Proactively check whether drawing the video onto the canvas
-                 tainted it (this happens when the page is opened directly
-                 as a file:// URL — each local file is treated as its own
-                 opaque origin, so the browser blocks reading pixel data back
-                 out, even though the file loads and plays fine). Detecting
-                 this ourselves lets the card fall back to a solid tile
-                 instead of silently uploading a blank/black WebGL texture,
-                 which is otherwise impossible to catch after the fact. */
               var tainted = false;
               try {
                 frameCanvas.getContext("2d").getImageData(0, 0, 1, 1);
@@ -2368,9 +2360,6 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
         var x = i * STEP - shift;
         var z = bumpZ(x);
 
-        /* Numerically sample the slope of the depth path right at this
-           card's position, so its rotation matches the path's tangent —
-           like a card physically riding over the canister's curve. */
         var eps = 4;
         var slope = (bumpZ(x + eps) - bumpZ(x - eps)) / (2 * eps);
         var rotY = -Math.atan(slope * ROT_SCALE);
@@ -2411,10 +2400,6 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
     scene.updateMatrixWorld(true);
     renderFrame();
 
-    /* Hover/tap ripple: raycast the pointer against the cards every frame.
-       Landing on a new card triggers a quick push-in, then an elastic
-       wobble back to rest — localized around the touch point, like poking
-       real fabric rather than a rigid plate. */
     var raycaster = new THREE.Raycaster();
     var pointerNDC = new THREE.Vector2(-10, -10);
     var hoveredMesh = null;
@@ -2535,10 +2520,6 @@ footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06);
   var activeCardEls = isMobileView ? workCardEls.slice(0, MOBILE_CARD_LIMIT) : workCardEls;
 
   if (isMobileView) {
-    /* Mobile: no pinning, no horizontal scroll-jacking, no 3D transforms —
-       just a plain single-column stack of the first 8 cards in normal
-       document flow. workPin/workTrack get simplified via CSS; nothing
-       further to wire up here. */
     workPin.classList.add("mobile-stack");
   } else {
     if (window.THREE && window.gsap && window.ScrollTrigger && activeCardEls.length > 0) {
