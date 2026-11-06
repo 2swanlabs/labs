@@ -1,0 +1,3541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Manu Shukla — CHANDIGARH, INDIA 2026</title>
+  
+  <!-- Google Fonts: Dancing Script (Bold, distinct handwritten cursive for Manu Shukla) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Fonts: PP Neue Montreal ────────────────────────────── */
+    @font-face {
+      font-display: swap;
+      font-family: sans;
+      font-style: normal;
+      font-weight: 700;
+      src: url('https://cdn.jsdelivr.net/gh/nicholasgasior/gfonts@master/fonts/PP%20Neue%20Montreal/PPNeueMontreal-Bold.woff2') format('woff2');
+    }
+    @font-face {
+      font-display: swap;
+      font-family: sans;
+      font-style: normal;
+      font-weight: 500;
+      src: url('https://cdn.jsdelivr.net/gh/nicholasgasior/gfonts@master/fonts/PP%20Neue%20Montreal/PPNeueMontreal-Medium.woff2') format('woff2');
+    }
+    @font-face {
+      font-display: swap;
+      font-family: sans;
+      font-style: normal;
+      font-weight: 400;
+      src: url('https://cdn.jsdelivr.net/gh/nicholasgasior/gfonts@master/fonts/PP%20Neue%20Montreal/PPNeueMontreal-Book.woff2') format('woff2');
+    }
+    @font-face {
+      font-display: swap;
+      font-family: mono;
+      font-style: normal;
+      font-weight: 500;
+      src: url('https://cdn.jsdelivr.net/gh/nicholasgasior/gfonts@master/fonts/PP%20Neue%20Montreal/PPNeueMontrealMono-Medium.woff2') format('woff2');
+    }
+
+    /* ── Root Design System ─────────────────────────────────── */
+    :root {
+      --tea-rose-red: #fac9c7;
+      --davys-gray:   #5c5757;
+      --puce:         #d98c90;
+      --timberwolf:   #d2d1d0;
+      --silver:       #c2c1c1;
+      --size: 390;
+      --bg: #ffffff;
+      --fg: #000000;
+      --card-border: rgba(0, 0, 0, 0.08);
+      --hud-bg: rgba(255, 255, 255, 0.94);
+      --hud-border: rgba(0, 0, 0, 0.1);
+      --nav-fg: #ffffff;
+    }
+
+    @media (min-width: 650px) {
+      :root {
+        --size: 1500;
+      }
+    }
+
+    html {
+      font-size: clamp(1px, 20px, calc(10 * 100vw / var(--size)));
+      -webkit-text-size-adjust: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-tap-highlight-color: transparent;
+      background-color: var(--bg);
+      color: var(--fg);
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    /* ── Reset ──────────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: 0 solid;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      overscroll-behavior: none;
+    }
+
+    body {
+      font-family: sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-optical-sizing: auto;
+      font-size: 1.6rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1.3;
+      user-select: none;
+      -webkit-user-select: none;
+      background: var(--bg);
+      color: var(--fg);
+      transition: background-color 0.35s ease, color 0.35s ease;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── Dark Mode Theme Styles ─────────────────────────────── */
+    body.is-dark {
+      --bg: #09090b;
+      --fg: #f4f4f5;
+      --card-border: rgba(255, 255, 255, 0.12);
+      --hud-bg: rgba(18, 18, 20, 0.94);
+      --hud-border: rgba(255, 255, 255, 0.14);
+      background-color: var(--bg);
+      color: var(--fg);
+    }
+
+    body.is-dark .audio-pill,
+    body.is-dark .view-pill-group {
+      background: #18181b;
+      border-color: rgba(255, 255, 255, 0.15);
+      color: #f4f4f5;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+    }
+
+    body.is-dark .audio-text { color: #f4f4f5; }
+    body.is-dark .audio-tag { color: #a1a1aa; }
+    body.is-dark .eq-bar { background-color: #f4f4f5; }
+    body.is-dark .audio-skip-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: #f4f4f5;
+    }
+    body.is-dark .audio-skip-btn:hover {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    body.is-dark #btnEnterSound {
+      background: #ffffff !important;
+      color: #000000 !important;
+    }
+    #btnEnterSound:hover {
+      transform: scale(1.05);
+    }
+
+    body.is-dark .view-pill-btn { color: #a1a1aa; }
+    body.is-dark .view-pill-btn.is-active {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    body.is-dark .hud-counter,
+    body.is-dark .hud-drag-hint {
+      background: var(--hud-bg);
+      border-color: var(--hud-border);
+      color: #f4f4f5;
+    }
+    body.is-dark .hud-scrubber-track { background: rgba(255, 255, 255, 0.14); }
+    body.is-dark .hud-scrubber-bar { background: #ffffff; }
+
+    body.is-dark .grid-view-container,
+    body.is-dark .about-drawer-inner,
+    body.is-dark .lightbox-card {
+      background: #111113;
+      color: #f4f4f5;
+    }
+
+    body.is-dark .grid-item { background: #1c1c20; }
+    body.is-dark .grid-view-header { border-color: rgba(255, 255, 255, 0.12); }
+    body.is-dark .about-drawer-inner p { color: #d4d4d8; }
+    body.is-dark .drawer-close-btn {
+      border-color: #ffffff;
+      color: #ffffff;
+    }
+    body.is-dark .drawer-close-btn:hover {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    @media (min-width: 650px) {
+      body {
+        font-size: clamp(1.6rem, 2rem, 20px);
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: inherit;
+      cursor: pointer;
+    }
+
+    button {
+      border: none;
+      background: none;
+      font-family: inherit;
+      color: inherit;
+      cursor: pointer;
+      font-size: inherit;
+    }
+
+    /* ── Typography Helpers ─────────────────────────────────── */
+    .font-mono { font-family: mono, monospace; }
+    .font-bold { font-weight: 700; }
+    .uppercase { text-transform: uppercase; }
+    .tabular-nums { font-variant-numeric: tabular-nums; }
+
+    /* ── Underline Animation ────────────────────────────────── */
+    .uline {
+      display: inline-flex;
+      position: relative;
+      white-space: nowrap;
+      --bottom: 0;
+    }
+    .uline::before {
+      background-color: currentColor;
+      bottom: var(--bottom);
+      content: "";
+      height: 0.06em;
+      left: 0;
+      min-height: 1px;
+      position: absolute;
+      right: 0;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.65s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .uline:hover::before {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    }
+
+    /* ── FIXED TOP NAVIGATION BAR ───────────────────────────── */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 1.8rem 2.5rem;
+      pointer-events: auto;
+      width: 100%;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      z-index: 1001;
+      padding-top: 0.1rem;
+    }
+
+    /* Brand title font is controlled by JS font-cycling */
+    .nav-brand-title {
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: clamp(2.6rem, 3.4rem, 34px);
+      letter-spacing: 0.01em;
+      text-transform: none;
+      line-height: 1;
+      white-space: nowrap;
+      transition: font-family 0.3s ease;
+    }
+
+    /* ── TOP RIGHT DECK: Music -> Flow/Archive/About -> Dark Switch (vertical stack) ── */
+    .nav-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.8rem;
+      z-index: 1001;
+    }
+
+    /* 1. Music Pill Widget */
+    .audio-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.45rem 1rem 0.45rem 0.55rem;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 9999px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.25s ease, background 0.35s ease;
+      white-space: nowrap;
+    }
+    .audio-pill:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.09);
+    }
+
+    .audio-thumb {
+      width: 2.3rem;
+      height: 2.3rem;
+      border-radius: 0.35rem;
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .audio-text-group {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .audio-text {
+      font-family: mono, monospace;
+      font-size: 1.15rem;
+      color: #111;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      max-width: 14rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .audio-tag {
+      font-family: mono, monospace;
+      font-size: 0.95rem;
+      color: #777;
+      text-transform: uppercase;
+    }
+
+    .equalizer-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 1.1rem;
+      width: 1.2rem;
+      margin: 0 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .eq-bar {
+      flex: 1;
+      background-color: #111;
+      border-radius: 1px;
+      height: 30%;
+      animation: eqAnimation 1s infinite alternate ease-in-out;
+    }
+    .eq-bar:nth-child(1) { animation-duration: 0.6s; }
+    .eq-bar:nth-child(2) { animation-duration: 0.8s; }
+    .eq-bar:nth-child(3) { animation-duration: 0.5s; }
+    .eq-bar:nth-child(4) { animation-duration: 0.7s; }
+
+    .audio-pill.is-paused .eq-bar {
+      animation-play-state: paused;
+      height: 20% !important;
+    }
+
+    @keyframes eqAnimation {
+      0% { height: 20%; }
+      50% { height: 100%; }
+      100% { height: 40%; }
+    }
+
+    .audio-skip-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.06);
+      color: #111;
+      transition: background 0.2s ease, transform 0.2s ease;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .audio-skip-btn:hover {
+      background: #000;
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    /* 2. Relatable View Switcher (Flow | Archive | About) */
+    .view-pill-group {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 9999px;
+      padding: 0.3rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+      white-space: nowrap;
+      transition: all 0.35s ease;
+    }
+
+    .view-pill-btn {
+      padding: 0.35rem 1.1rem;
+      border-radius: 9999px;
+      font-family: mono, monospace;
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.25s ease;
+      color: #666;
+    }
+    .view-pill-btn.is-active {
+      background: #000;
+      color: #fff;
+    }
+
+    /* 3. Dark/Light Mode Icon Button (Skyblue with Sun in Day, Midnight Black with Moon/Stars in Dark) */
+    .theme-toggle-btn {
+      position: relative;
+      width: 5.6rem;
+      height: 3.3rem; /* slightly increased height */
+      border-radius: 9999px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: linear-gradient(135deg, #38bdf8, #60a5fa); /* Skyblue daylight */
+      box-shadow: 0 3px 14px rgba(56, 189, 248, 0.35);
+      cursor: pointer;
+      overflow: hidden;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+      flex-shrink: 0;
+    }
+
+    body.is-dark .theme-toggle-btn {
+      background: linear-gradient(135deg, #18181b, #09090b); /* Dark black midnight */
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 3px 14px rgba(0, 0, 0, 0.6);
+    }
+
+    .theme-btn-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .theme-day-visual {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 0.6rem;
+      transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .theme-night-visual {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 0.6rem;
+      opacity: 0;
+      transform: scale(0.6) rotate(-30deg);
+      transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .theme-sun-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.15));
+      animation: sunGlow 3s ease-in-out infinite alternate;
+    }
+
+    body.is-dark .theme-day-visual {
+      opacity: 0;
+      transform: scale(0.6) rotate(30deg);
+    }
+
+    body.is-dark .theme-night-visual {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+
+    .theme-moon-icon {
+      font-size: 1.45rem;
+      line-height: 1;
+      filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.7));
+    }
+
+    .theme-star {
+      font-size: 0.85rem;
+      color: #facc15;
+      margin-right: 0.25rem;
+      animation: starTwinkle 1.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes sunGlow {
+      0% { transform: rotate(0deg) scale(1); }
+      100% { transform: rotate(15deg) scale(1.06); }
+    }
+
+    @keyframes starTwinkle {
+      0% { opacity: 0.3; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1.25); }
+    }
+
+    /* ── TYPOGRAPHIC HEADING: CHANDIGARH / INDIA 2026 (All Caps) ── */
+    .hero-logo-lockup {
+      position: fixed;
+      left: 50%;
+      top: 1.8rem;
+      transform: translateX(-50%);
+      width: 90em;
+      max-width: 96vw;
+      mix-blend-mode: difference;
+      color: #ffffff;
+      pointer-events: none;
+      user-select: none;
+      z-index: 50;
+      text-align: center;
+      will-change: transform;
+    }
+
+    .logo-main-text {
+      font-size: 5.4em;
+      font-weight: 700;
+      line-height: 0.88;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .logo-line-1 {
+      white-space: nowrap;
+      text-transform: uppercase; /* CHANDIGARH */
+    }
+
+    .logo-line-2 {
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.82em;
+      opacity: 0.95;
+    }
+
+    /* ── 3D SURF CAROUSEL VIEWPORT ──────────────────────────── */
+    .surf-viewport {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100svh;
+      overflow: hidden;
+      perspective: 1200px;
+      perspective-origin: 50% 45%;
+      cursor: grab;
+      z-index: 5;
+    }
+    .surf-viewport.is-dragging {
+      cursor: grabbing;
+    }
+
+    .surf-track {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      will-change: transform;
+      pointer-events: none;
+    }
+
+    /* ── SURF CAROUSEL ITEM ─────────────────────────────────── */
+    .surf-slide {
+      position: absolute;
+      top: 32%;
+      left: 50%;
+      width: 25rem;
+      transform-style: preserve-3d;
+      pointer-events: auto;
+      will-change: transform;
+      transition: transform 0.1s linear;
+    }
+
+    /* Outer wrapper that tilts on hover */
+    .surf-media-wrap {
+      position: relative;
+      width: 100%;
+      border-radius: 0.35rem;
+      overflow: visible;
+      transform-style: preserve-3d;
+      transition: transform 0.75s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .surf-slide:hover .surf-media-wrap {
+        transform: translate(75%, 0) rotate(10deg);
+        z-index: 1000 !important;
+      }
+      .surf-slide:hover {
+        z-index: 1000 !important;
+      }
+    }
+
+    .surf-aspect-box {
+      position: relative;
+      width: 100%;
+      border-radius: 0.35rem;
+      overflow: hidden;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.16), 0 2px 8px rgba(0, 0, 0, 0.08);
+      background-color: #222;
+      transition: box-shadow 0.5s ease;
+    }
+
+    .surf-slide:hover .surf-aspect-box {
+      box-shadow: 0 25px 65px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .surf-aspect-box img,
+    .surf-aspect-box video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    .media-color-placeholder {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 1;
+      transition: opacity 0.5s ease-out;
+    }
+    .media-loaded .media-color-placeholder {
+      opacity: 0;
+    }
+
+    /* Floating card label pill */
+    .card-hover-tag {
+      position: absolute;
+      bottom: 1.2rem;
+      left: 1.2rem;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 0.4rem 0.9rem;
+      border-radius: 9999px;
+      font-family: mono, monospace;
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #111;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: all 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .surf-slide:hover .card-hover-tag {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── BOTTOM MUSIC CONTROLS ──────────────────────────────── */
+    .music-controls-container {
+      position: fixed;
+      bottom: 4rem; /* Lowered per request */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      pointer-events: auto;
+    }
+    
+    .audio-ctrl-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.05);
+      color: #111;
+      transition: background 0.2s ease, transform 0.2s ease;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .audio-ctrl-btn:hover {
+      background: rgba(0,0,0,0.1);
+      transform: scale(1.05);
+    }
+    .play-pause-btn:hover {
+      background: #000 !important;
+    }
+    body.is-dark .audio-ctrl-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+    body.is-dark .audio-ctrl-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    body.is-dark .play-pause-btn {
+      background: #fff !important;
+      color: #000 !important;
+    }
+
+    /* ── BOTTOM TIMELINE HUD SCRUBBER ───────────────────────── */
+    .bottom-hud {
+      position: fixed;
+      bottom: 2rem;
+      left: 2.5rem;
+      right: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 50;
+      pointer-events: auto;
+      font-family: mono, monospace;
+      font-size: clamp(1.1rem, 1.25rem, 13px);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hud-counter {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--hud-bg);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--hud-border);
+      padding: 0.6rem 1.2rem;
+      border-radius: 9999px;
+      flex-shrink: 0;
+      transition: all 0.35s ease;
+    }
+
+    .hud-scrubber-track {
+      flex: 1;
+      max-width: 42rem;
+      height: 0.35rem;
+      background: rgba(0, 0, 0, 0.08);
+      border-radius: 9999px;
+      position: relative;
+      cursor: pointer;
+      margin: 0 2rem;
+    }
+    .hud-scrubber-bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background: #000;
+      border-radius: 9999px;
+      width: 14%;
+      transition: left 0.08s linear;
+    }
+
+    .hud-right-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+
+    .swan-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.55rem 1.25rem;
+      border-radius: 9999px;
+      background: #000;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-family: mono, monospace;
+      font-size: 1.05rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+      transition: transform 0.25s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.25s ease;
+      pointer-events: auto;
+    }
+    .swan-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+    }
+    .swan-pill .swan-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0.9;
+    }
+    body.is-dark .swan-pill {
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+    .swan-pill--mobile { display: none; }
+
+    .hud-drag-hint {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--hud-bg);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--hud-border);
+      padding: 0.6rem 1.2rem;
+      border-radius: 9999px;
+      color: #666;
+      flex-shrink: 0;
+      transition: all 0.35s ease;
+    }
+
+    /* ── ARCHIVE GRID VIEW (Was 'Index') ────────────────────── */
+    .grid-view-container {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      z-index: 200;
+      overflow-y: auto;
+      padding: 10rem 3rem 8rem;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+      transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.35s ease;
+    }
+    .grid-view-container.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .grid-view-header {
+      max-width: 135rem;
+      margin: 0 auto 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid #e5e5e5;
+      padding-bottom: 2rem;
+    }
+
+    .grid-cards-layout {
+      max-width: 135rem;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
+      gap: 2.5rem;
+    }
+
+    .grid-item {
+      cursor: pointer;
+      border-radius: 0.4rem;
+      overflow: hidden;
+      background: #f4f4f4;
+      transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.35s ease;
+    }
+    .grid-item:hover {
+      transform: translateY(-6px);
+    }
+
+    .grid-item-img {
+      width: 100%;
+      aspect-ratio: 1.25;
+      object-fit: cover;
+      display: block;
+    }
+
+    .grid-item-info {
+      padding: 1.2rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    /* ── ABOUT / PROFILE DRAWER ─────────────────────────────── */
+    .about-drawer {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(12px);
+      z-index: 1500;
+      display: flex;
+      justify-content: flex-end;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .about-drawer.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .about-drawer-inner {
+      width: 100%;
+      max-width: 65rem;
+      height: 100%;
+      background: #ffffff;
+      padding: 4rem 4rem;
+      overflow-y: auto;
+      transform: translateX(100%);
+      transition: transform 0.55s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .about-drawer.is-open .about-drawer-inner {
+      transform: translateX(0);
+    }
+
+    .drawer-close-btn {
+      align-self: flex-end;
+      padding: 0.6rem 1.4rem;
+      border: 1px solid #111;
+      border-radius: 9999px;
+      font-family: mono, monospace;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+      transition: all 0.25s ease;
+    }
+    .drawer-close-btn:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    /* ── FULL-PAGE CASE STUDY VIEW / DETAIL PAGE ────────────── */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: #fbfbfb;
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      transition: opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+                  visibility 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .lightbox-modal.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+    body.is-dark .lightbox-modal {
+      background: #0d0d0d;
+      color: #fff;
+    }
+
+    /* Top Page Header Bar */
+    .project-page-header {
+      width: 100%;
+      height: 6.8rem;
+      padding: 0 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.15);
+      flex-shrink: 0;
+      background: inherit;
+      z-index: 10;
+    }
+    .project-page-brand {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .project-page-back-btn,
+    .project-page-close-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 4.2rem;
+      height: 4.2rem;
+      border-radius: 50%;
+      background: rgba(128, 128, 128, 0.1);
+      color: inherit;
+      cursor: pointer;
+      border: 1px solid rgba(128, 128, 128, 0.18);
+      transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+    }
+    .project-page-back-btn:hover {
+      background: rgba(128, 128, 128, 0.22);
+      transform: translateX(-3px);
+      border-color: rgba(128, 128, 128, 0.35);
+    }
+    .project-page-close-btn:hover {
+      background: rgba(128, 128, 128, 0.22);
+      transform: scale(1.08) rotate(90deg);
+      border-color: rgba(128, 128, 128, 0.35);
+    }
+
+    /* Full-Width 2-Column Main Stage */
+    .project-page-main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      width: 100%;
+      height: calc(100vh - 6.8rem);
+      overflow: hidden;
+    }
+
+    /* ── LEFT COLUMN (50%): 3-Card Carousel Interactive Deck ── */
+    .project-carousel-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 3.5rem 3rem;
+      background: rgba(0, 0, 0, 0.02);
+      border-right: 1px solid rgba(128, 128, 128, 0.14);
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+    }
+    body.is-dark .project-carousel-col {
+      background: rgba(255, 255, 255, 0.015);
+      border-right-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .project-trio-stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      flex: 1;
+      position: relative;
+      perspective: 1200px;
+    }
+
+    /* 3-Card Trio Layout (Previous - Active Center - Next) */
+    .trio-card {
+      position: absolute;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+                  opacity 0.4s ease,
+                  filter 0.4s ease,
+                  box-shadow 0.4s ease;
+      background: #111;
+      user-select: none;
+    }
+    .trio-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    /* Center Active Card (Focused, Large, Foreground) */
+    .trio-card.is-active {
+      width: min(34rem, 48vw);
+      height: min(46rem, 64vh);
+      z-index: 3;
+      transform: translateX(0) scale(1);
+      opacity: 1;
+      filter: none;
+      box-shadow: 0 25px 65px rgba(0, 0, 0, 0.32);
+      cursor: default;
+    }
+
+    /* Left Previous Card (Peek from left, scaled down, clickable) */
+    .trio-card.is-prev {
+      width: min(25rem, 36vw);
+      height: min(36rem, 50vh);
+      z-index: 1;
+      transform: translateX(-65%) scale(0.86) rotateY(12deg);
+      opacity: 0.75;
+      filter: none;
+    }
+    .trio-card.is-prev:hover {
+      opacity: 0.85;
+      filter: none;
+      transform: translateX(-63%) scale(0.9) rotateY(8deg);
+    }
+
+    /* Right Next Card (Peek from right, scaled down, clickable) */
+    .trio-card.is-next {
+      width: min(25rem, 36vw);
+      height: min(36rem, 50vh);
+      z-index: 1;
+      transform: translateX(65%) scale(0.86) rotateY(-12deg);
+      opacity: 0.75;
+      filter: none;
+    }
+    .trio-card.is-next:hover {
+      opacity: 0.85;
+      filter: none;
+      transform: translateX(63%) scale(0.9) rotateY(-8deg);
+    }
+
+    /* Interactive Navigator Controls */
+    .project-trio-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+    .lb-arrow-btn {
+      width: 4.6rem;
+      height: 4.6rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111;
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      flex-shrink: 0;
+    }
+    .lb-arrow-btn:hover {
+      transform: scale(1.1);
+      background: #333;
+    }
+    body.is-dark .lb-arrow-btn {
+      background: #fff;
+      color: #000;
+    }
+    body.is-dark .lb-arrow-btn:hover {
+      background: #e2e2e2;
+    }
+    .lb-nav-counter {
+      font-family: mono, monospace;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #555;
+      min-width: 6.5rem;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+    body.is-dark .lb-nav-counter {
+      color: #aaa;
+    }
+
+    /* ── RIGHT COLUMN (50%): Dedicated Scrollable Story Page ── */
+    .project-story-col {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 100%;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+    }
+    .project-story-col::-webkit-scrollbar { width: 6px; }
+    .project-story-col::-webkit-scrollbar-thumb {
+      background: rgba(128, 128, 128, 0.35);
+      border-radius: 9999px;
+    }
+    .project-story-inner {
+      padding: 5rem 6.5rem 7rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      max-width: 84rem;
+    }
+    .project-story-top {
+      flex: 1;
+    }
+
+    /* In-line Card Image in right column below title */
+    .lb-inline-image-wrap {
+      width: 100%;
+      border-radius: 1rem;
+      overflow: hidden;
+      margin: 2.8rem 0 3.5rem;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+      background: #111;
+      aspect-ratio: 16 / 10;
+    }
+    .lb-inline-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.3s ease;
+    }
+    .lb-inline-image-wrap img.is-switching {
+      opacity: 0.3;
+      transform: scale(1.03);
+    }
+
+    .project-story-footer {
+      padding-top: 3rem;
+      margin-top: 4rem;
+      border-top: 1px solid rgba(128, 128, 128, 0.18);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* ── Creative Detail Enhancements (Palette, Typography Specimen, How Built) ── */
+    .lb-palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.4rem;
+    }
+    .lb-palette-chip {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 0.9rem 1.2rem;
+      border-radius: 1rem;
+      background: rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    body.is-dark .lb-palette-chip {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    .lb-palette-chip:hover {
+      transform: translateY(-2px);
+    }
+    .lb-palette-swatch {
+      width: 3.4rem;
+      height: 3.4rem;
+      border-radius: 0.8rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .lb-palette-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .lb-palette-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .lb-palette-hex {
+      font-family: mono, monospace;
+      font-size: 1.1rem;
+      color: #888;
+      letter-spacing: 0.05em;
+    }
+
+    /* Typography Specimen */
+    .lb-specimen-card {
+      background: rgba(0, 0, 0, 0.025);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 1.4rem;
+      padding: 2.4rem;
+      margin-top: 1.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    body.is-dark .lb-specimen-card {
+      background: rgba(255, 255, 255, 0.03);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    .lb-specimen-glyphs {
+      font-size: clamp(3.2rem, 5.2rem, 52px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+      margin-bottom: 1.4rem;
+      color: var(--fg);
+      opacity: 0.95;
+    }
+    .lb-specimen-primary {
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+    }
+    .lb-specimen-meta {
+      font-size: 1.4rem;
+      color: #777;
+      line-height: 1.6;
+    }
+    body.is-dark .lb-specimen-meta {
+      color: #aaa;
+    }
+    .lb-specimen-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.6rem;
+    }
+    .lb-specimen-tag {
+      font-family: mono, monospace;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.4rem 0.9rem;
+      border-radius: 0.6rem;
+      background: rgba(0, 0, 0, 0.05);
+      color: #666;
+    }
+    body.is-dark .lb-specimen-tag {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ccc;
+    }
+
+    /* Tech & Architecture (How It Was Built) */
+    .lb-tech-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 1.4rem;
+    }
+    .lb-tech-item {
+      padding: 1.6rem 2rem;
+      border-radius: 1.2rem;
+      background: rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-left: 3px solid var(--fg);
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    body.is-dark .lb-tech-item {
+      background: rgba(255, 255, 255, 0.025);
+      border-color: rgba(255, 255, 255, 0.08);
+      border-left-color: var(--fg);
+    }
+    .lb-tech-label {
+      font-family: mono, monospace;
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #888;
+      margin-bottom: 0.4rem;
+    }
+    .lb-tech-val {
+      font-size: 1.45rem;
+      line-height: 1.65;
+      color: var(--fg);
+      font-weight: 500;
+    }
+
+    /* Active Demo banner */
+    .lb-demo-banner {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      gap: 1.4rem;
+      text-align: center;
+      margin: 0 0 3rem;
+      background: none;
+      border: 0;
+      box-shadow: none;
+    }
+    .lb-demo-banner[hidden] { display: none; }
+    .lb-demo-label {
+      display: flex;
+      align-items: center;
+      font-family: mono, monospace;
+      font-size: 1.35rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .lb-demo-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1.05rem 2.6rem;
+      border-radius: 9999px;
+      background: #000;
+      color: #fff;
+      font-family: mono, monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.28);
+      transition: transform 0.25s cubic-bezier(0.19,1,0.22,1), box-shadow 0.25s ease;
+      animation: demoPulse 2.4s ease-in-out infinite;
+    }
+    .lb-demo-btn:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
+    body.is-dark .lb-demo-btn { background: #fff; color: #000; }
+    @keyframes demoPulse {
+      0%, 100% { box-shadow: 0 8px 22px rgba(0,0,0,0.28), 0 0 0 0 rgba(16,185,129,0.5); }
+      50%      { box-shadow: 0 8px 22px rgba(0,0,0,0.28), 0 0 0 10px rgba(16,185,129,0); }
+    }
+
+    /* Live status indicator dot */
+    .status-live-dot {
+      display: inline-block;
+      width: 0.85rem;
+      height: 0.85rem;
+      border-radius: 50%;
+      background: #10b981;
+      margin-right: 0.7rem;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+      animation: pulseStatus 2s infinite ease-in-out;
+    }
+    @keyframes pulseStatus {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* ═════════════════════════════════════════════════════════════════
+       MOBILE RESPONSIVE OVERHAUL (Massive Heading & Downward Shift)
+    ══════════════════════════════════════════════════════════════════ */
+    @media (max-width: 649px) {
+      .top-nav {
+        padding: 1.2rem 1.4rem;
+      }
+
+      .nav-brand-title {
+        font-size: 2.4rem;
+      }
+
+      .nav-right {
+        gap: 0.6rem;
+      }
+
+      /* Compact Audio Pill on Mobile */
+      .audio-pill {
+        padding: 0.35rem 0.65rem 0.35rem 0.45rem;
+        gap: 0.5rem;
+      }
+      .audio-thumb {
+        width: 2rem;
+        height: 2rem;
+      }
+      .audio-text-group {
+        display: none; /* Keeps top nav clean & uncluttered */
+      }
+
+      /* View Pills on Mobile */
+      .view-pill-group {
+        padding: 0.2rem;
+      }
+      .view-pill-btn {
+        padding: 0.3rem 0.7rem;
+        font-size: 1.02rem;
+      }
+
+      /* Mobile Dark/Light Toggle */
+      .theme-toggle-btn {
+        width: 4.8rem;
+        height: 2.8rem;
+      }
+
+      /* Central Heading: MAXIMUM POSSIBLE SIZE & MOVED SLIGHTLY DOWN */
+      .hero-logo-lockup {
+        top: 8.8rem; /* moved slightly down */
+        width: 100vw;
+        max-width: 100vw;
+        padding: 0 0.6rem;
+      }
+
+      .logo-main-text {
+        /* Fills empty space with bold edge-to-edge typography */
+        font-size: clamp(3.8rem, 11.2vw, 4.9rem);
+        line-height: 0.86;
+        letter-spacing: -0.025em;
+      }
+
+      .logo-line-2 {
+        font-size: 0.76em;
+        letter-spacing: 0.03em;
+        margin-top: 0.25rem;
+      }
+
+      /* Cards centered & sized for mobile */
+      .surf-viewport {
+        perspective: 900px;
+        perspective-origin: 50% 50%;
+      }
+
+      .surf-slide {
+        top: 30%;            /* higher on the screen */
+        width: 28rem;        /* much bigger cards */
+        margin-left: -14rem; /* centre the card on the screen */
+      }
+
+      /* Bottom HUD on Mobile: audio player centred, 2 Swan Labs pill in the right corner on the same row */
+      .music-controls-container {
+        bottom: 3.8rem;
+        left: 0;
+        right: 0;
+        transform: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
+      }
+      .music-controls-container > * { pointer-events: auto; }
+      .swan-pill--desktop { display: none; }
+      .swan-pill--mobile {
+        display: inline-flex;
+        position: absolute;
+        right: 1.4rem;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 0.5rem 0.95rem;
+        font-size: 0.95rem;
+      }
+      .swan-pill--mobile:hover { transform: translateY(-50%); }
+      .bottom-hud {
+        bottom: 1.4rem;
+        left: 1.4rem;
+        right: 1.4rem;
+      }
+      .hud-counter {
+        padding: 0.5rem 0.9rem;
+        font-size: 1.1rem;
+      }
+      .hud-scrubber-track {
+        margin: 0 0.8rem;
+        max-width: none;
+      }
+      .hud-drag-hint {
+        display: none;
+      }
+
+      /* Full Case Study Page on Mobile */
+      .project-page-header {
+        padding: 0 2rem;
+        height: 6rem;
+      }
+      .project-page-main {
+        grid-template-columns: 1fr;
+        height: calc(100vh - 6rem);
+        overflow-y: auto;
+      }
+      .project-carousel-col {
+        height: auto;
+        min-height: 0;
+        padding: 1.4rem 1rem 1.2rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.15);
+        justify-content: flex-start;
+        flex-shrink: 0;
+      }
+      .project-trio-stage {
+        flex: none;
+        height: 17rem;
+      }
+      .trio-card.is-active { width: 12.5rem; height: 16rem; }
+      .trio-card.is-prev,
+      .trio-card.is-next   { width: 9rem; height: 12rem; }
+      .project-trio-controls { margin-top: 0.9rem; gap: 1.2rem; }
+      .lb-arrow-btn { width: 3.6rem; height: 3.6rem; }
+      .lb-demo-banner { gap: 0.9rem; }
+      .lb-demo-label { font-size: 1.05rem; letter-spacing: 0.03em; }
+      .lb-demo-btn { padding: 0.8rem 1.5rem; font-size: 1.25rem; flex-shrink: 0; }
+      #lightboxTitle { font-size: 2.3rem !important; line-height: 1.1 !important; }
+      .project-story-col {
+        height: auto;
+        overflow-y: visible;
+      }
+      .project-story-inner {
+        padding: 3rem 2.2rem 6rem;
+      }
+
+      .about-drawer-inner {
+        max-width: 100%;
+        padding: 3rem 2rem;
+      }
+
+      .grid-view-container {
+        padding: 8rem 1.8rem 6rem;
+      }
+      .grid-cards-layout {
+        grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+        gap: 1.8rem;
+      }
+    }
+
+    /* ── SCROLLBAR ──────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--silver); border-radius: 9999px; }
+    /* ── GSAP text-reveal animation helpers ─────────────────── */
+    [animate] .line {
+      overflow: hidden;
+    }
+  </style>
+
+  <!-- GSAP + SplitType for about-drawer text reveal -->
+  <script src="https://unpkg.com/split-type"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+</head>
+<body>
+  <!-- FRONT PAGE: Enter With Sound / No Sound -->
+  <div id="entryScreen" style="position:fixed; inset:0; background:var(--bg); z-index:999999; display:flex; flex-direction:column; align-items:center; justify-content:center; transition:opacity 0.6s cubic-bezier(0.19,1,0.22,1), visibility 0.6s;">
+    <h1 style="font-family:'Dancing Script', cursive; font-size:clamp(4rem, 8vw, 6rem); margin-bottom:4rem;">Manu Shukla</h1>
+    
+    <button id="btnEnterSound" style="display:flex; align-items:center; gap:0.8rem; background:#111; color:#fff; padding:1.2rem 2.8rem; border-radius:9999px; font-family:mono, monospace; font-size:1.3rem; text-transform:uppercase; margin-bottom:2rem; cursor:pointer; transition:transform 0.3s ease; box-shadow:0 8px 20px rgba(0,0,0,0.15);">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <span>Enter With Sound</span>
+    </button>
+    
+    <button id="btnEnterNoSound" style="background:none; border:none; color:var(--davys-gray); font-family:mono, monospace; font-size:1.1rem; text-transform:uppercase; text-decoration:underline; cursor:pointer; padding:0.5rem;">
+      No Sound
+    </button>
+  </div>
+
+  <!-- Hidden HTML5 Audio Element for Background Music Player (Paused by default) -->
+  <audio id="bgAudioPlayer" preload="auto" loop></audio>
+
+  <!-- ═════════════════════════════════════════════════════════════════
+       TOP NAVIGATION
+       Order: Brand -> Music -> Flow -> Archive -> About -> Dark Mode Switch
+  ══════════════════════════════════════════════════════════════════ -->
+  <header class="top-nav">
+    <!-- Brand in distinct Dancing Script cursive -->
+    <div class="nav-left">
+      <span id="brandTitle" class="nav-brand-title">Manu Shukla</span>
+    </div>
+
+    <!-- Navigation Deck -->
+    <div class="nav-right">
+      <!-- Music Pill Widget moved to bottom center -->
+
+      <!-- 2. Relatable View Switcher (Flow | Archive | About) -->
+      <div class="view-pill-group">
+        <button class="view-pill-btn is-active" id="btnSurfView">Flow</button>
+        <button class="view-pill-btn" id="btnGridView">Archive</button>
+        <button class="view-pill-btn" id="btnAboutView">About</button>
+      </div>
+
+      <!-- 3. Dark/Light Mode Icon Switch (Skyblue Sun / Black Moon+Stars) -->
+      <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+        <div class="theme-btn-inner">
+          <div class="theme-day-visual"><span class="theme-sun-icon">☀️</span></div>
+          <div class="theme-night-visual"><span class="theme-moon-icon">🌙</span><span class="theme-star">✦</span></div>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═════════════════════════════════════════════════════════════════
+       TYPOGRAPHIC HEADING: CHANDIGARH / INDIA 2026 (All Caps)
+  ══════════════════════════════════════════════════════════════════ -->
+  <div class="hero-logo-lockup" aria-hidden="true">
+    <div class="logo-main-text">
+      <div class="logo-line-1">CHANDIGARH</div>
+      <div class="logo-line-2">INDIA 2026</div>
+    </div>
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════════════
+       3D SURF WAVE CAROUSEL VIEWPORT (Flow Mode)
+  ══════════════════════════════════════════════════════════════════ -->
+  <main class="surf-viewport" id="surfViewport">
+    <div class="surf-track" id="surfTrack">
+      <!-- 48 double-buffered slides for smooth endless loop -->
+    </div>
+  </main>
+
+  <!-- ═════════════════════════════════════════════════════════════════
+       BOTTOM TIMELINE HUD & SCRUBBER
+  ══════════════════════════════════════════════════════════════════ -->
+  <div class="music-controls-container">
+    <a class="swan-pill swan-pill--mobile" href="https://www.2swan.in" target="_blank" rel="noopener" aria-label="2 Swan Labs — www.2swan.in">2 Swan Labs</a>
+    <div class="audio-pill is-paused" id="audioPill">
+      <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=120&q=80" alt="Track Art" class="audio-thumb" id="audioThumb" />
+      <div class="audio-text-group">
+        <span class="audio-text font-mono" id="audioTrackName">Starman</span>
+        <span class="audio-tag font-mono" id="audioTrackTag">Glam Rock Classic</span>
+      </div>
+      
+      <!-- EQ Bars -->
+      <div class="equalizer-bars">
+        <div class="eq-bar"></div>
+        <div class="eq-bar"></div>
+        <div class="eq-bar"></div>
+        <div class="eq-bar"></div>
+      </div>
+      
+      <!-- Dedicated Playback Controls -->
+      <div class="audio-controls-group" style="display:flex; align-items:center; gap:0.4rem; margin-left:0.5rem;">
+        <button class="audio-ctrl-btn" id="audioPrevBtn" title="Previous Song" aria-label="Previous Song">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+        </button>
+        <button class="audio-ctrl-btn play-pause-btn" id="audioPlayPauseBtn" title="Play/Pause" aria-label="Play/Pause" style="width:2.8rem; height:2.8rem; background:#111; color:#fff;">
+          <svg id="iconPlay" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <svg id="iconPause" viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        </button>
+        <button class="audio-ctrl-btn" id="audioNextBtn" title="Next Song" aria-label="Next Song">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-hud">
+    <div class="hud-counter" style="display:none;">
+      <span>INDEX</span>
+      <span id="currentSlideIndex" style="font-weight:700;">01</span>
+      <span style="color:#888;">/</span>
+      <span id="totalSlidesCount" style="color:#888;">24</span>
+    </div>
+
+    <div class="hud-scrubber-track" id="hudScrubberTrack" title="Click or drag to scrub timeline">
+      <div class="hud-scrubber-bar" id="hudScrubberBar"></div>
+    </div>
+
+    <div class="hud-right-group">
+      <a class="swan-pill swan-pill--desktop" href="https://www.2swan.in" target="_blank" rel="noopener" aria-label="2 Swan Labs — www.2swan.in">2 Swan Labs</a>
+      <div class="hud-drag-hint">
+        <span>DRAG OR SCROLL</span>
+        <span>⇄</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════════════
+       ARCHIVE GRID VIEW
+  ══════════════════════════════════════════════════════════════════ -->
+  <section class="grid-view-container" id="gridViewContainer">
+    <div class="grid-view-header">
+      <h2 style="font-size:clamp(2.6rem, 4.2rem, 42px); font-weight:700; text-transform:uppercase; line-height:0.9;">Archive Vault</h2>
+      <span class="font-mono" style="color:#666; text-transform:uppercase;">MANU SHUKLA • CHANDIGARH 2026</span>
+    </div>
+    <div class="grid-cards-layout" id="gridCardsLayout">
+      <!-- Grid items dynamically rendered -->
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════════
+       ABOUT / STUDIO DRAWER
+  ══════════════════════════════════════════════════════════════════ -->
+  <aside class="about-drawer" id="aboutDrawer">
+    <div class="about-drawer-inner">
+      <div>
+        <button class="drawer-close-btn" id="closeAboutBtn">Close ✕</button>
+        <div animate class="font-mono uppercase" style="color:var(--davys-gray); margin-bottom:1.5rem; font-size:1.2rem;">Profile</div>
+        <h1 animate style="font-family:'Dancing Script', cursive; font-size:clamp(4.2rem, 5.8rem, 58px); font-weight:700; line-height:1; margin-bottom:2rem;">
+          Manu Shukla
+        </h1>
+        <p animate style="font-size:clamp(1.6rem, 2rem, 20px); line-height:1.5; color:#333; margin-bottom:3rem;">
+          Creative technologist & designer based in Chandigarh, India. Specializing in tactile digital experiences, fluid typography, and bespoke interactive systems.
+        </p>
+
+        <div style="border-top:1px solid rgba(128,128,128,0.2); padding-top:2.5rem; margin-bottom:2.5rem;">
+          <div animate class="font-mono uppercase" style="font-size:1.2rem; color:#888; margin-bottom:1rem;">Disciplines</div>
+          <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+            <span style="background:rgba(128,128,128,0.12); padding:0.4rem 1rem; border-radius:9999px; font-family:mono; font-size:1.2rem;">Creative Engineering</span>
+            <span style="background:rgba(128,128,128,0.12); padding:0.4rem 1rem; border-radius:9999px; font-family:mono; font-size:1.2rem;">Brand Systems</span>
+            <span style="background:rgba(128,128,128,0.12); padding:0.4rem 1rem; border-radius:9999px; font-family:mono; font-size:1.2rem;">Spatial Web / 3D</span>
+            <span style="background:rgba(128,128,128,0.12); padding:0.4rem 1rem; border-radius:9999px; font-family:mono; font-size:1.2rem;">Art Direction</span>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid rgba(128,128,128,0.2); padding-top:2.5rem;">
+          <div animate class="font-mono uppercase" style="font-size:1.2rem; color:#888; margin-bottom:1rem;">Location</div>
+          <p animate style="font-family:mono; font-size:1.3rem; line-height:1.8;">
+            Chandigarh, INDIA • Working with teams worldwide
+          </p>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid rgba(128,128,128,0.2); padding-top:2.5rem; margin-top:3rem; display:flex; justify-content:space-between; align-items:center;">
+        <span class="font-mono" style="font-size:1.2rem; color:#888; line-height:1.9;">Founder: <a href="https://www.2swan.in" target="_blank" rel="noopener" style="text-decoration:underline; text-underline-offset:3px;">2 Swan Labs</a> — <a href="https://www.2swan.in" target="_blank" rel="noopener" style="text-decoration:underline; text-underline-offset:3px;">www.2swan.in</a><br>Previously: Tech Gadget 360</span>
+        <span class="font-mono" style="font-size:1.2rem; color:#888;">2026 Edition</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═════════════════════════════════════════════════════════════════
+       FULL-WIDTH CASE STUDY PAGE VIEW (Trio Deck + Story Panel)
+  ══════════════════════════════════════════════════════════════════ -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <!-- Top Bar with Arrow Navigation, Location Tag, and Close X -->
+    <header class="project-page-header">
+      <div class="project-page-brand">
+        <button id="closeLightboxBtn" class="project-page-back-btn" title="Return to Overview" aria-label="Return to Overview">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        </button>
+        <span class="font-mono uppercase" id="lightboxTag" style="font-size:1.25rem; font-weight:600; letter-spacing:0.04em; color:var(--davys-gray); background:rgba(128,128,128,0.12); padding:0.45rem 1.2rem; border-radius:9999px;">Category</span>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:1.2rem;">
+        <button id="lbCloseXBtn" class="project-page-close-btn" title="Close Project" aria-label="Close Project">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- 50/50 Full-Width Split Stage -->
+    <div class="project-page-main">
+
+      <!-- LEFT 50%: 3-Card Interactive Trio Deck (Previous - Active - Next) -->
+      <section class="project-carousel-col">
+        <div class="project-trio-stage" id="projectTrioStage">
+          <!-- Previous Card (Clickable to move back) -->
+          <div class="trio-card is-prev" id="trioCardPrev" title="Click to view previous project">
+            <img id="lbNavThumbPrev" src="" alt="Previous Project" />
+          </div>
+
+          <!-- Current Active Card (Large Center) -->
+          <div class="trio-card is-active" id="trioCardActive" title="Current Selected Project">
+            <img id="lbNavThumb" src="" alt="Active Project" />
+          </div>
+
+          <!-- Next Card (Clickable to move forward) -->
+          <div class="trio-card is-next" id="trioCardNext" title="Click to view next project">
+            <img id="lbNavThumbNext" src="" alt="Next Project" />
+          </div>
+        </div>
+
+        <!-- Controls: Prev / Current Project Title / Next -->
+        <div class="project-trio-controls">
+          <button class="lb-arrow-btn" id="lbPrevBtn" title="Previous Project" aria-label="Previous Project">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+          <span class="font-mono" style="font-size:1.2rem; color:#888; text-transform:uppercase; letter-spacing:0.06em;">Swipe / Click to Explore</span>
+          <button class="lb-arrow-btn" id="lbNextBtn" title="Next Project" aria-label="Next Project">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- RIGHT 50%: Dedicated Scrollable Story Page -->
+      <section class="project-story-col" id="lightboxContent">
+        <div class="project-story-inner">
+          <div class="project-story-top">
+            <h1 id="lightboxTitle" style="font-size:clamp(3.2rem, 4.6rem, 48px); font-weight:700; text-transform:uppercase; line-height:1.02; letter-spacing:-0.03em; margin-bottom:1.5rem;">Project Name</h1>
+
+            <!-- ACTIVE DEMO LINK (only shown for projects that have a live demo) -->
+            <!-- VIDEO (above fold, priority) or still image — swapped by JS per project -->
+            <div id="lbMediaWrap" style="margin-bottom:2.8rem; border-radius:1.2rem; overflow:hidden;">
+              <img id="lightboxImg" src="" alt="Project Artwork" style="width:100%;display:block;border-radius:1.2rem;" />
+            </div>
+
+            <!-- LINK ROW (below video): label + Visit, centred -->
+            <div id="lbDemoBanner" class="lb-demo-banner" hidden></div>
+
+            <p id="lightboxDesc" style="color:#555; font-size:clamp(1.6rem, 1.85rem, 19px); line-height:1.75; margin-bottom:3.5rem;">
+              A bespoke digital showcase highlighting forward-thinking design, fluid typography systems, and tactile digital execution.
+            </p>
+
+            <!-- Dominant Brand Palette (Multi-Color Swatch System) -->
+            <div style="border-top:1px solid rgba(128,128,128,0.18); padding-top:2.8rem; margin-bottom:3.2rem;">
+              <div class="font-mono uppercase" style="font-size:1.2rem; color:#888; margin-bottom:0.8rem; letter-spacing:0.07em;">Brand Palette & Chromatic System</div>
+              <div class="lb-palette-grid" id="lbPaletteGrid">
+                <!-- Populated dynamically with 4-5 brand colors -->
+              </div>
+            </div>
+
+            <!-- Typography & Font Specimen Card (Unique Stylized Glyphs & Details) -->
+            <div style="border-top:1px solid rgba(128,128,128,0.18); padding-top:2.8rem; margin-bottom:3.2rem;">
+              <div class="font-mono uppercase" style="font-size:1.2rem; color:#888; margin-bottom:0.8rem; letter-spacing:0.07em;">Typography & Design System</div>
+              <div class="lb-specimen-card" id="lbTypographySpecimen">
+                <div class="lb-specimen-glyphs" id="lbSpecimenGlyphs">Aa Bb Gg 123</div>
+                <div class="lb-specimen-primary" id="lbSpecimenPrimary">Display Family</div>
+                <div class="lb-specimen-meta" id="lbSpecimenMeta">Paired with secondary body typeface</div>
+                <div class="lb-specimen-tags" id="lbSpecimenTags">
+                  <span class="lb-specimen-tag" id="lbSpecimenStyle">Display Serif</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- About This Work -->
+            <div style="border-top:1px solid rgba(128,128,128,0.18); padding-top:2.8rem; margin-bottom:3.2rem;">
+              <div class="font-mono uppercase" style="font-size:1.2rem; color:#888; margin-bottom:1.4rem; letter-spacing:0.07em;">About This Work</div>
+              <p id="lightboxDescLong" style="color:#666; font-size:1.55rem; line-height:1.9;">
+                Crafted as part of the Chandigarh 2026 visual series. Each piece explores the boundary between photography, graphic intervention, and spatial storytelling.
+              </p>
+            </div>
+
+            <!-- Craft & Architecture — How It Was Built -->
+            <div style="border-top:1px solid rgba(128,128,128,0.18); padding-top:2.8rem; margin-bottom:3.2rem;">
+              <div class="font-mono uppercase" style="font-size:1.2rem; color:#888; margin-bottom:0.8rem; letter-spacing:0.07em;">Craft & Architecture — How It Was Built</div>
+              <div class="lb-tech-card" id="lbHowBuiltGrid">
+                <!-- Populated dynamically with stack & engineering highlights -->
+              </div>
+            </div>
+          </div>
+
+          
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════════════
+       INTERACTIVE ENGINE: 3D SURF, SHUTTER ENGINE & CONTROLS
+  ══════════════════════════════════════════════════════════════════ -->
+  <script>
+    // ── DATASET: Lookback Visual Assets ──
+    const PROJECT_DATA = [
+      // 01. Portfolio Flagship: Cardinal Weddings
+      {
+        id: 101,
+        title: "Cardinal Weddings",
+        tag: "Cardinal Weddings Saskatchewan",
+        slug: "cardinal-weddings",
+        img: "manuassets/card_cardinal_weddings.jpg",
+        color: "#4a6741",
+        aspect: 1.25,
+        videoUrl: "manuassets/cardinal-weddings-reel.mp4",
+        videoRatio: "portrait",
+        link: { label: "Active Demo Website:", url: "https://2swanlabs.github.io/cardinal-weddings/" },
+        period: "2025 – 2026",
+        status: "Live Production Client",
+        role: "Brand Identity, Full-Stack Web & 9:16 Cinema Reel",
+        palette: [
+          { hex: "#4A6741", name: "Prairie Sage" },
+          { hex: "#E9E3D8", name: "Linen Cream" },
+          { hex: "#C48A54", name: "Golden Amber" },
+          { hex: "#1C2818", name: "Deep Spruce" }
+        ],
+        typeface: {
+          primary: "Cormorant Garamond & Playfair Display",
+          secondary: "Plus Jakarta Sans & PP Neue Montreal",
+          style: "Editorial Serif with High Contrast & Wide Tracking",
+          specimen: "Aa Bb Gg & 012"
+        },
+        desc: "A bespoke prairie wedding sanctuary in Vanscoy, Saskatchewan — 25 acres of open skies, handcrafted timber pavilions, and cinematic celebrations.",
+        descLong: "Cardinal Weddings is a premier weekend wedding sanctuary located 7 miles west of Saskatoon. The digital experience was engineered as a high-end editorial lookbook — balancing rustic prairie heritage with modern luxury hospitality. The layout commands attention with expansive golden-hour photography, fluid typography, and atmospheric video reels that transport couples into the heart of the Saskatchewan living skies.",
+        howBuilt: [
+          { label: "Frontend Stack", val: "Custom Responsive Architecture, GSAP ScrollSmoother & Fluid Clamped Typography" },
+          { label: "Motion & Media", val: "Bespoke 9:16 mobile-first video integration, lazy-loaded AVIF/WebP image pipeline" },
+          { label: "Conversion Flow", val: "Tiered wedding package explorer, interactive amenity filters, and direct tour booking pipeline" },
+          { label: "Performance", val: "Sub-second initial paint (0.8s LCP), zero layout shifts (0 CLS), 99/100 Lighthouse score" }
+        ]
+      },
+
+      // 02. Original Deck
+      {
+        id: 1,
+        title: "Defective Units Vol. 1",
+        tag: "Defective Units New York",
+        slug: "defective-units-vol-1",
+        img: "https://www.datocms-assets.com/106915/1773065938-defectiveunits_grid-1.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#1e88a2",
+        aspect: 1.2588,
+        period: "2024 Archive",
+        status: "Editorial Monograph",
+        role: "Art Direction & Print Design"
+      },
+      {
+        id: 2,
+        title: "Set Frame Delay Motion",
+        tag: "Set Frame Delay Motion Tokyo",
+        slug: "set-frame-delay",
+        img: "https://www.datocms-assets.com/106915/1773065959-set-frame-delay-gif.webp?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#4fa4b2",
+        aspect: 1.3333,
+        period: "2024 Series",
+        status: "Generative Motion",
+        role: "Motion Design & Shaders"
+      },
+      {
+        id: 3,
+        title: "Defective Units Vol. 3",
+        tag: "Defective Units London",
+        slug: "defective-units-vol-3",
+        img: "https://www.datocms-assets.com/106915/1773065968-defectiveunits_grid-3.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#cc9608",
+        aspect: 0.844,
+        period: "2024 Archive",
+        status: "Print Artifact",
+        role: "Book Design & Binding"
+      },
+      {
+        id: 4,
+        title: "99 Cents Only Exhibition",
+        tag: "99 Cents Only Exhibition Los Angeles",
+        slug: "99-cents-only-exhibition",
+        img: "https://www.datocms-assets.com/106915/1773067116-99cent_grid-1.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#135fe0",
+        aspect: 1.2588,
+        period: "2025 Archive",
+        status: "Exhibition Identity",
+        role: "Spatial Identity & Signage"
+      },
+      {
+        id: 5,
+        title: "99 Cents Gallery Catalog",
+        tag: "99 Cents Gallery Catalog Berlin",
+        slug: "99-cents-gallery-catalog",
+        img: "https://www.datocms-assets.com/106915/1773067116-99cent_grid-2.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#f31921",
+        aspect: 0.844,
+        period: "2025 Archive",
+        status: "Limited Edition Catalog",
+        role: "Typography & Offset Litho"
+      },
+
+      // 07. Portfolio Flagship: BOTA
+      {
+        id: 102,
+        title: "BOTA - Bajwa Outplay",
+        tag: "BOTA New Chandigarh",
+        slug: "bota",
+        img: "manuassets/hero_bota.jpg",
+        color: "#CCFF00",
+        aspect: 1.185,
+        videoUrl: "manuassets/bota-broll.mp4",
+        videoRatio: "portrait",
+        period: "2025 – 2026",
+        status: "Live Training Academy",
+        role: "Digital Direction, UI/UX System & Motion Reel",
+        palette: [
+          { hex: "#CCFF00", name: "Volt Lime" },
+          { hex: "#C4411C", name: "Clay Terracotta" },
+          { hex: "#0B150E", name: "Graphite Forest" },
+          { hex: "#F3F5F2", name: "Court Baseline" }
+        ],
+        typeface: {
+          primary: "Bebas Neue & Barlow Condensed",
+          secondary: "Inter Display & PP Neue Montreal",
+          style: "High-Impact Kinetic Display Sans & Compressed Weights",
+          specimen: "0123 BUILD 89"
+        },
+        desc: "High-performance Tennis, Padel & Pickleball training academy in Tricity — building championship mindset from juniors to competitive pros.",
+        descLong: "Bajwa Outplay Tennis Academy (BOTA) is a next-generation racket sport training center. The design language commands athletic intensity through high-voltage neon lime accents against deep graphite court-green and terracotta clay textures. Built with athletic energy at its core, the platform highlights coach credentials, tournament schedules, training reels, and seamless trial session onboarding.",
+        howBuilt: [
+          { label: "Design System", val: "High-contrast dark mode kinetic styling with high-voltage neon lime accents" },
+          { label: "Motion & Video", val: "Custom 9:16 court action reels with hardware-accelerated playback and tactile sound feedback" },
+          { label: "Interactivity", val: "Interactive multi-sport selector (Tennis, Padel, Pickleball) and coach roster exploration" },
+          { label: "Conversion", val: "Instant WhatsApp concierge integration and frictionless trial booking flow" }
+        ]
+      },
+
+      // 08. Original Deck
+      {
+        id: 6,
+        title: "99 Cents Neon Posters",
+        tag: "99 Cents Neon Posters Miami",
+        slug: "99-cents-neon-posters",
+        img: "https://www.datocms-assets.com/106915/1773067116-99cent_grid-3.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#fd0508",
+        aspect: 1.777,
+        period: "2025 Archive",
+        status: "Poster Installation",
+        role: "Screenprint & Risograph"
+      },
+      {
+        id: 7,
+        title: "The Legend of Phil Shao",
+        tag: "The Legend of Phil Shao San Francisco",
+        slug: "legend-of-phil-shao",
+        img: "https://www.datocms-assets.com/106915/1771606145-tlb-cover-8.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#074da2",
+        aspect: 1.0,
+        period: "2024 Archive",
+        status: "Film Identity",
+        role: "Title Design & Key Art"
+      },
+      {
+        id: 8,
+        title: "Phil Shao Legacy Cover",
+        tag: "Phil Shao Legacy Cover California",
+        slug: "phil-shao-legacy-cover",
+        img: "https://www.datocms-assets.com/106915/1771606145-tlb-cover-7.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#e0cb10",
+        aspect: 1.2588,
+        period: "2024 Archive",
+        status: "Monograph",
+        role: "Editorial Archiving"
+      },
+      {
+        id: 9,
+        title: "Jellyfish by Pharrell",
+        tag: "Jellyfish by Pharrell Miami Beach",
+        slug: "jellyfish-by-pharrell",
+        img: "https://www.datocms-assets.com/106915/1771606032-tlb-cover-5.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#c67c51",
+        aspect: 0.844,
+        period: "2025 Archive",
+        status: "Brand Collaboration",
+        role: "Creative Packaging"
+      },
+      {
+        id: 10,
+        title: "Pharrell From Virginia",
+        tag: "Pharrell From Virginia Beach",
+        slug: "pharrell-from-virginia",
+        img: "https://www.datocms-assets.com/106915/1771606032-tlb-cover-4.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#f00c17",
+        aspect: 1.2588,
+        period: "2025 Archive",
+        status: "Campaign Art",
+        role: "Creative Direction"
+      },
+
+      // 13. Portfolio Flagship: Smile Kraft
+      {
+        id: 103,
+        title: "Smile Kraft",
+        tag: "Smile Kraft Panchkula",
+        slug: "smile-kraft",
+        img: "manuassets/card_smilekraft.jpg",
+        color: "#FF1493",
+        aspect: 1.25,
+        videoUrl: "manuassets/smilekraft-presentation.mp4",
+        videoRatio: "landscape",
+        period: "2025 – 2026",
+        status: "Live Multi-Speciality Clinic",
+        role: "Complete Brand Identity, Web Platform & 16:9 Presentation",
+        palette: [
+          { hex: "#FF1493", name: "Rose Magenta" },
+          { hex: "#4A1028", name: "Deep Velvet Wine" },
+          { hex: "#FCE4EC", name: "Porcelain Blush" },
+          { hex: "#223B4A", name: "Clinical Navy" }
+        ],
+        typeface: {
+          primary: "Inter & DM Sans Humanist",
+          secondary: "Playfair Display Accent & Sans",
+          style: "Warm Clinical Humanist Sans with Soft Pill Radii",
+          specimen: "Aa Bb SMILE 45"
+        },
+        desc: "Multi-speciality dental & aesthetic implant clinic in Panchkula — advanced painless dentistry, smile makeovers, and surgical precision.",
+        descLong: "Smile Kraft needed a digital presence that eliminated dental anxiety while communicating surgical excellence. The visual system pairs warm velvet-wine and rose-magenta with serene clinical white spaces and soft curved pill containers. Highlighting Dr. Nitin Sethi and Dr. Neeraj Singh, the experience features interactive smile transformation galleries, patient video walk-throughs, and transparent treatment roadmaps.",
+        howBuilt: [
+          { label: "Architecture", val: "Accessible modern healthcare UI with WCAG AA compliance and calm aesthetic pacing" },
+          { label: "Media Showcase", val: "High-definition 16:9 clinic presentation video and interactive before/after transformation slider" },
+          { label: "Doctor Portfolios", val: "Dedicated specialist credentialing modules with verified patient testimonial feeds" },
+          { label: "Online Consultation", val: "Two-step smart appointment booking with calendar sync and Google Maps routing" }
+        ]
+      },
+
+      // 14. Original Deck
+      {
+        id: 11,
+        title: "Virginia Creative Direction",
+        tag: "Virginia Creative Direction Richmond",
+        slug: "virginia-creative-direction",
+        img: "https://www.datocms-assets.com/106915/1771606032-tlb-cover-6.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#ec8e5a",
+        aspect: 1.777,
+        period: "2024 Archive",
+        status: "Apparel Collection",
+        role: "Garment & Label Graphics"
+      },
+      // Portfolio: Little C Ranch
+      {
+        id: 106,
+        title: "Little C Ranch",
+        tag: "Little C Ranch Shawnee Oklahoma",
+        slug: "little-c-ranch",
+        img: "manuassets/card_little_c_ranch.jpg",
+        color: "#1F3320",
+        aspect: 1.25,
+        videoUrl: "manuassets/little-c-ranch.mp4",
+        videoRatio: "landscape",
+        period: "2025 – 2026",
+        status: "Live Rustic Wedding Venue",
+        role: "Venue Web Experience, Gallery Direction & Enquiry Flow",
+        palette: [
+          { hex: "#1F3320", name: "Oak Canopy Green" },
+          { hex: "#F5F1EA", name: "Barn Linen" },
+          { hex: "#B08D57", name: "Aged Brass" },
+          { hex: "#5A4630", name: "Weathered Timber" }
+        ],
+        typeface: {
+          primary: "Playfair Display (Italic Accents)",
+          secondary: "Clean Humanist Sans for body copy",
+          style: "Romantic Editorial Serif with Italic Emphasis",
+          specimen: "Aa Bb Ranch 24"
+        },
+        desc: "Shawnee's premiere rustic wedding barn — a covered pavilion, ancient oak trees and a blank canvas for the day you have envisioned.",
+        descLong: "Little C Ranch is an authentic rustic barn venue in Bethel Acres, Oklahoma, run by owner Curtis. The website leads with the oak-shaded pavilion, lets a full-bleed gallery do the selling, and keeps the story warm and personal — what is included, what guests say, and exactly how to reach the owner. Everything points to one simple action: start planning.",
+        howBuilt: [
+          { label: "Visual Story", val: "Full-bleed oak and pavilion photography with an italic-serif editorial voice" },
+          { label: "Gallery", val: "Masonry-style moment wall that links through to the venue's full Facebook gallery" },
+          { label: "Trust", val: "Google and WeddingWire reviews placed beside an 'Owners Who Truly Care' section" },
+          { label: "Conversion", val: "Call, email and directions placed above the fold of every section with a Google Maps embed" }
+        ]
+      },
+
+      // Portfolio: Eternal Perfumes
+      {
+        id: 107,
+        title: "Eternal Perfumes",
+        tag: "Eternal Perfumes India",
+        slug: "eternal-perfumes",
+        img: "manuassets/card_eternal_perfumes.jpg",
+        color: "#131313",
+        aspect: 1.25,
+        videoUrl: "manuassets/eternal-perfumes.mp4",
+        videoRatio: "landscape",
+        period: "2026",
+        status: "Live Fragrance Storefront",
+        role: "Brand Web Presence, Collection Catalogue & WhatsApp / Instagram Ordering",
+        palette: [
+          { hex: "#F2CA50", name: "Oud Gold" },
+          { hex: "#131313", name: "Obsidian" },
+          { hex: "#1E8A96", name: "Lagoon Teal" },
+          { hex: "#E9DFC8", name: "Attar Cream" }
+        ],
+        typeface: {
+          primary: "Playfair Display",
+          secondary: "Plus Jakarta Sans for body & labels",
+          style: "Luxury Display Serif on Deep Black with Gold Accents",
+          specimen: "Aa Bb Oud 50"
+        },
+        desc: "Authentic Middle Eastern ouds and niche signatures, hand-picked and shipped across India — scents fit for a legacy.",
+        descLong: "Eternal Perfumes curates Middle Eastern ouds and modern niche fragrances, from the Rayhaan and Mykonos collections to a decant lab for trying before committing to a full bottle. The site is a dark, gold-lit catalogue: every fragrance gets a hero card, and every card leads to a direct enquiry on WhatsApp or Instagram DM — the way its customers actually order.",
+        howBuilt: [
+          { label: "Catalogue", val: "Collection pages for Rayhaan and Mykonos with signature-scent hero cards" },
+          { label: "Decant Lab", val: "A simple three-step sample program: pick a fragrance, choose a size, DM to order" },
+          { label: "Ordering", val: "Enquire-on-DM and WhatsApp community links on every product, no cart friction" },
+          { label: "Social Proof", val: "Live Instagram grid and launch banner tied to the brand's feed" }
+        ]
+      },
+
+      {
+        id: 15,
+        title: "Get Happly Wellness",
+        tag: "Get Happly Wellness Toronto",
+        slug: "get-happly-wellness",
+        img: "https://www.datocms-assets.com/106915/1771848862-tlb-cover-8.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#8e1024",
+        aspect: 1.0,
+        period: "2025 Archive",
+        status: "Wellness Identity",
+        role: "Packaging & Brand System"
+      },
+
+      // Portfolio: The Himalayan Compost (packaging design)
+      {
+        id: 108,
+        title: "Himalayan Mustard Cake",
+        tag: "The Himalayan Compost Mustard Cake",
+        slug: "the-himalayan-compost",
+        img: "manuassets/card_himalayan_compost.jpg",
+        mediaImg: "manuassets/himalayan_compost_product.jpg",
+        link: { label: "Website:", url: "https://thehimalayancompost.com" },
+        gallery: ["manuassets/himalayan_compost_hero.jpg"],
+        color: "#E0A301",
+        aspect: 1.6,
+        period: "2026",
+        status: "Packaging & Product Graphic Design",
+        role: "Brand Packaging, Illustration & Product Visual Design",
+        palette: [
+          { hex: "#E0A301", name: "Mustard Bloom" },
+          { hex: "#12110F", name: "Matte Pouch Black" },
+          { hex: "#CC8100", name: "Oil-Cake Amber" },
+          { hex: "#7A4A28", name: "Himalayan Soil" }
+        ],
+        typeface: {
+          primary: "Bold Condensed Grotesque",
+          secondary: "Clean Sans for claims & weights",
+          style: "High-Impact Utility Sans on Matte Black and Mustard",
+          specimen: "Aa Bb 900g"
+        },
+        desc: "Packaging and product visuals for a premium fertilizer brand in India — mustard oil cake in a matte black pouch with a mountain-and-mustard-bloom label.",
+        descLong: "The Himalayan Compost is a premium fertilizer manufacturing brand in India. This was a graphic design project: a stand-up pouch with a matte black body and a mustard-yellow label, a mountain and mustard-plant illustration that tells the product story at a glance, a 'Premium Quality' seal, and a clear 'No chemicals, no adulteration' promise. The pouch was then staged in product photography so it reads on shelf and on screen.",
+        howBuilt: [
+          { label: "Pack Design", val: "Matte black stand-up pouch with a high-contrast mustard label for shelf visibility" },
+          { label: "Illustration", val: "Mustard plant rising from oil-cake against Himalayan peaks and terraced fields" },
+          { label: "Claims", val: "Premium Quality seal, 900g weight and 'No chemicals, no adulteration' called out clearly" },
+          { label: "Product Visuals", val: "Lifestyle hero with raw oil-cake and mustard seed, plus a clean e-commerce product shot" }
+        ]
+      },
+
+
+      // 19. Portfolio Flagship: Anand Dental Clinic
+      {
+        id: 104,
+        title: "Anand Dental Clinic",
+        tag: "Anand Dental Clinic Panchkula",
+        slug: "anand-dental-clinic",
+        img: "manuassets/card_anand_dental.jpg",
+        mediaImg: "manuassets/hero_anand_dental.jpg",
+        link: { label: "Currently Under Maintenance:", url: "http://anand-dental.com/" },
+        color: "#C5A880",
+        aspect: 1.25,
+        period: "1983 – 2026",
+        status: "4+ Decades Clinical Legacy",
+        role: "Legacy Practice Rebranding, Architectural Web & Case Studies",
+        palette: [
+          { hex: "#C5A880", name: "Champagne Gold" },
+          { hex: "#0B1B2B", name: "Midnight Navy" },
+          { hex: "#1E3B5C", name: "Cobalt Surgical" },
+          { hex: "#F4F7FB", name: "Sterile Porcelain" }
+        ],
+        typeface: {
+          primary: "Montserrat & Source Serif Pro",
+          secondary: "PP Neue Montreal Mono & Sans",
+          style: "Authoritative Swiss Geometric Sans paired with Editorial Serif",
+          specimen: "EST. 1983 • Aa 40+"
+        },
+        desc: "Exceptional dentistry crafted with precision & warmth — an in-house family legacy of restorative mastery in Sector 10, Panchkula since 1983.",
+        descLong: "Anand Dental Clinic is one of North India's most prestigious multi-generational dental institutions. Founded by Dr. Sunil Anand and spanning 43+ years and 25,000+ transformations, the clinic's digital presence reflects Swiss-grade prosthodontic artistry and serene architectural interior design. The platform showcases 5 low-dose digital operatories, Class-B autoclave protocols, and extensive clinical case documentations.",
+        howBuilt: [
+          { label: "Heritage Identity", val: "Swiss-precision architectural layout with dark luxury midnight navy and champagne gold accents" },
+          { label: "Clinical Case System", val: "Interactive diagnostic case study viewers with macro photography of prosthetic restorations" },
+          { label: "In-House Specialists", val: "Multi-generational faculty profiles spanning oral surgery, aesthetic prosthodontics, and ortho" },
+          { label: "Global NRI Care", val: "Dedicated international patient concierge pipeline with WhatsApp instant clinical triage" }
+        ]
+      },
+
+      // 20. Original Deck
+      {
+        id: 16,
+        title: "Happly Product Shoot",
+        tag: "Happly Product Shoot Montreal",
+        slug: "happly-product-shoot",
+        img: "https://www.datocms-assets.com/106915/1771848862-tlb-cover-6.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#cc4320",
+        aspect: 1.777,
+        period: "2025 Archive",
+        status: "Commercial Shoot",
+        role: "Set Direction & Retouching"
+      },
+      {
+        id: 17,
+        title: "Winter X Games 2026",
+        tag: "Winter X Games Aspen",
+        slug: "winter-x-games-2026",
+        img: "https://www.datocms-assets.com/106915/1771605547-tlb-cover-4.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#1f99e2",
+        aspect: 1.2588,
+        period: "2026 Broadcast",
+        status: "Motion Graphics Package",
+        role: "Live On-Air Graphics"
+      },
+      {
+        id: 18,
+        title: "X Games Snow Campaign",
+        tag: "X Games Snow Campaign Colorado",
+        slug: "x-games-snow-campaign",
+        img: "https://www.datocms-assets.com/106915/1771605547-tlb-cover-5.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#199bcd",
+        aspect: 0.844,
+        period: "2026 Broadcast",
+        status: "Social Campaign",
+        role: "Motion Design"
+      },
+      // Portfolio: Himalayan Vermicompost (packaging design)
+      {
+        id: 109,
+        title: "Himalayan Vermicompost",
+        tag: "The Himalayan Compost Vermicompost",
+        slug: "himalayan-vermicompost",
+        img: "manuassets/card_himalayan_vermicompost.jpg",
+        mediaImg: "manuassets/himalayan_vermicompost_hero.jpg",
+        link: { label: "Website:", url: "https://thehimalayancompost.com" },
+        color: "#1F4A2A",
+        aspect: 1.6,
+        period: "2026",
+        status: "Packaging & Product Graphic Design",
+        role: "Brand Packaging, Illustration & Product Visual Design",
+        palette: [
+          { hex: "#1F4A2A", name: "Garden Green" },
+          { hex: "#12110F", name: "Matte Pouch Black" },
+          { hex: "#EFE2B5", name: "Parchment Label" },
+          { hex: "#D9651E", name: "Earthworm Orange" }
+        ],
+        typeface: {
+          primary: "Bold Condensed Grotesque",
+          secondary: "Clean Sans for claims & weights",
+          style: "High-Impact Utility Sans on Matte Black and Parchment",
+          specimen: "Aa Bb 900g"
+        },
+        desc: "Packaging and product visuals for 100% organic vermicompost — a matte black pouch with a leafy green label, earthworms and a mountain-valley illustration.",
+        descLong: "The second pack in The Himalayan Compost range, designed for vermicompost. It shares the black pouch and mountain mark of the mustard cake pack but changes the label to a parchment and green palette: a seedling rising from rich soil with earthworms, a bird and rolling Himalayan hills, plus the Premium Quality seal and the 'No chemicals, no adulteration' promise. Shown here in a sunlit garden setting.",
+        howBuilt: [
+          { label: "Pack System", val: "Same matte black pouch and brand mark as the range, with a colour-coded label per product" },
+          { label: "Illustration", val: "Seedling, earthworms and bird over terraced green hills for an instantly readable story" },
+          { label: "Claims", val: "'100% Organic', Premium Quality seal, 900g weight and 'No chemicals, no adulteration'" },
+          { label: "Product Visuals", val: "Garden lifestyle scene with terracotta pot, fern, soil and scoop" }
+        ]
+      },
+
+      {
+        id: 19,
+        title: "Andrew Dutton Sneaker",
+        tag: "Andrew Dutton Sneaker Portland",
+        slug: "andrew-dutton-sneaker",
+        img: "https://www.datocms-assets.com/106915/1771604616-tlb-cover-8.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#6547ab",
+        aspect: 1.0,
+        period: "2024 Archive",
+        status: "Footwear Collaboration",
+        role: "Colorway & Materials"
+      },
+      {
+        id: 20,
+        title: "Sneaker Macro Studies",
+        tag: "Sneaker Macro Studies Milan",
+        slug: "sneaker-macro-studies",
+        img: "https://www.datocms-assets.com/106915/1771604616-tlb-cover-7.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#c41561",
+        aspect: 1.777,
+        period: "2024 Archive",
+        status: "Editorial Shoot",
+        role: "Macro Photography"
+      },
+
+      // 25. Portfolio Flagship: Forest Farms
+      {
+        id: 105,
+        title: "Forest Farms",
+        tag: "Forest Farms Chandigarh",
+        slug: "forest-farms",
+        img: "manuassets/card_forest_farms.jpg",
+        mediaImg: "manuassets/hero_forest_farms.jpg",
+        color: "#D89B54",
+        aspect: 1.25,
+        period: "2025 – 2026",
+        status: "Live Experiential Retreat",
+        role: "Hospitality Branding, Web Experience & Event Portal",
+        palette: [
+          { hex: "#D89B54", name: "Golden Amber" },
+          { hex: "#163820", name: "Deep Forest Pine" },
+          { hex: "#F6F1E8", name: "Artisanal Cream" },
+          { hex: "#7A4A28", name: "Terracotta Earth" }
+        ],
+        typeface: {
+          primary: "Freight Display & Lora Editorial",
+          secondary: "DM Sans & Organics Mono",
+          style: "Literary Editorial Serif with Organic Natural Rhythms",
+          specimen: "Aa Bb ART • 2026"
+        },
+        desc: "An art retreat blending wood-fired farm café, boutique luxury huts, private villa & sprawling 2000-guest event lawns — escape the ordinary.",
+        descLong: "Forest Farms is an expansive nature and art sanctuary nestled just 19 km outside Chandigarh. Offering handcrafted boutique stays, an organic farm-to-table café, open-air art workshops, and sprawling event lawns, the digital presence was created as a literary travel journal. Natural earthy hues, golden hour landscapes, and culinary photography invite urban travelers into a restorative sanctuary.",
+        howBuilt: [
+          { label: "Naturalist Layout", val: "Editorial storytelling grid inspired by Kinfolk and Cereal magazine design traditions" },
+          { label: "Hospitality Portals", val: "Multi-tiered booking system for boutique villa stays, single huts, and farm café reservations" },
+          { label: "Event Inquiries", val: "Custom event planner estimating tool for corporate retreats, weddings, and art workshops" },
+          { label: "Ecosystem Integration", val: "Direct synchronization with EaseMyTrip, MakeMyTrip, Agoda, and instant WhatsApp booking" }
+        ]
+      },
+
+      // 26..29. Original Deck Finale
+      {
+        id: 21,
+        title: "Estevan Oriol Archives",
+        tag: "Estevan Oriol Archives East LA",
+        slug: "estevan-oriol-archives",
+        img: "https://www.datocms-assets.com/106915/1771604522-tlb-cover-6.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#bfbf40",
+        aspect: 1.2588,
+        period: "2024 Archive",
+        status: "Photo Monograph",
+        role: "Hardcover Book Design"
+      },
+      {
+        id: 22,
+        title: "Skate Culture Book",
+        tag: "Skate Culture Book Venice Beach",
+        slug: "skate-culture-book",
+        img: "https://www.datocms-assets.com/106915/1771604416-tlb-cover-1.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#fa8d38",
+        aspect: 0.844,
+        period: "2024 Archive",
+        status: "Cultural Monograph",
+        role: "Editorial Direction"
+      },
+      {
+        id: 23,
+        title: "Wu-Nopoly Collector's",
+        tag: "Wu-Nopoly Collector's Staten Island",
+        slug: "wu-nopoly-collectors",
+        img: "https://www.datocms-assets.com/106915/1771604334-tlb-cover-7.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#fbb40d",
+        aspect: 1.0,
+        period: "2025 Archive",
+        status: "Limited Box Set",
+        role: "Packaging & Component Design"
+      },
+      {
+        id: 24,
+        title: "Twojeys Headwear",
+        tag: "Twojeys Headwear Barcelona",
+        slug: "twojeys-headwear",
+        img: "https://www.datocms-assets.com/106915/1771604262-tlb-cover-5.jpg?auto=format&fit=max&h=1000&q=85&w=1000",
+        color: "#b5383d",
+        aspect: 1.2588,
+        period: "2025 Archive",
+        status: "Lookbook Collection",
+        role: "Brand Campaign"
+      }
+    ];
+
+    // ── REAL MUSIC TRACKS PLAYLIST ──
+    const REAL_PLAYLIST = [
+      {
+        title: "Starman",
+        artist: "David Bowie",
+        tag: "Glam Rock Classic",
+        file: "manuassets/David Bowie - Starman (HQ) - Hits Of The Music.mp3",
+        thumb: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=120&q=80"
+      },
+      {
+        title: "WHERE IS MY HUSBAND!",
+        artist: "RAYE",
+        tag: "Alt R&B Bop",
+        file: "manuassets/RAYE - WHERE IS MY HUSBAND! (Lyrics) - Pizza Music.mp3",
+        thumb: "https://images.unsplash.com/photo-1501612780327-45045538702b?w=120&q=80"
+      },
+      {
+        title: "Lofi Study Session",
+        artist: "Chill Lofi Beats",
+        tag: "Lo-Fi Instrumental",
+        file: "manuassets/track1.mp3",
+        thumb: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=120&q=80"
+      },
+      {
+        title: "A Poultry Farm",
+        artist: "Mr. Gellegani",
+        tag: "Indie Soul Groove",
+        file: "manuassets/track2.mp3",
+        thumb: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=120&q=80"
+      },
+      {
+        title: "Winter Sunshine",
+        artist: "Evgeny Grinko",
+        tag: "Cinematic Piano",
+        file: "manuassets/track3.mp3",
+        thumb: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=120&q=80"
+      },
+      {
+        title: "Golden",
+        artist: "Huntrix",
+        tag: "KPop Dream",
+        file: "manuassets/Huntrix - Golden (Lyrics) KPop Demon Hunters - 7clouds.mp3",
+        thumb: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=120&q=80"
+      }
+    ];
+
+    let currentTrackIdx = 0;
+    let isMusicPlaying = false;
+
+    // ── DOM ELEMENTS ──
+    const surfViewport = document.getElementById('surfViewport');
+    const surfTrack = document.getElementById('surfTrack');
+    const currentSlideIndexEl = document.getElementById('currentSlideIndex');
+    const totalSlidesCountEl = document.getElementById('totalSlidesCount');
+    const hudScrubberBar = document.getElementById('hudScrubberBar');
+    const hudScrubberTrack = document.getElementById('hudScrubberTrack');
+
+    const btnSurfView = document.getElementById('btnSurfView');
+    const btnGridView = document.getElementById('btnGridView');
+    const btnAboutView = document.getElementById('btnAboutView');
+    const gridViewContainer = document.getElementById('gridViewContainer');
+    const gridCardsLayout = document.getElementById('gridCardsLayout');
+    const aboutDrawer = document.getElementById('aboutDrawer');
+    const closeAboutBtn = document.getElementById('closeAboutBtn');
+
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxTag = document.getElementById('lightboxTag');
+    const lightboxDesc = document.getElementById('lightboxDesc');
+    const lightboxSwatch = document.getElementById('lightboxSwatch');
+    const lightboxHex = document.getElementById('lightboxHex');
+    const lightboxContent = document.getElementById('lightboxContent');
+    const lightboxDescLong = document.getElementById('lightboxDescLong');
+    const closeLightboxBtn = document.getElementById('closeLightboxBtn');
+    const lbNavThumb = document.getElementById('lbNavThumb');
+    const lbNavThumbPrev = document.getElementById('lbNavThumbPrev');
+    const lbNavThumbNext = document.getElementById('lbNavThumbNext');
+    const trioCardPrev = document.getElementById('trioCardPrev');
+    const trioCardNext = document.getElementById('trioCardNext');
+    const lbNavCounter = document.getElementById('lbNavCounter');
+    const lbPrevBtn = document.getElementById('lbPrevBtn');
+    const lbNextBtn = document.getElementById('lbNextBtn');
+
+    const audioPill = document.getElementById('audioPill');
+    const audioThumb = document.getElementById('audioThumb');
+    const audioTrackName = document.getElementById('audioTrackName');
+    const audioTrackTag = document.getElementById('audioTrackTag');
+    const audioNextBtn = document.getElementById('audioNextBtn');
+    const bgAudioPlayer = document.getElementById('bgAudioPlayer');
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+
+
+
+    let isDarkMode = false;
+
+    themeToggleBtn.addEventListener('click', () => {
+      isDarkMode = !isDarkMode;
+      if (isDarkMode) {
+        document.body.classList.add('is-dark');
+      } else {
+        document.body.classList.remove('is-dark');
+      }
+    });
+
+    // ── TACTILE SHUTTER SOUND AUDIO ENGINE (ACTIVE BY DEFAULT) ──
+    let audioCtx = null;
+    let shutterBuffer = null;
+    let lastShutterCardIdx = -1;
+    let lastShutterTime = 0;
+
+    const shutterPool = [
+      new Audio('manuassets/shutter.mp3'),
+      new Audio('manuassets/shutter.mp3'),
+      new Audio('manuassets/shutter.mp3'),
+      new Audio('manuassets/shutter.mp3')
+    ];
+    let shutterPoolIdx = 0;
+
+    async function initShutterAudio() {
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        const res = await fetch('manuassets/shutter.mp3');
+        const arrayBuf = await res.arrayBuffer();
+        shutterBuffer = await audioCtx.decodeAudioData(arrayBuf);
+      } catch (e) {}
+    }
+
+    // We no longer rely on scroll to unlock because we have the Front Page "Enter" screen which guarantees a click.
+    const armAudioEvents = ['pointerdown', 'touchstart', 'keydown', 'mousedown'];
+    
+    const armAudio = () => {
+      if (!audioCtx) initShutterAudio();
+      if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+      
+      shutterPool.forEach(a => {
+        a.volume = 0;
+        a.play().then(() => { a.pause(); a.currentTime = 0; a.volume = 0.55; }).catch(()=>{});
+      });
+      
+      armAudioEvents.forEach(evt => window.removeEventListener(evt, armAudio));
+    };
+    
+    armAudioEvents.forEach(evt => window.addEventListener(evt, armAudio, { once: true, passive: true }));
+
+    function playShutterSound() {
+      const now = performance.now();
+      if (now - lastShutterTime < 45) return;
+      lastShutterTime = now;
+
+      if (audioCtx && shutterBuffer && audioCtx.state === 'running') {
+        try {
+          const src = audioCtx.createBufferSource();
+          const gain = audioCtx.createGain();
+          src.buffer = shutterBuffer;
+          src.playbackRate.value = 0.96 + Math.random() * 0.08;
+          gain.gain.value = 0.55;
+          src.connect(gain);
+          gain.connect(audioCtx.destination);
+          src.start(0);
+          return;
+        } catch (err) {}
+      }
+
+      const snd = shutterPool[shutterPoolIdx % shutterPool.length];
+      shutterPoolIdx++;
+      snd.currentTime = 0;
+      snd.volume = 0.55;
+      snd.play().catch(() => {});
+    }
+
+    // ── SEAMLESS ENDLESS LOOP SETUP ──
+    const LOOP_DATA = [...PROJECT_DATA, ...PROJECT_DATA];
+    const totalUnique = PROJECT_DATA.length;
+    totalSlidesCountEl.textContent = String(totalUnique).padStart(2, '0');
+    const TOTAL_LOOP_ITEMS = LOOP_DATA.length;
+
+    let targetScroll = 0;
+    let currentScroll = 0;
+    let isDragging = false;
+    let startX = 0;
+    let dragStartScroll = 0;
+    let velocity = 0;
+    let lastX = 0;
+    let lastTime = 0;
+
+    // Build DOM Slide Elements
+    const slideElements = [];
+
+    LOOP_DATA.forEach((item, index) => {
+      const slide = document.createElement('article');
+      slide.className = 'surf-slide';
+      slide.dataset.index = index;
+      slide.dataset.originalId = item.id;
+
+      const aspectStyle = `aspect-ratio: calc(1 / ${item.aspect});`;
+
+      slide.innerHTML = `
+        <div class="surf-media-wrap">
+          <div class="surf-aspect-box" style="${aspectStyle}">
+            <div class="media-color-placeholder" style="background-color: ${item.color};"></div>
+            <img src="${item.img}" alt="${item.title}" loading="lazy" />
+          </div>
+          <div class="card-hover-tag font-mono">${item.tag}</div>
+        </div>
+      `;
+
+      const img = slide.querySelector('img');
+      img.onload = () => {
+        slide.querySelector('.surf-aspect-box').classList.add('media-loaded');
+      };
+
+      slide.addEventListener('click', () => {
+        openLightbox(item, slide);
+      });
+
+      surfTrack.appendChild(slide);
+      slideElements.push(slide);
+    });
+
+    // Populate Archive Grid View (unique 24 items)
+    PROJECT_DATA.forEach((item) => {
+      const gridCard = document.createElement('div');
+      gridCard.className = 'grid-item';
+      gridCard.innerHTML = `
+        <div style="background-color:${item.color};">
+          <img src="${item.img}" class="grid-item-img" alt="${item.title}" loading="lazy" />
+        </div>
+        <div class="grid-item-info font-mono">
+          <span style="font-weight:700; text-transform:uppercase; font-size:1.3rem;">${item.title}</span>
+          <span style="color:#777; font-size:1.15rem;">${item.tag}</span>
+        </div>
+      `;
+      gridCard.addEventListener('click', () => {
+        openLightbox(item, gridCard);
+      });
+      gridCardsLayout.appendChild(gridCard);
+    });
+
+    // ── CALIBRATED MATHEMATICAL 3D WAVE ENGINE ──
+    function updateSurfWave() {
+      currentScroll += (targetScroll - currentScroll) * 0.085;
+
+      const viewportWidth = window.innerWidth;
+      const isMobile = viewportWidth < 650;
+      const activeCardSpacing = isMobile ? 130 : 150;
+      const singleSetWidth = totalUnique * activeCardSpacing;
+      const totalCycle = TOTAL_LOOP_ITEMS * activeCardSpacing;
+      const halfCycle = totalCycle * 0.5;
+
+      const positiveCycle = ((currentScroll % singleSetWidth) + singleSetWidth) % singleSetWidth;
+      const activeIdx = Math.floor(positiveCycle / activeCardSpacing) % totalUnique;
+      currentSlideIndexEl.textContent = String(activeIdx + 1).padStart(2, '0');
+
+      // Tactile shutter on card crossing (Active by default!)
+      if (activeIdx !== lastShutterCardIdx) {
+        if (lastShutterCardIdx !== -1) {
+          playShutterSound();
+        }
+        lastShutterCardIdx = activeIdx;
+      }
+
+      const loopProgress = positiveCycle / singleSetWidth;
+      hudScrubberBar.style.left = (loopProgress * 86) + '%';
+
+      slideElements.forEach((slide, i) => {
+        let rawDist = (i * activeCardSpacing) - currentScroll;
+        let cardX = ((rawDist % totalCycle) + totalCycle) % totalCycle;
+        if (cardX > halfCycle) {
+          cardX -= totalCycle;
+        }
+
+        const normDist = cardX / (viewportWidth * (isMobile ? 0.42 : 0.45));
+
+        const waveElevation = isMobile
+          ? (-normDist * 35) + (Math.sin(normDist * 1.5) * 12)
+          : (-normDist * 85) + (Math.sin(normDist * 1.5) * 32);
+
+        const rotY = isMobile
+          ? Math.max(-25, Math.min(25, 12 - (normDist * 16)))
+          : Math.max(-45, Math.min(45, 22 - (normDist * 28)));
+
+        const rotZ = isMobile
+          ? Math.max(-7, Math.min(7, -2 + (normDist * 3)))
+          : Math.max(-12, Math.min(10, -4 + (normDist * 5)));
+
+        const rotX = isMobile ? 2 : 4 + (Math.abs(normDist) * 2);
+        const depthZ = isMobile ? -Math.abs(normDist) * 60 : -Math.abs(normDist) * 120;
+
+        const isVisible = cardX > -viewportWidth * 0.8 && cardX < viewportWidth * 0.8;
+
+        if (isVisible) {
+          slide.style.display = 'block';
+          slide.style.transform = `
+            translate3d(${cardX}px, ${waveElevation}px, ${depthZ}px)
+            rotateY(${rotY}deg)
+            rotateZ(${rotZ}deg)
+            rotateX(${rotX}deg)
+          `;
+          slide.style.zIndex = Math.round(cardX + halfCycle);
+        } else {
+          slide.style.display = 'none';
+        }
+      });
+
+      requestAnimationFrame(updateSurfWave);
+    }
+
+    requestAnimationFrame(updateSurfWave);
+
+    // ── TOUCH & MOUSE DRAG WITH SHUTTER TICKS ──
+    let accumulatedDragDist = 0;
+
+    surfViewport.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      surfViewport.classList.add('is-dragging');
+      startX = e.clientX;
+      dragStartScroll = targetScroll;
+      lastX = e.clientX;
+      lastTime = performance.now();
+      velocity = 0;
+      accumulatedDragDist = 0;
+      if (!audioCtx) initShutterAudio();
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const deltaX = e.clientX - startX;
+      targetScroll = dragStartScroll - (deltaX * 1.35);
+
+      accumulatedDragDist += Math.abs(e.clientX - lastX);
+      const threshold = window.innerWidth < 650 ? 70 : 90;
+      if (accumulatedDragDist > threshold) {
+        playShutterSound();
+        accumulatedDragDist = 0;
+      }
+
+      const now = performance.now();
+      const dt = now - lastTime;
+      if (dt > 0) {
+        velocity = (e.clientX - lastX) / dt;
+      }
+      lastX = e.clientX;
+      lastTime = now;
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      surfViewport.classList.remove('is-dragging');
+      targetScroll -= velocity * 190;
+    });
+
+    // Touch events for mobile
+    surfViewport.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      startX = e.touches[0].clientX;
+      dragStartScroll = targetScroll;
+      lastX = startX;
+      lastTime = performance.now();
+      accumulatedDragDist = 0;
+      if (!audioCtx) initShutterAudio();
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const deltaX = e.touches[0].clientX - startX;
+      targetScroll = dragStartScroll - (deltaX * 1.5);
+
+      accumulatedDragDist += Math.abs(e.touches[0].clientX - lastX);
+      if (accumulatedDragDist > 65) {
+        playShutterSound();
+        accumulatedDragDist = 0;
+      }
+
+      const now = performance.now();
+      const dt = now - lastTime;
+      if (dt > 0) {
+        velocity = (e.touches[0].clientX - lastX) / dt;
+      }
+      lastX = e.touches[0].clientX;
+      lastTime = now;
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+      isDragging = false;
+      targetScroll -= velocity * 170;
+    });
+
+    // Infinite Mouse Wheel Surfing
+    let wheelAcc = 0;
+    window.addEventListener('wheel', (e) => {
+      if (lightboxModal.classList.contains('is-open') || gridViewContainer.classList.contains('is-open') || aboutDrawer.classList.contains('is-open')) return;
+      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      targetScroll += delta * 1.15;
+
+      wheelAcc += Math.abs(delta);
+      if (wheelAcc > 60) {
+        playShutterSound();
+        wheelAcc = 0;
+      }
+    }, { passive: true });
+
+    // Scrubber click
+    hudScrubberTrack.addEventListener('click', (e) => {
+      const rect = hudScrubberTrack.getBoundingClientRect();
+      const clickRatio = (e.clientX - rect.left) / rect.width;
+      const spacing = window.innerWidth < 650 ? 130 : 150;
+      const singleSetWidth = totalUnique * spacing;
+      const currentCycleOffset = Math.floor(currentScroll / singleSetWidth) * singleSetWidth;
+      targetScroll = currentCycleOffset + (clickRatio * singleSetWidth);
+      playShutterSound();
+    });
+
+    // ── SMOOTH FADES + MUSIC DUCKING (home music ⇄ card video sound) ──
+    const FADE_MS = 450;
+    const BG_VOLUME = 1;
+    let musicDucked = false;
+    const fadeTimers = new WeakMap();
+
+    function fadeVolume(el, to, ms, done) {
+      if (!el) return;
+      cancelAnimationFrame(fadeTimers.get(el) || 0);
+      const from = el.volume;
+      const t0 = performance.now();
+      function step(now) {
+        const k = Math.min(1, (now - t0) / ms);
+        try { el.volume = Math.max(0, Math.min(1, from + (to - from) * k)); } catch (e) {}
+        if (k < 1) { fadeTimers.set(el, requestAnimationFrame(step)); }
+        else if (done) done();
+      }
+      fadeTimers.set(el, requestAnimationFrame(step));
+    }
+
+    // true = fade the home player out and mute it; false = restore it (only if the visitor had music on)
+    function duckMusic(on) {
+      if (on === musicDucked) return;
+      musicDucked = on;
+      if (on) {
+        fadeVolume(bgAudioPlayer, 0, FADE_MS, () => { if (musicDucked) bgAudioPlayer.muted = true; });
+      } else {
+        bgAudioPlayer.muted = false;
+        if (isMusicPlaying && bgAudioPlayer.paused) bgAudioPlayer.play().catch(() => {});
+        fadeVolume(bgAudioPlayer, BG_VOLUME, FADE_MS);
+      }
+    }
+
+    function retireVideo(vid) {
+      fadeVolume(vid, 0, 250, () => {
+        try { vid.pause(); vid.removeAttribute('src'); vid.load(); } catch (e) {}
+      });
+    }
+
+    // Called inside the click / key handler, so the browser allows sound.
+    function startCardVideo(vid) {
+      duckMusic(true);
+      const p = vid.play();
+      const fadeIn = () => fadeVolume(vid, 1, FADE_MS);
+      if (p && p.then) {
+        p.then(fadeIn).catch(() => {
+          // Autoplay with sound refused (e.g. opened straight from a shared link): play muted, unmute on first touch
+          vid.muted = true;
+          vid.play().catch(() => {});
+          const unlock = () => { vid.muted = false; fadeVolume(vid, 1, FADE_MS); };
+          window.addEventListener('pointerdown', unlock, { once: true });
+          window.addEventListener('keydown', unlock, { once: true });
+        });
+      } else { fadeIn(); }
+    }
+
+    // ── FULL-PAGE CASE STUDY VIEW / DETAIL PAGE ──
+    let lbCurrentIdx = 0;  // index into PROJECT_DATA
+
+    function populateLightbox(item) {
+      const prevIdx = (lbCurrentIdx - 1 + PROJECT_DATA.length) % PROJECT_DATA.length;
+      const nextIdx = (lbCurrentIdx + 1) % PROJECT_DATA.length;
+      const prevItem = PROJECT_DATA[prevIdx];
+      const nextItem = PROJECT_DATA[nextIdx];
+
+      lightboxTitle.textContent = item.title;
+      lightboxTag.textContent = item.tag;
+      if (typeof lbNavCounter !== 'undefined' && lbNavCounter) lbNavCounter.textContent = `${String(lbCurrentIdx + 1).padStart(2, '0')} / ${String(PROJECT_DATA.length).padStart(2, '0')}`;
+
+      // Update 3-Card Carousel Thumbnails
+      lbNavThumb.src = item.img;
+      if (lbNavThumbPrev) lbNavThumbPrev.src = prevItem.img;
+      if (lbNavThumbNext) lbNavThumbNext.src = nextItem.img;
+
+      // ── Short & Long description ──
+      if (lightboxDesc) lightboxDesc.textContent = item.desc || 'A bespoke digital showcase highlighting forward-thinking design and fluid typography systems.';
+      if (lightboxDescLong) lightboxDescLong.textContent = item.descLong || 'Crafted as part of the Chandigarh 2026 visual series. Each piece explores the boundary between photography, graphic intervention, and spatial storytelling.';
+
+      // ── Multi-Color Brand Palette ──
+      const paletteGrid = document.getElementById('lbPaletteGrid');
+      if (paletteGrid) {
+        paletteGrid.innerHTML = '';
+        const palette = item.palette || [
+          { hex: item.color || '#000000', name: 'Primary Accent' },
+          { hex: '#18181B', name: 'Obsidian Neutral' },
+          { hex: '#71717A', name: 'Muted Zinc' },
+          { hex: '#F4F4F5', name: 'Editorial Base' }
+        ];
+        palette.forEach(c => {
+          const chip = document.createElement('div');
+          chip.className = 'lb-palette-chip';
+          chip.innerHTML = `
+            <div class="lb-palette-swatch" style="background-color:${c.hex};"></div>
+            <div class="lb-palette-info">
+              <span class="lb-palette-name">${c.name}</span>
+              <span class="lb-palette-hex">${c.hex}</span>
+            </div>
+          `;
+          paletteGrid.appendChild(chip);
+        });
+      }
+
+      // ── Stylized Typography Specimen Card ──
+      const specimenGlyphs = document.getElementById('lbSpecimenGlyphs');
+      const specimenPrimary = document.getElementById('lbSpecimenPrimary');
+      const specimenMeta = document.getElementById('lbSpecimenMeta');
+      const specimenTags = document.getElementById('lbSpecimenTags');
+
+      if (specimenPrimary && item.typeface) {
+        const tf = (typeof item.typeface === 'object') ? item.typeface : {
+          primary: item.typeface,
+          secondary: "PP Neue Montreal & System Mono",
+          style: "Curated Type Pairing",
+          specimen: "Aa Bb Gg 123"
+        };
+        if (specimenGlyphs) specimenGlyphs.textContent = tf.specimen || "Aa Bb Gg 123";
+        specimenPrimary.textContent = tf.primary || "Display Typeface";
+        if (specimenMeta) specimenMeta.textContent = tf.secondary ? `Secondary Pairing: ${tf.secondary}` : tf.style;
+        if (specimenTags) {
+          specimenTags.innerHTML = `
+            <span class="lb-specimen-tag">${tf.style || 'Display System'}</span>
+            <span class="lb-specimen-tag">Web Font System</span>
+            <span class="lb-specimen-tag">Optical Kerning</span>
+          `;
+        }
+      } else if (specimenPrimary) {
+        if (specimenGlyphs) specimenGlyphs.textContent = "Aa Bb 012";
+        specimenPrimary.textContent = "PP Neue Montreal";
+        if (specimenMeta) specimenMeta.textContent = "Paired with PP Neue Montreal Mono (Technical Specimen)";
+        if (specimenTags) {
+          specimenTags.innerHTML = `
+            <span class="lb-specimen-tag">Swiss Neo-Grotesque</span>
+            <span class="lb-specimen-tag">Medium & Bold 700</span>
+          `;
+        }
+      }
+
+      // ── Craft & Architecture: How It Was Built ──
+      const howBuiltGrid = document.getElementById('lbHowBuiltGrid');
+      if (howBuiltGrid) {
+        howBuiltGrid.innerHTML = '';
+        const howBuilt = item.howBuilt || [
+          { label: "Medium & Category", val: item.tag || "Creative Archive Visual" },
+          { label: "Creative Direction", val: "Chandigarh 2026 Architectural Series • Exploratory Visual System" },
+          { label: "Execution", val: "High-resolution master asset rendering, responsive clamp scaling & tactile shutter interaction" }
+        ];
+        howBuilt.forEach(h => {
+          const row = document.createElement('div');
+          row.className = 'lb-tech-item';
+          row.innerHTML = `
+            <div class="lb-tech-label">${h.label}</div>
+            <div class="lb-tech-val">${h.val}</div>
+          `;
+          howBuiltGrid.appendChild(row);
+        });
+      }
+
+      // ── Accurate Footer Metadata (Timeline, Role, Status) ──
+      const yearEl = document.getElementById('lbYear');
+      const roleEl = document.getElementById('lbRole');
+      const statusEl = document.getElementById('lbStatus');
+
+      if (yearEl) yearEl.textContent = item.period || `Year: ${item.year || '2026'}`;
+      if (roleEl) roleEl.textContent = item.role || 'Design Direction & Code';
+      if (statusEl) {
+        const isLive = item.status && item.status.toLowerCase().includes('live');
+        statusEl.innerHTML = `
+          <span class="status-live-dot" style="background:${isLive ? '#10b981' : '#a1a1aa'}; box-shadow:0 0 10px ${isLive ? 'rgba(16,185,129,0.6)' : 'transparent'};"></span>
+          ${item.status || 'Design Archive'}
+        `;
+      }
+
+      // ── LINK ROW below the media (label + Visit, centred) ──
+      const demoBanner = document.getElementById('lbDemoBanner');
+      if (demoBanner) {
+        const lk = item.link;
+        if (lk && lk.url) {
+          demoBanner.innerHTML = `
+            <span class="lb-demo-label">${lk.label}</span>
+            <a class="lb-demo-btn" href="${lk.url}" target="_blank" rel="noopener">Visit
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>`;
+          demoBanner.hidden = false;
+        } else {
+          demoBanner.innerHTML = '';
+          demoBanner.hidden = true;
+        }
+      }
+
+      // ── VIDEO (plays WITH sound) or still image ──
+      const lbMediaWrap = document.getElementById('lbMediaWrap');
+      if (lbMediaWrap) {
+        // Fade out + stop any previous video so it can never keep playing detached
+        const prevVid = lbMediaWrap.querySelector('video');
+        if (prevVid) retireVideo(prevVid);
+        lbMediaWrap.innerHTML = '';
+        lbMediaWrap.style.background = item.videoUrl ? '#000' : 'transparent';
+        if (item.videoUrl) {
+          const vid = document.createElement('video');
+          vid.src = item.videoUrl;
+          vid.controls = true;
+          vid.loop = true;
+          vid.playsInline = true;
+          vid.preload = 'auto';
+          vid.volume = 0;                     // starts silent, then fades in
+          const portrait = item.videoRatio === 'portrait';
+          vid.style.cssText = portrait
+            ? 'width:auto;max-width:100%;height:auto;max-height:560px;border-radius:1.2rem;display:block;margin:0 auto;background:#000;box-shadow:0 12px 35px rgba(0,0,0,0.2);'
+            : 'width:100%;height:auto;max-height:520px;border-radius:1.2rem;display:block;background:#000;box-shadow:0 12px 35px rgba(0,0,0,0.2);';
+          lbMediaWrap.appendChild(vid);
+          startCardVideo(vid);
+        } else {
+          // no video on this card: bring the home music back
+          duckMusic(false);
+          const img = document.createElement('img');
+          img.src = item.mediaImg || item.img;
+          img.alt = item.title;
+          img.style.cssText = 'width:100%;height:auto;border-radius:1.2rem;display:block;box-shadow:0 8px 30px rgba(0,0,0,0.15);';
+          lbMediaWrap.appendChild(img);
+          (item.gallery || []).forEach(src => {
+            const g = document.createElement('img');
+            g.src = src;
+            g.alt = item.title + ' — gallery';
+            g.style.cssText = 'width:100%;height:auto;border-radius:1.2rem;display:block;margin-top:1.6rem;box-shadow:0 8px 30px rgba(0,0,0,0.15);';
+            lbMediaWrap.appendChild(g);
+          });
+        }
+      }
+
+      // Smooth cross-fade on left-panel hero image (trio card thumbnail)
+      lightboxImg.classList.add('is-switching');
+      setTimeout(() => {
+        lightboxImg.src = item.img;
+        lightboxImg.classList.remove('is-switching');
+      }, 180);
+
+      // Reset scroll on right panel
+      if (lightboxContent) {
+        lightboxContent.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function openLightbox(item, triggerEl) {
+      playShutterSound();
+      
+      // Find its index in PROJECT_DATA
+      lbCurrentIdx = PROJECT_DATA.findIndex(p => p.id === item.id);
+      if (lbCurrentIdx === -1) lbCurrentIdx = 0;
+
+      const activeProject = PROJECT_DATA[lbCurrentIdx];
+
+      // Update URL hash for independent direct client sharing
+      if (activeProject.slug && window.location.hash !== '#' + activeProject.slug) {
+        history.pushState({ slug: activeProject.slug }, '', '#' + activeProject.slug);
+      }
+
+      // Populate content and 3 cards
+      populateLightbox(activeProject);
+      if (lightboxContent) lightboxContent.scrollTop = 0;
+
+      // Animate full page reveal with GSAP
+      if (window.gsap) {
+        lightboxModal.classList.add('is-open');
+        
+        gsap.killTweensOf(['.project-page-header', '.project-carousel-col', '.project-story-col', '.trio-card']);
+        
+        // Header slides down
+        gsap.fromTo('.project-page-header', {
+          y: -40,
+          opacity: 0
+        }, {
+          y: 0,
+          opacity: 1,
+          duration: 0.45,
+          ease: 'power3.out'
+        });
+
+        // 3 Cards fan out into perspective
+        gsap.fromTo('.trio-card.is-active', {
+          scale: 0.7,
+          opacity: 0,
+          y: 40
+        }, {
+          scale: 1,
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power3.out'
+        });
+
+        gsap.fromTo(['.trio-card.is-prev', '.trio-card.is-next'], {
+          opacity: 0,
+          scale: 0.6
+        }, {
+          opacity: 0.75,
+          scale: 0.86,
+          duration: 0.6,
+          delay: 0.1,
+          ease: 'power3.out'
+        });
+
+        // Right Column content slides in
+        gsap.fromTo('.project-story-inner > *', {
+          y: 35,
+          opacity: 0
+        }, {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          stagger: 0.08,
+          delay: 0.15,
+          ease: 'power2.out'
+        });
+      } else {
+        lightboxModal.classList.add('is-open');
+      }
+    }
+
+    function closeLightbox(skipHistory) {
+      if (!skipHistory && window.location.hash) {
+        history.pushState(null, '', window.location.pathname + window.location.search);
+      }
+
+      // Fade out + stop any active video, then bring the home music back
+      const currentVid = document.querySelector('#lbMediaWrap video');
+      if (currentVid) retireVideo(currentVid);
+      duckMusic(false);
+
+      if (window.gsap) {
+        gsap.to(['.project-page-header', '.project-carousel-col', '.project-story-col'], {
+          opacity: 0,
+          y: 20,
+          duration: 0.28,
+          ease: 'power2.in',
+          onComplete: () => {
+            lightboxModal.classList.remove('is-open');
+            gsap.set(['.project-page-header', '.project-carousel-col', '.project-story-col'], { clearProps: 'all' });
+          }
+        });
+      } else {
+        lightboxModal.classList.remove('is-open');
+      }
+    }
+
+    // Stop wheel events inside right column from scrolling the main wave
+    if (lightboxContent) {
+      lightboxContent.addEventListener('wheel', (e) => {
+        e.stopPropagation();
+      }, { passive: true });
+    }
+
+    // Previous Button & Click on Left Preview Card
+    function goToPrevProject(e) {
+      if (e) e.stopPropagation();
+      lbCurrentIdx = (lbCurrentIdx - 1 + PROJECT_DATA.length) % PROJECT_DATA.length;
+      const proj = PROJECT_DATA[lbCurrentIdx];
+      populateLightbox(proj);
+      if (proj.slug) history.pushState({ slug: proj.slug }, '', '#' + proj.slug);
+      playShutterSound();
+    }
+
+    // Next Button & Click on Right Preview Card
+    function goToNextProject(e) {
+      if (e) e.stopPropagation();
+      lbCurrentIdx = (lbCurrentIdx + 1) % PROJECT_DATA.length;
+      const proj = PROJECT_DATA[lbCurrentIdx];
+      populateLightbox(proj);
+      if (proj.slug) history.pushState({ slug: proj.slug }, '', '#' + proj.slug);
+      playShutterSound();
+    }
+
+    lbPrevBtn.addEventListener('click', goToPrevProject);
+    lbNextBtn.addEventListener('click', goToNextProject);
+    if (trioCardPrev) trioCardPrev.addEventListener('click', goToPrevProject);
+    if (trioCardNext) trioCardNext.addEventListener('click', goToNextProject);
+
+    if (closeLightboxBtn) closeLightboxBtn.addEventListener('click', () => closeLightbox());
+    const lbCloseXBtn = document.getElementById('lbCloseXBtn');
+    if (lbCloseXBtn) lbCloseXBtn.addEventListener('click', () => closeLightbox());
+
+    // ── URL ROUTING & INDEPENDENT CLIENT LINKS ──
+    function handleUrlRoute() {
+      if (entryScreen && entryScreen.style.visibility !== 'hidden' && entryScreen.style.opacity !== '0') return;
+      const hash = (window.location.hash || '').replace(/^#/, '').trim().toLowerCase();
+      if (hash) {
+        const matched = PROJECT_DATA.find(p => (p.slug && p.slug.toLowerCase() === hash) || p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') === hash);
+        if (matched) {
+          if (!lightboxModal.classList.contains('is-open')) {
+            openLightbox(matched);
+          } else if (PROJECT_DATA[lbCurrentIdx].id !== matched.id) {
+            lbCurrentIdx = PROJECT_DATA.findIndex(p => p.id === matched.id);
+            populateLightbox(PROJECT_DATA[lbCurrentIdx]);
+            if (matched.slug && window.location.hash !== '#' + matched.slug) {
+              history.replaceState({ slug: matched.slug }, '', '#' + matched.slug);
+            }
+          }
+        }
+      } else {
+        if (lightboxModal.classList.contains('is-open')) {
+          closeLightbox(true);
+        }
+      }
+    }
+
+    window.addEventListener('popstate', handleUrlRoute);
+    window.addEventListener('hashchange', handleUrlRoute);
+
+    // Deep-link entry (e.g. manu.html#cardinal-weddings): the Enter screen is still shown first.
+    // The project opens right after the visitor clicks, so its video can autoplay WITH sound.
+    let pendingDeepLink = null;
+    (function () {
+      const initialHash = (window.location.hash || '').replace(/^#/, '').trim().toLowerCase();
+      if (initialHash) {
+        pendingDeepLink = PROJECT_DATA.find(p => (p.slug && p.slug.toLowerCase() === initialHash) || p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') === initialHash) || null;
+      }
+    })();
+
+    // ── VIEW SWITCHING (Flow | Archive | About) ──
+    btnSurfView.addEventListener('click', () => {
+      btnSurfView.classList.add('is-active');
+      btnGridView.classList.remove('is-active');
+      gridViewContainer.classList.remove('is-open');
+      aboutDrawer.classList.remove('is-open');
+    });
+
+    btnGridView.addEventListener('click', () => {
+      btnGridView.classList.add('is-active');
+      btnSurfView.classList.remove('is-active');
+      gridViewContainer.classList.add('is-open');
+      aboutDrawer.classList.remove('is-open');
+    });
+
+    // ── GSAP TEXT-REVEAL FOR ABOUT DRAWER ──
+    let aboutSplitInstances = [];
+
+    function runAboutTextReveal() {
+      // Revert any previous splits so DOM is clean
+      aboutSplitInstances.forEach(instance => instance.revert());
+      aboutSplitInstances = [];
+
+      // Grab all [animate] elements inside the drawer
+      const targets = aboutDrawer.querySelectorAll('[animate]');
+
+      targets.forEach(el => {
+        const split = new SplitType(el, {
+          types: 'lines, words',
+          tagName: 'span'
+        });
+        aboutSplitInstances.push(split);
+      });
+
+      // Animate all words with stagger
+      gsap.fromTo(
+        '#aboutDrawer [animate] .word',
+        { y: '100%', opacity: 0 },
+        {
+          y: '0%',
+          opacity: 1,
+          duration: 0.5,
+          ease: 'power1.out',
+          stagger: 0.1,
+          delay: 0.15   // slight delay so drawer slide-in starts first
+        }
+      );
+    }
+
+    btnAboutView.addEventListener('click', () => {
+      aboutDrawer.classList.add('is-open');
+      // Kick off text animation after a brief tick for DOM paint
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          runAboutTextReveal();
+        });
+      });
+    });
+
+    closeAboutBtn.addEventListener('click', () => {
+      aboutDrawer.classList.remove('is-open');
+    });
+
+    aboutDrawer.addEventListener('click', (e) => {
+      if (e.target === aboutDrawer) {
+        aboutDrawer.classList.remove('is-open');
+      }
+    });
+
+    // ── REAL AUDIO PLAYER ──
+
+    function loadTrack(idx) {
+      const track = REAL_PLAYLIST[idx];
+      audioTrackName.textContent = track.title;
+      audioTrackTag.textContent = track.tag;
+      audioThumb.src = track.thumb;
+      bgAudioPlayer.src = track.file;
+      bgAudioPlayer.load();
+      if (!musicDucked) bgAudioPlayer.muted = false;
+    }
+
+    function switchPrevTrack(e) {
+      if (e) e.stopPropagation();
+      currentTrackIdx = (currentTrackIdx - 1 + REAL_PLAYLIST.length) % REAL_PLAYLIST.length;
+      loadTrack(currentTrackIdx);
+      if (isMusicPlaying) bgAudioPlayer.play().catch(() => {});
+    }
+
+    function switchNextTrack(e) {
+      if (e) e.stopPropagation();
+      currentTrackIdx = (currentTrackIdx + 1) % REAL_PLAYLIST.length;
+      loadTrack(currentTrackIdx);
+      if (isMusicPlaying) bgAudioPlayer.play().catch(() => {});
+    }
+
+    function updatePlayPauseIcon() {
+      const iconPlay = document.getElementById('iconPlay');
+      const iconPause = document.getElementById('iconPause');
+      if (isMusicPlaying) {
+        iconPlay.style.display = 'none';
+        iconPause.style.display = 'block';
+        audioPill.classList.remove('is-paused');
+      } else {
+        iconPlay.style.display = 'block';
+        iconPause.style.display = 'none';
+        audioPill.classList.add('is-paused');
+      }
+    }
+
+    function toggleMusic(e) {
+      if (e) e.stopPropagation();
+      isMusicPlaying = !isMusicPlaying;
+      
+      if (isMusicPlaying) {
+        if (!bgAudioPlayer.src || bgAudioPlayer.src === "") {
+          loadTrack(currentTrackIdx);
+        }
+        bgAudioPlayer.play().catch(() => {
+          isMusicPlaying = false;
+          updatePlayPauseIcon();
+        });
+      } else {
+        bgAudioPlayer.pause();
+      }
+      updatePlayPauseIcon();
+    }
+
+    bgAudioPlayer.addEventListener('ended', () => {
+      switchNextTrack();
+    });
+
+    const audioPlayPauseBtn = document.getElementById('audioPlayPauseBtn');
+    const audioPrevBtn = document.getElementById('audioPrevBtn');
+    
+    if (audioPlayPauseBtn) audioPlayPauseBtn.addEventListener('click', toggleMusic);
+    if (audioNextBtn) audioNextBtn.addEventListener('click', switchNextTrack);
+    if (audioPrevBtn) audioPrevBtn.addEventListener('click', switchPrevTrack);
+    
+    // Front Page Entry Logic
+    const entryScreen = document.getElementById('entryScreen');
+    const btnEnterSound = document.getElementById('btnEnterSound');
+    const btnEnterNoSound = document.getElementById('btnEnterNoSound');
+    
+    function dismissEntry(withSound) {
+      entryScreen.style.opacity = '0';
+      setTimeout(() => { entryScreen.style.visibility = 'hidden'; }, 600);
+      
+      // Arm audio engine (fixes shutter)
+      if (!audioCtx) initShutterAudio();
+      if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+      shutterPool.forEach(a => {
+        a.volume = 0;
+        a.play().then(() => { a.pause(); a.currentTime = 0; a.volume = 0.55; }).catch(()=>{});
+      });
+      
+      if (withSound) {
+        isMusicPlaying = true;
+        if (!bgAudioPlayer.src || bgAudioPlayer.src === "") {
+          loadTrack(currentTrackIdx);
+        }
+        bgAudioPlayer.play().catch(() => {});
+        updatePlayPauseIcon();
+      }
+
+      if (pendingDeepLink) {
+        const target = pendingDeepLink;
+        pendingDeepLink = null;
+        openLightbox(target);   // inside the click => video autoplays with sound
+      }
+    }
+    
+    if (btnEnterSound) btnEnterSound.addEventListener('click', () => dismissEntry(true));
+    if (btnEnterNoSound) btnEnterNoSound.addEventListener('click', () => dismissEntry(false));
+
+    loadTrack(0);
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      const lbOpen = lightboxModal.classList.contains('is-open');
+      
+      if (lbOpen) {
+        // When lightbox is open: Left/Right navigate projects, Escape closes
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          lbCurrentIdx = (lbCurrentIdx + 1) % PROJECT_DATA.length;
+          populateLightbox(PROJECT_DATA[lbCurrentIdx]);
+          playShutterSound();
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          lbCurrentIdx = (lbCurrentIdx - 1 + PROJECT_DATA.length) % PROJECT_DATA.length;
+          populateLightbox(PROJECT_DATA[lbCurrentIdx]);
+          playShutterSound();
+        } else if (e.key === 'Escape') {
+          closeLightbox();
+        }
+        return;
+      }
+      
+      const spacing = window.innerWidth < 650 ? 130 : 150;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        targetScroll += spacing * 1.5;
+        playShutterSound();
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        targetScroll -= spacing * 1.5;
+        playShutterSound();
+      } else if (e.key === 'Escape') {
+        aboutDrawer.classList.remove('is-open');
+        gridViewContainer.classList.remove('is-open');
+        btnSurfView.classList.add('is-active');
+        btnGridView.classList.remove('is-active');
+      }
+    });
+  </script>
+</body>
+</html>
